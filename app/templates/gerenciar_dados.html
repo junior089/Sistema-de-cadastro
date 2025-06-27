@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Dados - Sistema INCRA</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #22c55e;
+            --primary-dark: #16a34a;
+            --secondary: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-surface: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #475569;
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .brand-info h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .brand-info .subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-description {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+
+        .success-alert {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: slideDown 0.4s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            position: relative;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 24px 24px 0 0;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.3);
+        }
+
+        .form-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            appearance: none;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-secondary);
+        }
+
+        select.form-control {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23f8fafc'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.5em;
+            padding-right: 3rem;
+        }
+
+        .data-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .data-type-option {
+            position: relative;
+        }
+
+        .data-type-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .data-type-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .data-type-option input[type="radio"]:checked + .data-type-label {
+            border-color: var(--primary);
+            background: rgba(34, 197, 94, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .data-type-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .type-estado .data-type-icon {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .type-municipio .data-type-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+
+        .type-descricao .data-type-icon {
+            background: linear-gradient(135deg, var(--secondary), #2563eb);
+        }
+
+        .type-instituicao .data-type-icon {
+            background: linear-gradient(135deg, var(--warning), #d97706);
+        }
+
+        .data-type-info h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .data-type-info p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .estado-field {
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .estado-field.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(34, 197, 94, 0.3);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-button.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin-top: 2rem;
+            transition: all 0.2s ease;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+            background: rgba(34, 197, 94, 0.1);
+            transform: translateX(-4px);
+        }
+
+        .input-hint {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .character-counter {
+            position: absolute;
+            bottom: -1.5rem;
+            right: 0;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .data-type-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.05;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 70%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 10%;
+            left: 30%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape">
+            <i class="fas fa-cog" style="font-size: 3rem; color: var(--primary);"></i>
+        </div>
+        <div class="shape">
+            <i class="fas fa-database" style="font-size: 2rem; color: var(--secondary);"></i>
+        </div>
+        <div class="shape">
+            <i class="fas fa-server" style="font-size: 2.5rem; color: var(--warning);"></i>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="brand-info">
+                    <h1>Sistema INCRA</h1>
+                    <div class="subtitle">Gerenciamento de Dados</div>
+                </div>
+            </div>
+            <a href="{{ url_for('index_admin') }}" class="btn btn-outline">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao Painel
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Gerenciar Dados</h1>
+            <p class="page-description">Configure e adicione novos dados ao sistema</p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="success-alert">
+                        <i class="fas fa-check-circle"></i>
+                        <span>{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="form-container">
+            <div class="form-header">
+                <div class="form-icon">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+                <h2 class="form-title">Adicionar Novo Dado</h2>
+                <p class="form-subtitle">Selecione o tipo de dado que deseja adicionar</p>
+            </div>
+
+            <form method="POST" id="dataForm">
+                <div class="form-group">
+                    <label class="form-label">Tipo de Dado</label>
+                    <div class="data-type-grid">
+                        <div class="data-type-option">
+                            <input type="radio" id="tipo-estado" name="tipo_dado" value="estado" required>
+                            <label for="tipo-estado" class="data-type-label type-estado">
+                                <div class="data-type-icon">
+                                    <i class="fas fa-map"></i>
+                                </div>
+                                <div class="data-type-info">
+                                    <h4>Estado</h4>
+                                    <p>Adicionar novo estado</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="data-type-option">
+                            <input type="radio" id="tipo-municipio" name="tipo_dado" value="municipio" required>
+                            <label for="tipo-municipio" class="data-type-label type-municipio">
+                                <div class="data-type-icon">
+                                    <i class="fas fa-city"></i>
+                                </div>
+                                <div class="data-type-info">
+                                    <h4>Município</h4>
+                                    <p>Adicionar novo município</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="data-type-option">
+                            <input type="radio" id="tipo-descricao" name="tipo_dado" value="descricao" required>
+                            <label for="tipo-descricao" class="data-type-label type-descricao">
+                                <div class="data-type-icon">
+                                    <i class="fas fa-tags"></i>
+                                </div>
+                                <div class="data-type-info">
+                                    <h4>Descrição</h4>
+                                    <p>Adicionar nova descrição</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="data-type-option">
+                            <input type="radio" id="tipo-instituicao" name="tipo_dado" value="instituicao" required>
+                            <label for="tipo-instituicao" class="data-type-label type-instituicao">
+                                <div class="data-type-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="data-type-info">
+                                    <h4>Instituição</h4>
+                                    <p>Adicionar nova instituição</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group estado-field" id="estadoField">
+                    <label for="estado_id" class="form-label">Estado</label>
+                    <select id="estado_id" name="estado_id" class="form-control">
+                        <option value="" disabled selected>Selecione o estado</option>
+                        {% for estado in estados %}
+                            <option value="{{ estado.id }}">{{ estado.nome }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="input-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Obrigatório apenas para municípios</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        class="form-control"
+                        placeholder="Digite o nome do item"
+                        style="text-transform: uppercase"
+                        required
+                        maxlength="100"
+                    >
+                    <div class="character-counter">
+                        <span id="charCount">0</span>/100
+                    </div>
+                    <div class="input-hint">
+                        <i class="fas fa-keyboard"></i>
+                        <span>O texto será automaticamente convertido para maiúsculas</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button" id="submitButton">
+                    <span>Adicionar Dado</span>
+                </button>
+            </form>
+
+            <a href="{{ url_for('index_admin') }}" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao painel administrativo
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const radioButtons = document.querySelectorAll('input[name="tipo_dado"]');
+            const estadoField = document.getElementById('estadoField');
+            const nomeInput = document.getElementById('nome');
+            const charCount = document.getElementById('charCount');
+            const submitButton = document.getElementById('submitButton');
+
+            // Handle radio button changes
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'municipio') {
+                        estadoField.classList.add('show');
+                        document.getElementById('estado_id').required = true;
+                    } else {
+                        estadoField.classList.remove('show');
+                        document.getElementById('estado_id').required = false;
+                        document.getElementById('estado_id').value = '';
+                    }
+
+                    // Update placeholder based on selection
+                    const placeholders = {
+                        'estado': 'Digite o nome do estado (ex: DISTRITO FEDERAL)',
+                        'municipio': 'Digite o nome do município (ex: BRASÍLIA)',
+                        'descricao': 'Digite a descrição (ex: DOCUMENTAÇÃO RURAL)',
+                        'instituicao': 'Digite o nome da instituição (ex: INCRA)'
+                    };
+
+                    nomeInput.placeholder = placeholders[this.value] || 'Digite o nome do item';
+                });
+            });
+
+            // Character counter
+            nomeInput.addEventListener('input', function() {
+                const length = this.value.length;
+                charCount.textContent = length;
+
+                if (length > 80) {
+                    charCount.style.color = 'var(--warning)';
+                } else if (length > 90) {
+                    charCount.style.color = 'var(--danger)';
+                } else {
+                    charCount.style.color = 'var(--text-secondary)';
+                }
+            });
+
+            // Form validation
+            document.getElementById('dataForm').addEventListener('submit', function(e) {
+                const selectedType = document.querySelector('input[name="tipo_dado"]:checked');
+                const nome = nomeInput.value.trim();
+                const estadoId = document.getElementById('estado_id').value;
+
+                if (!selectedType) {
+                    e.preventDefault();
+                    alert('Por favor, selecione o tipo de dado.');
+                    return;
+                }
+
+                if (!nome) {
+                    e.preventDefault();
+                    alert('Por favor, digite o nome.');
+                    nomeInput.focus();
+                    return;
+                }
+
+                if (selectedType.value === 'municipio' && !estadoId) {
+                    e.preventDefault();
+                    alert('Por favor, selecione o estado para o município.');
+                    document.getElementById('estado_id').focus();
+                    return;
+                }
+
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.classList.add('loading');
+                submitButton.querySelector('span').style.opacity = '0';
+            });
+
+            // Auto-focus on nome field when type is selected
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    setTimeout(() => {
+                        nomeInput.focus();
+                    }, 300);
+                });
+            });
+
+            // Input validation
+            nomeInput.addEventListener('input', function() {
+                // Remove special characters except spaces, hyphens, and accented characters
+                this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s\-]/g, '');
+
+                // Convert to uppercase
+                this.value = this.value.toUpperCase();
+
+                // Limit consecutive spaces
+                this.value = this.value.replace(/\s+/g, ' ');
+
+                // Trim leading spaces
+                if (this.value.startsWith(' ')) {
+                    this.value = this.value.trimStart();
+                }
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'Enter') {
+                    document.getElementById('dataForm').submit();
+                }
+            });
+
+            // Add visual feedback for form interactions
+            const formControls = document.querySelectorAll('.form-control');
+            formControls.forEach(control => {
+                control.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                });
+
+                control.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
+            });
+
+            // Add hover effects to radio buttons
+            const dataTypeLabels = document.querySelectorAll('.data-type-label');
+            dataTypeLabels.forEach(label => {
+                label.addEventListener('mouseenter', function() {
+                    if (!this.previousElementSibling.checked) {
+                        this.style.transform = 'translateY(-4px)';
+                        this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+                    }
+                });
+
+                label.addEventListener('mouseleave', function() {
+                    if (!this.previousElementSibling.checked) {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

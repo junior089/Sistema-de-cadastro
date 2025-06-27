@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Cadastro - Gerencie seus registros de forma eficiente">
+    <meta name="theme-color" content="#1e40af">
+    <title>{% block title %}Sistema de Cadastro{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e40af;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-blue-950 text-black min-h-screen flex flex-col">
+    <!-- Header -->
+    <header>
+        <nav class="bg-white shadow-lg border-b border-blue-800 py-3">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <a href="{{ url_for('index_cadastro') }}" class="flex items-center space-x-3 text-xl font-bold group">
+                    <i
+                        class="fas fa-database text-blue-600 group-hover:text-blue-700 transition-colors duration-200"></i>
+                    <span class="text-black">Sistema de Cadastro</span>
+                </a>
+                {% if current_user.is_authenticated %}
+                <div class="flex items-center space-x-6">
+                    {% if current_user.role == 'admin' %}
+                    <a href="{{ url_for('manage_maintenance') }}"
+                        class="text-black hover:text-blue-700 transition-all duration-200 hover:scale-105">
+                        <i class="fas fa-tools mr-1 text-blue-600"></i>Manutenção
+                    </a>
+                    {% endif %}
+                    {% if current_user.role == 'visor' %}
+                    <a href="{{ url_for('ver_cadastros') }}"
+                        class="text-black hover:text-blue-700 transition-all duration-200 hover:scale-105">
+                        <i class="fas fa-eye mr-1 text-blue-600"></i>Ver Cadastros
+                    </a>
+                    {% endif %}
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 bg-gray-100 px-3 py-1 rounded-lg">
+                            <i class="fas fa-user-circle text-xl text-blue-600"></i>
+                            <span class="text-black">{{ current_user.username }}</span>
+                        </div>
+                        <a href="{{ url_for('auth.logout') }}"
+                            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 focus:ring-2 focus:ring-red-500">
+                            <i class="fas fa-sign-out-alt mr-1"></i>Sair
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mensagens Flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="container mx-auto px-4 mt-4">
+        {% for category, message in messages %}
+        <div
+            class="fade-in p-4 mb-4 rounded-lg flex items-center justify-between {{ 'bg-red-100 text-black border border-red-200' if category == 'error' else 'bg-blue-100 text-black border border-blue-200' }}">
+            <div class="flex items-center">
+                <i
+                    class="fas fa-{% if category == 'error' %}exclamation-circle{% else %}check-circle{% endif %} mr-2"></i>
+                {{ message }}
+            </div>
+            <button onclick="this.parentElement.remove()" class="text-gray-600 hover:text-gray-800 transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-6 flex-grow bg-white rounded-lg shadow-lg my-6">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-blue-800 mt-auto py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-black">&copy; 2025 Sistema de Cadastro</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>
