@@ -1421,3 +1421,14 @@
 2025-06-27 14:53:02,072 - INFO - 192.168.3.93 - - [27/Jun/2025 14:53:02] "GET /export_cadastros?nome=&cpf=&estado=&status=&municipio=&descricao=&data_inicio=&data_fim=&telefone=&assentamento= HTTP/1.1" 200 -
 2025-06-27 14:53:24,367 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
 2025-06-27 14:53:24,547 - INFO -  * Restarting with stat
+2025-06-27 14:53:25,719 - WARNING -  * Debugger is active!
+2025-06-27 14:53:25,721 - INFO -  * Debugger PIN: 129-690-423
+2025-06-27 14:53:27,542 - INFO - 192.168.3.93 - - [27/Jun/2025 14:53:27] "GET /events HTTP/1.1" 200 -
+2025-06-27 14:54:15,827 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:15] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-27 14:54:15,901 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:15] "GET /events HTTP/1.1" 200 -
+2025-06-27 14:54:20,334 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:20] "GET /ver_cadastros?nome=&cpf=&estado=&status=nao_atendidos&municipio=&descricao=&data_inicio=&data_fim=&telefone=&assentamento= HTTP/1.1" 200 -
+2025-06-27 14:54:20,400 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:20] "GET /events HTTP/1.1" 200 -
+2025-06-27 14:54:23,840 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:23] "GET /ver_cadastros?nome=&cpf=&estado=&status=atendidos&municipio=&descricao=&data_inicio=&data_fim=&telefone=&assentamento= HTTP/1.1" 200 -
+2025-06-27 14:54:23,925 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:23] "GET /events HTTP/1.1" 200 -
+2025-06-27 14:54:35,025 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:35] "GET /ver_cadastros?nome=&cpf=&estado=&status=&municipio=&descricao=&data_inicio=&data_fim=&telefone=&assentamento= HTTP/1.1" 200 -
+2025-06-27 14:54:35,095 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:35] "GET /events HTTP/1.1" 200 -
