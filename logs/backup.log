@@ -1442,3 +1442,193 @@
 2025-06-27 14:59:40,817 - WARNING -  * Debugger is active!
 2025-06-27 14:59:40,819 - INFO -  * Debugger PIN: 129-690-423
 2025-06-27 14:59:42,593 - INFO - 192.168.3.93 - - [27/Jun/2025 14:59:42] "GET /events HTTP/1.1" 200 -
+2025-06-27 15:02:16,642 - INFO - 192.168.3.93 - - [27/Jun/2025 15:02:16] "GET /ver_cadastros?nome=&cpf=&estado=&status=&municipio=&descricao=&data_inicio=&data_fim=&telefone=&assentamento= HTTP/1.1" 200 -
+2025-06-27 15:02:16,730 - INFO - 192.168.3.93 - - [27/Jun/2025 15:02:16] "GET /events HTTP/1.1" 200 -
+2025-06-27 15:02:57,578 - INFO - 192.168.3.93 - - [27/Jun/2025 15:02:57] "GET /ver_cadastros?nome=&cpf=&estado=&status=&municipio=&descricao=&data_inicio=&data_fim=&telefone=&assentamento= HTTP/1.1" 200 -
+2025-06-27 15:02:57,630 - INFO - 192.168.3.93 - - [27/Jun/2025 15:02:57] "GET /events HTTP/1.1" 200 -
+2025-06-27 15:03:06,900 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:06] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-27 15:03:06,917 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:06] "GET / HTTP/1.1" 200 -
+2025-06-27 15:03:14,172 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:14] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-27 15:03:14,196 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:14] "[35m[1mGET /index_admin HTTP/1.1[0m" 500 -
+2025-06-27 15:03:14,226 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:14] "GET /index_admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-27 15:03:14,227 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:14] "GET /index_admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-27 15:03:14,285 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:14] "GET /index_admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-27 15:03:53,442 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:53] "GET /index_admin HTTP/1.1" 200 -
+2025-06-27 15:03:59,521 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:59] "[35m[1mGET /ver_logs HTTP/1.1[0m" 500 -
+2025-06-27 15:03:59,552 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:59] "GET /ver_logs?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-27 15:03:59,553 - INFO - 192.168.3.93 - - [27/Jun/2025 15:03:59] "GET /ver_logs?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-27 15:04:34,767 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-27 15:04:34,948 - INFO -  * Restarting with stat
+2025-06-27 15:04:36,166 - WARNING -  * Debugger is active!
+2025-06-27 15:04:36,168 - INFO -  * Debugger PIN: 129-690-423
+2025-06-27 15:04:41,243 - INFO - 192.168.3.93 - - [27/Jun/2025 15:04:41] "[35m[1mGET /ver_logs HTTP/1.1[0m" 500 -
+2025-06-27 15:04:41,258 - INFO - 192.168.3.93 - - [27/Jun/2025 15:04:41] "[36mGET /ver_logs?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-27 15:04:41,263 - INFO - 192.168.3.93 - - [27/Jun/2025 15:04:41] "[36mGET /ver_logs?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-27 15:04:41,310 - INFO - 192.168.3.93 - - [27/Jun/2025 15:04:41] "GET /ver_logs?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-27 15:04:42,189 - INFO - 192.168.3.93 - - [27/Jun/2025 15:04:42] "[35m[1mGET /ver_logs HTTP/1.1[0m" 500 -
+2025-06-27 15:04:42,215 - INFO - 192.168.3.93 - - [27/Jun/2025 15:04:42] "[36mGET /ver_logs?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-27 15:04:42,217 - INFO - 192.168.3.93 - - [27/Jun/2025 15:04:42] "[36mGET /ver_logs?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-27 15:04:42,260 - INFO - 192.168.3.93 - - [27/Jun/2025 15:04:42] "[36mGET /ver_logs?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-27 15:05:03,111 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-27 15:05:03,280 - INFO -  * Restarting with stat
+2025-06-27 15:05:04,456 - WARNING -  * Debugger is active!
+2025-06-27 15:05:04,458 - INFO -  * Debugger PIN: 129-690-423
+2025-06-27 15:05:05,376 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:05] "[35m[1mGET /ver_logs HTTP/1.1[0m" 500 -
+2025-06-27 15:05:05,395 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:05] "[36mGET /ver_logs?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-27 15:05:05,398 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:05] "[36mGET /ver_logs?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-27 15:05:05,445 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:05] "[36mGET /ver_logs?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-27 15:05:28,307 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:28] "GET /ver_logs HTTP/1.1" 200 -
+2025-06-27 15:05:36,224 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:36] "GET /index_admin HTTP/1.1" 200 -
+2025-06-27 15:05:37,619 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:37] "[35m[1mGET /gerenciar_dados HTTP/1.1[0m" 500 -
+2025-06-27 15:05:37,641 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:37] "GET /gerenciar_dados?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-27 15:05:37,645 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:37] "GET /gerenciar_dados?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-27 15:05:37,701 - INFO - 192.168.3.93 - - [27/Jun/2025 15:05:37] "GET /gerenciar_dados?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-27 15:06:00,224 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-27 15:06:00,398 - INFO -  * Restarting with stat
+2025-06-27 15:06:51,152 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-27 15:06:51,152 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-27 15:06:51,153 - INFO -  * Restarting with stat
+2025-06-27 15:06:52,117 - WARNING -  * Debugger is active!
+2025-06-27 15:06:52,119 - INFO -  * Debugger PIN: 129-690-423
+2025-06-27 15:06:53,938 - INFO - 192.168.3.93 - - [27/Jun/2025 15:06:53] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:08:58,601 - INFO - 192.168.3.93 - - [27/Jun/2025 15:08:58] "[35m[1mGET /gerenciar_dados HTTP/1.1[0m" 500 -
+2025-06-27 15:08:58,615 - INFO - 192.168.3.93 - - [27/Jun/2025 15:08:58] "[36mGET /gerenciar_dados?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-27 15:08:58,620 - INFO - 192.168.3.93 - - [27/Jun/2025 15:08:58] "[36mGET /gerenciar_dados?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-27 15:08:58,705 - INFO - 192.168.3.93 - - [27/Jun/2025 15:08:58] "[36mGET /gerenciar_dados?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-27 15:09:43,579 - INFO - 192.168.3.93 - - [27/Jun/2025 15:09:43] "[35m[1mGET /gerenciar_dados HTTP/1.1[0m" 500 -
+2025-06-27 15:09:43,596 - INFO - 192.168.3.93 - - [27/Jun/2025 15:09:43] "[36mGET /gerenciar_dados?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-27 15:09:43,599 - INFO - 192.168.3.93 - - [27/Jun/2025 15:09:43] "[36mGET /gerenciar_dados?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-27 15:09:43,660 - INFO - 192.168.3.93 - - [27/Jun/2025 15:09:43] "[36mGET /gerenciar_dados?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-27 15:10:00,851 - INFO - 192.168.3.93 - - [27/Jun/2025 15:10:00] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:10:00,872 - INFO - 192.168.3.93 - - [27/Jun/2025 15:10:00] "GET /static/images/logo_incra.png HTTP/1.1" 200 -
+2025-06-27 15:10:00,876 - INFO - 192.168.3.93 - - [27/Jun/2025 15:10:00] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-06-27 15:10:00,876 - INFO - 192.168.3.93 - - [27/Jun/2025 15:10:00] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-06-27 15:10:00,877 - INFO - 192.168.3.93 - - [27/Jun/2025 15:10:00] "GET /static/js/validators.js HTTP/1.1" 200 -
+2025-06-27 15:10:01,101 - INFO - 192.168.3.93 - - [27/Jun/2025 15:10:01] "GET /static/main.css HTTP/1.1" 200 -
+2025-06-27 15:11:05,263 - INFO - 192.168.3.93 - - [27/Jun/2025 15:11:05] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:11:05,286 - INFO - 192.168.3.93 - - [27/Jun/2025 15:11:05] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:11:05,293 - INFO - 192.168.3.93 - - [27/Jun/2025 15:11:05] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:11:05,294 - INFO - 192.168.3.93 - - [27/Jun/2025 15:11:05] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:11:05,294 - INFO - 192.168.3.93 - - [27/Jun/2025 15:11:05] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:11:05,350 - INFO - 192.168.3.93 - - [27/Jun/2025 15:11:05] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:11:05,394 - INFO - 192.168.3.93 - - [27/Jun/2025 15:11:05] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-06-27 15:13:10,983 - INFO - 192.168.3.93 - - [27/Jun/2025 15:13:10] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:13:10,999 - INFO - 192.168.3.93 - - [27/Jun/2025 15:13:10] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:13:11,003 - INFO - 192.168.3.93 - - [27/Jun/2025 15:13:11] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:13:11,003 - INFO - 192.168.3.93 - - [27/Jun/2025 15:13:11] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:13:11,004 - INFO - 192.168.3.93 - - [27/Jun/2025 15:13:11] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:13:11,023 - INFO - 192.168.3.93 - - [27/Jun/2025 15:13:11] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:15:06,758 - INFO - 192.168.3.93 - - [27/Jun/2025 15:15:06] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:15:06,793 - INFO - 192.168.3.93 - - [27/Jun/2025 15:15:06] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:15:06,807 - INFO - 192.168.3.93 - - [27/Jun/2025 15:15:06] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:15:06,815 - INFO - 192.168.3.93 - - [27/Jun/2025 15:15:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:15:06,820 - INFO - 192.168.3.93 - - [27/Jun/2025 15:15:06] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:15:06,826 - INFO - 192.168.3.93 - - [27/Jun/2025 15:15:06] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:17:19,908 - ERROR - 127.0.0.1 - - [27/Jun/2025 15:17:19] code 400, message Bad request version ('\x00\x02\x01\x00\x003\x04ï\x04í')
+2025-06-27 15:17:19,908 - INFO - 127.0.0.1 - - [27/Jun/2025 15:17:19] "[31m[1m\x16\x03\x01\x06\x94\x01\x00\x06\x90\x03\x03Þ¥~\x83\x0e¢\x0eº;eÚ=íKµû£¿±\x08\x87åÎÕ1×\x81\x19=Ê.P ð\x83wÒüô\x12º\x80 x\x89J /nVÀ\x18|ã\x8aÕ\x8a$¸\x13u\x15\x86\x98D\x00 ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06'ºº\x00\x00\x00\x12\x00\x00\x00-\x00\x02\x01\x01\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x1b\x00\x03\x02\x00\x02\x00\x0b\x00\x02\x01\x00\x003\x04ï\x04í[0m" 400 -
+2025-06-27 15:17:19,920 - ERROR - 127.0.0.1 - - [27/Jun/2025 15:17:19] code 400, message Bad request version ('zz\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Gºº\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x003\x04ï\x04í')
+2025-06-27 15:17:19,920 - INFO - 127.0.0.1 - - [27/Jun/2025 15:17:19] "[31m[1m\x16\x03\x01\x06´\x01\x00\x06°\x03\x03Á)e\x0dÁÅÛ.\x1eò\x918\x09Bûó¥\x8c\x81k/ãMsr\x7f\x7fÍí¹2D ±Ô>ì§ïº\x80/)±Çe\x01æ{\x0e¿\x93ð\x94´ð/)K\x0b8Ñô²ì\x00 zz\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Gºº\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x003\x04ï\x04í[0m" 400 -
+2025-06-27 15:18:51,398 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:51] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:18:51,432 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:51] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:18:51,456 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:51] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:18:51,465 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:51] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:18:51,472 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:51] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:18:51,571 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:51] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:18:52,911 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:52] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:18:52,944 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:52] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:18:52,948 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:52] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:18:52,949 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:52] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:18:52,953 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:52] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:18:52,963 - INFO - 192.168.3.93 - - [27/Jun/2025 15:18:52] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:20:00,917 - INFO - 192.168.3.93 - - [27/Jun/2025 15:20:00] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:20:00,941 - INFO - 192.168.3.93 - - [27/Jun/2025 15:20:00] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:20:00,943 - INFO - 192.168.3.93 - - [27/Jun/2025 15:20:00] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:20:00,944 - INFO - 192.168.3.93 - - [27/Jun/2025 15:20:00] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:20:00,945 - INFO - 192.168.3.93 - - [27/Jun/2025 15:20:00] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:20:00,968 - INFO - 192.168.3.93 - - [27/Jun/2025 15:20:00] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:24:04,217 - INFO - 192.168.3.93 - - [27/Jun/2025 15:24:04] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:24:04,238 - INFO - 192.168.3.93 - - [27/Jun/2025 15:24:04] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:24:04,246 - INFO - 192.168.3.93 - - [27/Jun/2025 15:24:04] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:24:04,247 - INFO - 192.168.3.93 - - [27/Jun/2025 15:24:04] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:24:04,247 - INFO - 192.168.3.93 - - [27/Jun/2025 15:24:04] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:24:04,270 - INFO - 192.168.3.93 - - [27/Jun/2025 15:24:04] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:25:46,458 - INFO - 192.168.3.93 - - [27/Jun/2025 15:25:46] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-27 15:25:46,503 - INFO - 192.168.3.93 - - [27/Jun/2025 15:25:46] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-27 15:25:46,758 - INFO - 192.168.3.93 - - [27/Jun/2025 15:25:46] "GET /events HTTP/1.1" 200 -
+2025-06-27 15:37:54,522 - INFO - 192.168.3.93 - - [27/Jun/2025 15:37:54] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:37:54,539 - INFO - 192.168.3.93 - - [27/Jun/2025 15:37:54] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:37:54,546 - INFO - 192.168.3.93 - - [27/Jun/2025 15:37:54] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:37:54,547 - INFO - 192.168.3.93 - - [27/Jun/2025 15:37:54] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:37:54,548 - INFO - 192.168.3.93 - - [27/Jun/2025 15:37:54] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:37:54,651 - INFO - 192.168.3.93 - - [27/Jun/2025 15:37:54] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:38:02,792 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:02] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:38:02,821 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:02] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:38:02,824 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:02] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:38:02,827 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:02] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:38:02,830 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:02] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:38:02,847 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:02] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:38:03,587 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:03] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:38:03,617 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:03] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:38:03,623 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:03] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:38:03,624 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:03] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:38:03,624 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:03] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:38:03,636 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:03] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:38:09,647 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:09] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-27 15:38:09,665 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:09] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-27 15:38:09,668 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:09] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:38:09,669 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:09] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-27 15:38:09,671 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:09] "[36mGET /static/js/validators.js HTTP/1.1[0m" 304 -
+2025-06-27 15:38:09,690 - INFO - 192.168.3.93 - - [27/Jun/2025 15:38:09] "[36mGET /static/main.css HTTP/1.1[0m" 304 -
+2025-06-27 15:39:47,444 - INFO - 192.168.3.93 - - [27/Jun/2025 15:39:47] "[31m[1mGET /index_cadastro HTTP/1.1[0m" 403 -
+2025-06-27 15:39:48,702 - INFO - 192.168.3.93 - - [27/Jun/2025 15:39:48] "[31m[1mGET /index_cadastro HTTP/1.1[0m" 403 -
+2025-06-27 15:39:49,568 - INFO - 192.168.3.93 - - [27/Jun/2025 15:39:49] "GET / HTTP/1.1" 200 -
+2025-06-27 15:45:40,625 - ERROR - 127.0.0.1 - - [27/Jun/2025 15:45:40] code 400, message Bad request version ('ÊÊ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06g')
+2025-06-27 15:45:40,625 - INFO - 127.0.0.1 - - [27/Jun/2025 15:45:40] "[31m[1m\x16\x03\x01\x06Ô\x01\x00\x06Ð\x03\x03k±0î\x85É,çf±\x08\x9cÂ\x1cîþ©PÇÍ,êaIíÂ\x19õ:ÞÉy ©ÖF¸J¹ÛÃ\x9c£\x1dè±\x1cÀwya\x19!õeÁ\x17\x84ç\x84\x10Óè3\x94\x00 ÊÊ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06g[0m" 400 -
+2025-06-27 15:45:40,638 - ERROR - 127.0.0.1 - - [27/Jun/2025 15:45:40] code 400, message Bad request version ("\x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06'\x1a\x1a\x00\x00\x00")
+2025-06-27 15:45:40,639 - INFO - 127.0.0.1 - - [27/Jun/2025 15:45:40] "[31m[1m\x16\x03\x01\x06\x94\x01\x00\x06\x90\x03\x03\x90Aìy!¦]\x04Ø{þm`\x8eÍEß;Ë2Gy¸$\x15hP\x09Ø,ÞÓ \x09\x99àj\x1dÙ\x11U³ö\x05ãÃ!¸õ¥\x99²\x1dç¼ »\x93JO\x02\x82H\x17K\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06'\x1a\x1a\x00\x00\x00[0m" 400 -
+2025-06-27 17:52:04,998 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:04] "[35m[1mGET /ver_cadastros?nome=&cpf=&estado=&status=&municipio=&descricao=12&data_inicio=&data_fim= HTTP/1.1[0m" 500 -
+2025-06-27 17:52:05,066 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:05] "GET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-27 17:52:05,102 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:05] "GET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-27 17:52:05,244 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:05] "GET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-27 17:52:05,878 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:05] "[35m[1mGET /ver_cadastros?nome=&cpf=&estado=&status=&municipio=&descricao=12&data_inicio=&data_fim= HTTP/1.1[0m" 500 -
+2025-06-27 17:52:05,908 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:05] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-27 17:52:05,936 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:05] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-27 17:52:06,012 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:06] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-27 17:52:12,054 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:12] "[35m[1mGET /ver_cadastros?nome=&cpf=&estado=&status=&municipio=&descricao=12&data_inicio=&data_fim= HTTP/1.1[0m" 500 -
+2025-06-27 17:52:12,101 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:12] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-27 17:52:12,109 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:12] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-27 17:52:12,164 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:12] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-27 17:52:20,599 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:20] "GET / HTTP/1.1" 200 -
+2025-06-27 17:52:21,118 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-27 17:52:24,067 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:24] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-27 17:52:24,095 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:24] "GET /index_admin HTTP/1.1" 200 -
+2025-06-27 17:52:29,882 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:29] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-27 17:52:29,889 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:29] "GET / HTTP/1.1" 200 -
+2025-06-27 17:52:33,340 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:33] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-27 17:52:33,377 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:33] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-27 17:52:33,557 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:33] "GET /api/stats HTTP/1.1" 200 -
+2025-06-27 17:52:35,921 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:35] "GET / HTTP/1.1" 200 -
+2025-06-27 17:52:44,749 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:44] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-27 17:52:44,792 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:44] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-27 17:52:45,042 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:45] "GET /events HTTP/1.1" 200 -
+2025-06-27 17:52:55,289 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:55] "[31m[1mGET /index_cadastro HTTP/1.1[0m" 403 -
+2025-06-27 17:52:59,443 - INFO - 192.168.3.78 - - [27/Jun/2025 17:52:59] "GET / HTTP/1.1" 200 -
+2025-06-27 17:53:02,317 - INFO - 192.168.3.78 - - [27/Jun/2025 17:53:02] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-27 17:53:02,332 - INFO - 192.168.3.78 - - [27/Jun/2025 17:53:02] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-27 17:53:02,433 - INFO - 192.168.3.78 - - [27/Jun/2025 17:53:02] "GET /api/stats HTTP/1.1" 200 -
+2025-06-27 18:53:15,787 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:15] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-27 18:53:15,795 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:15] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-27 18:53:15,970 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:15] "GET /api/stats HTTP/1.1" 200 -
+2025-06-27 18:53:21,576 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:21] "POST /buscar_nome HTTP/1.1" 200 -
+2025-06-27 18:53:22,961 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:22] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-27 18:53:22,979 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:22] "GET / HTTP/1.1" 200 -
+2025-06-27 18:53:29,114 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:29] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-27 18:53:29,124 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:29] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-27 18:53:29,212 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:29] "GET /events HTTP/1.1" 200 -
+2025-06-27 18:53:45,388 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:45] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-27 18:53:45,406 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:45] "GET / HTTP/1.1" 200 -
+2025-06-27 18:53:54,258 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:54] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-27 18:53:54,265 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:54] "GET /index_admin HTTP/1.1" 200 -

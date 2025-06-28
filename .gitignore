@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# VSCode
+.vscode/
+
+# Flask instance folder (banco de dados, configs locais)
+app/instance/
+
+# Backups e logs
+app/backups/
+app/logs/
+logs/
+backups/
+
+# Arquivos temporários
+*.log
+*.tmp
+*.bak
+
+# Banco de dados
+*.db
+
+# Outros
+.env
+.DS_Store
+Thumbs.db

@@ -79,6 +79,29 @@ def utility_processor():
         get_error_icon=get_error_icon
     )
 
+# Filtro Jinja para classes de log
+def get_log_class(acao):
+    classes = {
+        'criou': 'log-success',
+        'deletou': 'log-danger',
+        'editou': 'log-warning',
+        # Adicione mais conforme necessário
+    }
+    return classes.get(acao, 'log-default')
+
+app.jinja_env.filters['get_log_class'] = get_log_class
+
+def get_log_icon(acao):
+    icons = {
+        'criou': 'fa-plus-circle',
+        'deletou': 'fa-trash',
+        'editou': 'fa-edit',
+        # Adicione mais conforme necessário
+    }
+    return icons.get(acao, 'fa-file-alt')
+
+app.jinja_env.filters['get_log_icon'] = get_log_icon
+
 # Inicialização do banco e diretórios
 
 def create_backup_dirs():

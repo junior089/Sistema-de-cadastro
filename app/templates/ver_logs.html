@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -253,6 +254,7 @@
         }
     </style>
 </head>
+
 <body>
     <header class="header">
         <div class="header-content">
@@ -266,7 +268,7 @@
                 </div>
             </div>
             <div style="display: flex; gap: 1rem; align-items: center;">
-                <a href="{{ url_for('index_admin') }}" class="btn btn-outline">
+                <a href="{{ url_for('admin.index_admin') }}" class="btn btn-outline">
                     <i class="fas fa-arrow-left"></i>
                     Voltar
                 </a>
@@ -286,35 +288,36 @@
         <div class="logs-section">
             <div class="logs-container">
                 {% if logs %}
-                    {% for log in logs %}
-                    <div class="log-item">
-                        <div class="log-icon {{ log.acao|get_log_class }}">
-                            <i class="fas {{ log.acao|get_log_icon }}"></i>
-                        </div>
-                        <div class="log-content">
-                            <div class="log-action">{{ log.acao }}</div>
-                            <div class="log-details">
-                                <div class="log-user">
-                                    <i class="fas fa-user"></i>
-                                    <span>{{ log.usuario }}</span>
-                                </div>
-                                <div class="log-timestamp">
-                                    <i class="far fa-clock"></i>
-                                    <span>{{ log.data_hora }}</span>
-                                </div>
+                {% for log in logs %}
+                <div class="log-item">
+                    <div class="log-icon {{ log.acao|get_log_class }}">
+                        <i class="fas {{ log.acao|get_log_icon }}"></i>
+                    </div>
+                    <div class="log-content">
+                        <div class="log-action">{{ log.acao }}</div>
+                        <div class="log-details">
+                            <div class="log-user">
+                                <i class="fas fa-user"></i>
+                                <span>{{ log.usuario }}</span>
+                            </div>
+                            <div class="log-timestamp">
+                                <i class="far fa-clock"></i>
+                                <span>{{ log.data_hora }}</span>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
+                </div>
+                {% endfor %}
                 {% else %}
-                    <div class="empty-state">
-                        <i class="fas fa-inbox"></i>
-                        <h3>Nenhum log encontrado</h3>
-                        <p>Não há registros de atividade no sistema ainda.</p>
-                    </div>
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <h3>Nenhum log encontrado</h3>
+                    <p>Não há registros de atividade no sistema ainda.</p>
+                </div>
                 {% endif %}
             </div>
         </div>
     </div>
 </body>
+
 </html>
