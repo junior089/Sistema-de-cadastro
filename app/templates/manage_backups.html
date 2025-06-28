@@ -2,63 +2,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mx-auto px-4 py-8">
-    <h1 class="text-2xl font-bold mb-6">Gerenciamento de Backups</h1>
+<div class="container">
+    <h1 class="form-title" style="margin-bottom:2rem;">Gerenciamento de Backups</h1>
 
     <!-- Ações de Backup -->
-    <div class="bg-white shadow rounded-lg p-6 mb-6">
-        <h2 class="text-xl font-semibold mb-4">Criar Novo Backup</h2>
-        <div class="flex gap-4">
-            <a href="{{ url_for('admin.create_backup', backup_type='manual') }}"
-                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                Backup Manual
+    <div class="info-card" style="margin-bottom:2rem;">
+        <div class="info-card-header">
+            <div class="info-card-icon"><i class="fas fa-database"></i></div>
+            <h2 class="info-card-title">Criar Novo Backup</h2>
+        </div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="{{ url_for('admin.create_backup', backup_type='manual') }}" class="btn btn-primary">
+                <i class="fas fa-save"></i> Backup Manual
             </a>
-            <a href="{{ url_for('admin.create_backup', backup_type='daily') }}"
-                class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                Backup Diário
+            <a href="{{ url_for('admin.create_backup', backup_type='daily') }}" class="btn btn-success">
+                <i class="fas fa-calendar-day"></i> Backup Diário
             </a>
-            <a href="{{ url_for('admin.create_backup', backup_type='weekly') }}"
-                class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
-                Backup Semanal
+            <a href="{{ url_for('admin.create_backup', backup_type='weekly') }}" class="btn btn-info">
+                <i class="fas fa-calendar-week"></i> Backup Semanal
             </a>
-            <a href="{{ url_for('admin.create_backup', backup_type='monthly') }}"
-                class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
-                Backup Mensal
+            <a href="{{ url_for('admin.create_backup', backup_type='monthly') }}" class="btn btn-warning">
+                <i class="fas fa-calendar-alt"></i> Backup Mensal
             </a>
         </div>
     </div>
 
     <!-- Lista de Backups -->
-    <div class="bg-white shadow rounded-lg p-6">
-        <h2 class="text-xl font-semibold mb-4">Backups Disponíveis</h2>
-
+    <div class="info-card">
+        <div class="info-card-header">
+            <div class="info-card-icon"><i class="fas fa-archive"></i></div>
+            <h2 class="info-card-title">Backups Disponíveis</h2>
+        </div>
         {% if backups %}
-        <div class="overflow-x-auto">
-            <table class="min-w-full table-auto">
+        <div style="overflow-x:auto;">
+            <table class="table" style="width:100%; min-width:500px;">
                 <thead>
-                    <tr class="bg-gray-100">
-                        <th class="px-4 py-2">Data/Hora</th>
-                        <th class="px-4 py-2">Tipo</th>
-                        <th class="px-4 py-2">Tamanho</th>
-                        <th class="px-4 py-2">Ações</th>
+                    <tr>
+                        <th>Data/Hora</th>
+                        <th>Tipo</th>
+                        <th>Tamanho</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for backup in backups %}
-                    <tr class="border-b">
-                        <td class="px-4 py-2">{{ backup.created }}</td>
-                        <td class="px-4 py-2">{{ backup.type }}</td>
-                        <td class="px-4 py-2">{{ (backup.size / 1024 / 1024) | round(2) }} MB</td>
-                        <td class="px-4 py-2">
-                            <div class="flex gap-2">
+                    <tr>
+                        <td>{{ backup.created }}</td>
+                        <td>{{ backup.type }}</td>
+                        <td>{{ (backup.size / 1024 / 1024) | round(2) }} MB</td>
+                        <td>
+                            <div style="display:flex; gap:0.5rem;">
                                 <a href="{{ url_for('admin.download_backup', backup_file=backup.path) }}"
-                                    class="bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600">
-                                    Download
+                                    class="btn btn-info btn-sm">
+                                    <i class="fas fa-download"></i> Download
                                 </a>
                                 <a href="{{ url_for('admin.restore_backup', backup_file=backup.path) }}"
                                     onclick="return confirm('Tem certeza que deseja restaurar este backup? Esta ação irá substituir todos os dados atuais.')"
-                                    class="bg-yellow-500 text-white px-3 py-1 rounded text-sm hover:bg-yellow-600">
-                                    Restaurar
+                                    class="btn btn-warning btn-sm">
+                                    <i class="fas fa-undo"></i> Restaurar
                                 </a>
                             </div>
                         </td>

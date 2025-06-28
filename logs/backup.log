@@ -1632,3 +1632,89 @@
 2025-06-27 18:53:45,406 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:45] "GET / HTTP/1.1" 200 -
 2025-06-27 18:53:54,258 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:54] "[32mPOST / HTTP/1.1[0m" 302 -
 2025-06-27 18:53:54,265 - INFO - 192.168.3.93 - - [27/Jun/2025 18:53:54] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 19:18:48,768 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 19:18:48,769 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 19:18:48,770 - INFO -  * Restarting with stat
+2025-06-28 19:18:49,774 - WARNING -  * Debugger is active!
+2025-06-28 19:18:49,777 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 19:18:52,952 - INFO - 192.168.3.93 - - [28/Jun/2025 19:18:52] "GET / HTTP/1.1" 200 -
+2025-06-28 19:18:53,390 - INFO - 192.168.3.93 - - [28/Jun/2025 19:18:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-28 19:19:13,467 - INFO - 127.0.0.1 - - [28/Jun/2025 19:19:13] "GET / HTTP/1.1" 200 -
+2025-06-28 19:19:13,880 - INFO - 127.0.0.1 - - [28/Jun/2025 19:19:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-28 19:19:58,906 - INFO - 127.0.0.1 - - [28/Jun/2025 19:19:58] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 19:19:58,947 - INFO - 127.0.0.1 - - [28/Jun/2025 19:19:58] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 19:19:59,071 - INFO - 127.0.0.1 - - [28/Jun/2025 19:19:59] "GET /events HTTP/1.1" 200 -
+2025-06-28 19:20:23,480 - INFO - 127.0.0.1 - - [28/Jun/2025 19:20:23] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 19:20:23,495 - INFO - 127.0.0.1 - - [28/Jun/2025 19:20:23] "GET / HTTP/1.1" 200 -
+2025-06-28 19:22:26,354 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:26] "POST / HTTP/1.1" 200 -
+2025-06-28 19:22:35,517 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:35] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 19:22:35,529 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:35] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 19:22:39,226 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:39] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 19:22:39,251 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:39] "GET /static/images/logo_incra.png HTTP/1.1" 200 -
+2025-06-28 19:22:39,256 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:39] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-06-28 19:22:39,257 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:39] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-06-28 19:22:39,258 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:39] "GET /static/js/validators.js HTTP/1.1" 200 -
+2025-06-28 19:22:39,285 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:39] "GET /static/main.css HTTP/1.1" 200 -
+2025-06-28 19:22:39,334 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:39] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-06-28 19:22:41,853 - INFO - Iniciando backup do tipo manual
+2025-06-28 19:22:41,859 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:41] "[32mGET /backup/manual HTTP/1.1[0m" 302 -
+2025-06-28 19:22:41,869 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:41] "[35m[1mGET /backups/manage HTTP/1.1[0m" 500 -
+2025-06-28 19:22:41,906 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:41] "GET /backups/manage?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-28 19:22:41,907 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:41] "GET /backups/manage?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-28 19:22:41,937 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:41] "GET /backups/manage?__debugger__=yes&cmd=resource&f=console.png&s=qF5huCjVf4Jlu3xQ6EGh HTTP/1.1" 200 -
+2025-06-28 19:22:41,991 - INFO - 127.0.0.1 - - [28/Jun/2025 19:22:41] "GET /backups/manage?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-28 19:23:33,254 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:33] "[35m[1mGET /backups/manage HTTP/1.1[0m" 500 -
+2025-06-28 19:23:33,288 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:33] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 19:23:33,292 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:33] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 19:23:33,376 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:33] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=console.png&s=qF5huCjVf4Jlu3xQ6EGh HTTP/1.1[0m" 304 -
+2025-06-28 19:23:33,399 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:33] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 19:23:34,076 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:34] "[35m[1mGET /backups/manage HTTP/1.1[0m" 500 -
+2025-06-28 19:23:34,104 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:34] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 19:23:34,121 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:34] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 19:23:34,140 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:34] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=console.png&s=qF5huCjVf4Jlu3xQ6EGh HTTP/1.1[0m" 304 -
+2025-06-28 19:23:34,150 - INFO - 127.0.0.1 - - [28/Jun/2025 19:23:34] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 19:23:59,995 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 19:24:00,164 - INFO -  * Restarting with stat
+2025-06-28 19:24:01,431 - WARNING -  * Debugger is active!
+2025-06-28 19:24:01,435 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 19:24:07,774 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:07] "[35m[1mGET /backups/manage HTTP/1.1[0m" 500 -
+2025-06-28 19:24:07,792 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:07] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 19:24:07,793 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:07] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 19:24:07,820 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:07] "GET /backups/manage?__debugger__=yes&cmd=resource&f=console.png&s=KNdiqX8RtOhGlvXeTYaC HTTP/1.1" 200 -
+2025-06-28 19:24:07,842 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:07] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 19:24:08,688 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:08] "[35m[1mGET /backups/manage HTTP/1.1[0m" 500 -
+2025-06-28 19:24:08,702 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:08] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 19:24:08,706 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:08] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 19:24:08,727 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:08] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=console.png&s=KNdiqX8RtOhGlvXeTYaC HTTP/1.1[0m" 304 -
+2025-06-28 19:24:08,754 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:08] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 19:24:09,417 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:09] "[35m[1mGET /backups/manage HTTP/1.1[0m" 500 -
+2025-06-28 19:24:09,433 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:09] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 19:24:09,434 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:09] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 19:24:09,457 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:09] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=console.png&s=KNdiqX8RtOhGlvXeTYaC HTTP/1.1[0m" 304 -
+2025-06-28 19:24:09,476 - INFO - 127.0.0.1 - - [28/Jun/2025 19:24:09] "[36mGET /backups/manage?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 19:24:56,968 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\database_config.py', reloading
+2025-06-28 19:24:57,160 - INFO -  * Restarting with stat
+2025-06-28 19:24:58,334 - WARNING -  * Debugger is active!
+2025-06-28 19:24:58,337 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 19:25:13,110 - INFO - 127.0.0.1 - - [28/Jun/2025 19:25:13] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 19:25:13,128 - INFO - 127.0.0.1 - - [28/Jun/2025 19:25:13] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-28 19:25:45,661 - INFO - Backup criado com sucesso: C:\Multirao mulher\backups\manual\cadastro_backup_20250628_192545.zip
+2025-06-28 19:25:45,668 - INFO - 127.0.0.1 - - [28/Jun/2025 19:25:45] "[32mGET /backup/manual HTTP/1.1[0m" 302 -
+2025-06-28 19:25:45,681 - INFO - 127.0.0.1 - - [28/Jun/2025 19:25:45] "GET /backups/manage HTTP/1.1" 200 -
+2025-06-28 19:25:45,702 - INFO - 127.0.0.1 - - [28/Jun/2025 19:25:45] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-28 19:26:01,105 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\database_config.py', reloading
+2025-06-28 19:26:01,289 - INFO -  * Restarting with stat
+2025-06-28 19:26:02,550 - WARNING -  * Debugger is active!
+2025-06-28 19:26:02,553 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 19:26:23,461 - INFO - 127.0.0.1 - - [28/Jun/2025 19:26:23] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 19:26:23,484 - INFO - 127.0.0.1 - - [28/Jun/2025 19:26:23] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-28 19:26:43,379 - INFO - Backup criado com sucesso: C:\Multirao mulher\backups\manual\cadastro_backup_20250628_192643.zip
+2025-06-28 19:26:43,386 - INFO - 127.0.0.1 - - [28/Jun/2025 19:26:43] "[32mGET /backup/manual HTTP/1.1[0m" 302 -
+2025-06-28 19:26:43,397 - INFO - 127.0.0.1 - - [28/Jun/2025 19:26:43] "GET /backups/manage HTTP/1.1" 200 -
+2025-06-28 19:26:43,437 - INFO - 127.0.0.1 - - [28/Jun/2025 19:26:43] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
+2025-06-28 19:27:39,958 - INFO - 127.0.0.1 - - [28/Jun/2025 19:27:39] "GET /ver_logs HTTP/1.1" 200 -
+2025-06-28 19:27:48,492 - INFO - 127.0.0.1 - - [28/Jun/2025 19:27:48] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 19:27:48,525 - INFO - 127.0.0.1 - - [28/Jun/2025 19:27:48] "[36mGET /static/images/logo_incra.png HTTP/1.1[0m" 304 -
