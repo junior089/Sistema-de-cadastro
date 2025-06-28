@@ -1432,3 +1432,13 @@
 2025-06-27 14:54:23,925 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:23] "GET /events HTTP/1.1" 200 -
 2025-06-27 14:54:35,025 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:35] "GET /ver_cadastros?nome=&cpf=&estado=&status=&municipio=&descricao=&data_inicio=&data_fim=&telefone=&assentamento= HTTP/1.1" 200 -
 2025-06-27 14:54:35,095 - INFO - 192.168.3.93 - - [27/Jun/2025 14:54:35] "GET /events HTTP/1.1" 200 -
+2025-06-27 14:59:17,356 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-27 14:59:17,522 - INFO -  * Restarting with stat
+2025-06-27 14:59:18,738 - WARNING -  * Debugger is active!
+2025-06-27 14:59:18,741 - INFO -  * Debugger PIN: 129-690-423
+2025-06-27 14:59:20,522 - INFO - 192.168.3.93 - - [27/Jun/2025 14:59:20] "GET /events HTTP/1.1" 200 -
+2025-06-27 14:59:39,425 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-27 14:59:39,594 - INFO -  * Restarting with stat
+2025-06-27 14:59:40,817 - WARNING -  * Debugger is active!
+2025-06-27 14:59:40,819 - INFO -  * Debugger PIN: 129-690-423
+2025-06-27 14:59:42,593 - INFO - 192.168.3.93 - - [27/Jun/2025 14:59:42] "GET /events HTTP/1.1" 200 -

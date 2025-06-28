@@ -13,6 +13,11 @@ db.init_app(app)
 migrate.init_app(app, db)
 app.backup_system = backup_system  # Disponibiliza backup_system no contexto do app
 
+# Configuração centralizada de caminhos
+app.config['BACKUP_FOLDER'] = os.path.join(app.root_path, 'backups')
+app.config['LOG_FOLDER'] = os.path.join(app.root_path, 'logs')
+app.config['DATABASE_FILE'] = os.path.join(app.instance_path, 'cadastro.db')
+
 # Sistema de notificações em tempo real
 notification_queue = Queue()
 connected_clients = set()
@@ -77,10 +82,10 @@ def utility_processor():
 # Inicialização do banco e diretórios
 
 def create_backup_dirs():
-    for dir_name in ['backups', 'logs']:
-        os.makedirs(dir_name, exist_ok=True)
+    os.makedirs(app.config['BACKUP_FOLDER'], exist_ok=True)
+    os.makedirs(app.config['LOG_FOLDER'], exist_ok=True)
     for subdir in ['daily', 'weekly', 'monthly', 'manual', 'safety']:
-        os.makedirs(os.path.join('backups', subdir), exist_ok=True)
+        os.makedirs(os.path.join(app.config['BACKUP_FOLDER'], subdir), exist_ok=True)
 
 def init_system_status():
     from app.models import SystemStatus
@@ -107,6 +112,8 @@ if __name__ == '__main__':
         except:
             return "127.0.0.1"
     local_ip = get_local_ip()
+    # Garante que o diretório instance existe
+    os.makedirs(app.instance_path, exist_ok=True)
     with app.app_context():
         db.create_all()
         create_backup_dirs()
