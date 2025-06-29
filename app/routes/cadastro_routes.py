@@ -173,16 +173,8 @@ def cadastro():
             logger.info(f"Cadastro criado com sucesso - ID: {novo_cadastro.id} - Senha: {novo_cadastro.senha_chamada}")
             log_database_operation('CREATE', 'cadastro', novo_cadastro.id, current_user.username)
             
-            # Preparar resposta de sucesso
-            response_data = {
-                'success': True,
-                'message': f'Cadastro realizado com sucesso! Senha: {novo_cadastro.senha_chamada}',
-                'cadastro_id': novo_cadastro.id,
-                'senha': novo_cadastro.senha_chamada,
-                'prioridade': novo_cadastro.prioridade
-            }
-            
-            return jsonify(response_data)
+            # Redirecionar para o comprovante de senha
+            return redirect(url_for('cadastro.senha_comprovante', cadastro_id=novo_cadastro.id))
             
         except Exception as e:
             db.session.rollback()
@@ -679,3 +671,23 @@ def fila_chamadas():
     ).all()
     
     return render_template('fila_chamadas.html', fila=fila)
+
+@cadastro_bp.route('/senha/<int:cadastro_id>/comprovante')
+@login_required
+def senha_comprovante(cadastro_id):
+    cadastro = Cadastro.query.get_or_404(cadastro_id)
+    data = cadastro.data_hora.strftime('%d/%m/%Y') if cadastro.data_hora else '--'
+    hora = cadastro.data_hora.strftime('%H:%M') if cadastro.data_hora else '--'
+    servico = getattr(cadastro.descricao, 'nome', '--') if cadastro.descricao else '--'
+    guiche = getattr(cadastro.atendente, 'username', '--') if cadastro.atendente else '--'
+    senha = cadastro.senha_chamada or '--'
+    nome = cadastro.nome or '--'
+    return render_template(
+        'senha_comprovante.html',
+        senha=senha,
+        nome=nome,
+        data=data,
+        hora=hora,
+        servico=servico,
+        guiche=guiche
+    )

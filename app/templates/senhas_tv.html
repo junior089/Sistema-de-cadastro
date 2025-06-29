@@ -4,546 +4,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Senhas - INCRA</title>
+    <title>Painel de Senhas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        * {
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
-            color: white;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-        }
-
-        .tv-container {
+            background: #f8fafc;
+            color: #222;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            padding: 2rem;
         }
-
-        .header-tv {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .title-tv {
-            font-size: 4rem;
-            font-weight: bold;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-            margin-bottom: 1rem;
-        }
-
-        .subtitle-tv {
-            font-size: 2rem;
-            opacity: 0.9;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .current-time {
-            font-size: 1.5rem;
-            margin-top: 1rem;
-            opacity: 0.8;
-        }
-
-        .content-area {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
+        .tv-main {
             flex: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100vw;
+            padding: 0;
         }
-
-        .senhas-section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .senhas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .senha-card-tv {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .senha-card-tv:hover {
-            transform: scale(1.05);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .senha-card-tv.normal {
-            border-color: #10b981;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-        }
-
-        .senha-card-tv.alta {
-            border-color: #f59e0b;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
-        }
-
-        .senha-card-tv.urgente {
-            border-color: #ef4444;
-            box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
-            animation: urgent-pulse 1s infinite;
-        }
-
-        .senha-number-tv {
-            font-size: 5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        .senha-name-tv {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .senha-priority-tv {
-            font-size: 1.2rem;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .senha-priority-tv.normal {
-            background: #10b981;
-            color: white;
-        }
-
-        .senha-priority-tv.alta {
-            background: #f59e0b;
-            color: white;
-        }
-
-        .senha-priority-tv.urgente {
-            background: #ef4444;
-            color: white;
-        }
-
-        .stats-section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .stats-grid {
+        .senha-chamada-area {
+            flex: 2;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
         }
-
-        .stat-item {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .stat-value {
-            font-size: 3rem;
-            font-weight: bold;
+        .senha-label {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #444;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
         }
-
-        .stat-label {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .senha-chamada {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #1e293b;
+            letter-spacing: 6px;
+            margin-bottom: 1.2rem;
+            line-height: 1;
         }
-
-        .no-senhas {
-            text-align: center;
-            font-size: 2rem;
-            opacity: 0.7;
-            padding: 3rem;
-        }
-
-        .next-section {
-            margin-top: 2rem;
-        }
-
-        .next-title {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .next-senha {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 3px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .next-number {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .next-name {
+        .guiche-label {
             font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 0.2rem;
         }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
+        .guiche-chamada {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        .ultimas-chamadas-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            min-width: 320px;
+            max-width: 400px;
+            margin-left: 2vw;
+        }
+        .ultimas-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        .ultimas-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .ultimas-table th, .ultimas-table td {
+            padding: 0.7rem 1.2rem;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+        .ultimas-table th {
+            background: #f1f5f9;
+            color: #222;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .ultimas-table tr:not(:last-child) td {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .ultimas-table td {
+            color: #222;
+        }
+        .ultimas-table tr:last-child td {
+            border-bottom: none;
+        }
+        .rodape {
+            width: 100vw;
+            background: #f1f5f9;
+            color: #444;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 0.7rem 0;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            letter-spacing: 1px;
+            border-top: 1px solid #e5e7eb;
+        }
+        @media (max-width: 900px) {
+            .tv-main {
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
             }
-
-            50% {
-                transform: scale(1.02);
+            .ultimas-chamadas-area {
+                margin-left: 0;
+                margin-top: 2rem;
+                max-width: 100vw;
+                align-items: center;
             }
         }
-
-        @keyframes urgent-pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
-            }
-
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .senha-card-tv {
-            animation: slideIn 0.5s ease-out;
-        }
-
-        /* Responsive para diferentes tamanhos de TV */
-        @media (max-width: 1920px) {
-            .title-tv {
+        @media (max-width: 600px) {
+            .senha-chamada {
                 font-size: 3.5rem;
             }
-
-            .senha-number-tv {
-                font-size: 4rem;
-            }
-
-            .stat-value {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 1366px) {
-            .title-tv {
-                font-size: 3rem;
-            }
-
-            .senha-number-tv {
-                font-size: 3.5rem;
-            }
-
-            .stat-value {
+            .guiche-chamada {
                 font-size: 2rem;
             }
-
-            .content-area {
-                gap: 2rem;
+            .ultimas-table th, .ultimas-table td {
+                font-size: 1rem;
+                padding: 0.5rem 0.5rem;
             }
-        }
-
-        @media (max-width: 1024px) {
-            .content-area {
-                grid-template-columns: 1fr;
-            }
-
-            .title-tv {
-                font-size: 2.5rem;
-            }
-
-            .senha-number-tv {
-                font-size: 3rem;
-            }
-        }
-
-        /* Modo escuro para melhor visibilidade */
-        .dark-mode {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-        }
-
-        /* Indicador de conexão */
-        .connection-status {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #10b981;
-            animation: blink 2s infinite;
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        .connection-status.offline {
-            background: #ef4444;
         }
     </style>
 </head>
 
 <body>
-    <!-- Indicador de conexão -->
-    <div class="connection-status" id="connectionStatus"></div>
-
-    <div class="tv-container">
-        <!-- Header -->
-        <div class="header-tv">
-            <h1 class="title-tv">PAINEL DE SENHAS</h1>
-            <p class="subtitle-tv">Sistema Mutirão da Mulher Rural - INCRA</p>
-            <div class="current-time" id="currentTime"></div>
+    <div class="tv-main">
+        <div class="senha-chamada-area">
+            <div class="senha-label">Senha</div>
+            <div class="senha-chamada" id="senha-chamada">--</div>
+            <div class="guiche-label">Guichê</div>
+            <div class="guiche-chamada" id="guiche-chamada">--</div>
         </div>
-
-        <!-- Conteúdo Principal -->
-        <div class="content-area">
-            <!-- Seção de Senhas -->
-            <div class="senhas-section">
-                <h2 class="section-title">SENHAS AGUARDANDO</h2>
-                <div class="senhas-grid" id="senhasGrid">
-                    <!-- Senhas serão carregadas aqui -->
-                </div>
-            </div>
-
-            <!-- Seção de Estatísticas -->
-            <div class="stats-section">
-                <h2 class="section-title">ESTATÍSTICAS</h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value" id="totalSenhas">0</div>
-                        <div class="stat-label">Total de Senhas</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="aguardando">0</div>
-                        <div class="stat-label">Aguardando</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="chamados">0</div>
-                        <div class="stat-label">Chamados</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="atendidos">0</div>
-                        <div class="stat-label">Atendidos</div>
-                    </div>
-                </div>
-
-                <!-- Próxima Senha -->
-                <div class="next-section">
-                    <h3 class="next-title">PRÓXIMA SENHA</h3>
-                    <div class="next-senha" id="nextSenha">
-                        <div class="next-number">--</div>
-                        <div class="next-name">Aguardando...</div>
-                    </div>
-                </div>
-            </div>
+        <div class="ultimas-chamadas-area">
+            <div class="ultimas-title">Últimas chamadas</div>
+            <table class="ultimas-table" id="ultimas-table">
+                <thead>
+                    <tr>
+                        <th>Senha</th>
+                        <th>Guichê</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Linhas preenchidas via JS -->
+                </tbody>
+            </table>
         </div>
     </div>
-
+    <div class="rodape">
+        <span id="data-atual"></span> &nbsp;|&nbsp; <span id="hora-atual"></span>
+    </div>
     <script>
-        // Configurações
-        const REFRESH_INTERVAL = 10000; // 10 segundos
-        const API_BASE = window.location.origin;
+        let socket;
+        let ultimasChamadas = [];
+        function atualizarHoraData() {
+            const agora = new Date();
+            document.getElementById('hora-atual').textContent = agora.toLocaleTimeString('pt-BR');
+            document.getElementById('data-atual').textContent = agora.toLocaleDateString('pt-BR');
+        }
+        setInterval(atualizarHoraData, 1000);
+        atualizarHoraData();
 
-        // Elementos DOM
-        const senhasGrid = document.getElementById('senhasGrid');
-        const currentTime = document.getElementById('currentTime');
-        const connectionStatus = document.getElementById('connectionStatus');
-        const totalSenhas = document.getElementById('totalSenhas');
-        const aguardando = document.getElementById('aguardando');
-        const chamados = document.getElementById('chamados');
-        const atendidos = document.getElementById('atendidos');
-        const nextSenha = document.getElementById('nextSenha');
-
-        // Atualizar horário
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('pt-BR', {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
+        function atualizarUltimasChamadas() {
+            const tbody = document.querySelector('#ultimas-table tbody');
+            tbody.innerHTML = '';
+            ultimasChamadas.slice(0, 5).forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${item.senha}</td><td>${item.guiche}</td><td>${item.hora}</td>`;
+                tbody.appendChild(tr);
             });
-            const dateString = now.toLocaleDateString('pt-BR', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
+        }
+
+        function exibirChamada(senha, guiche, hora) {
+            document.getElementById('senha-chamada').textContent = senha || '--';
+            document.getElementById('guiche-chamada').textContent = guiche || '--';
+            if (senha && guiche) {
+                ultimasChamadas.unshift({senha, guiche, hora: hora || (new Date()).toLocaleTimeString('pt-BR')});
+                ultimasChamadas = ultimasChamadas.slice(0, 10);
+                atualizarUltimasChamadas();
+            }
+        }
+
+        // Inicialização do WebSocket e eventos
+        document.addEventListener('DOMContentLoaded', function () {
+            socket = io();
+            socket.on('connect', function () {
+                // Pode exibir status de conexão se desejar
             });
-            currentTime.textContent = `${dateString} - ${timeString}`;
-        }
-
-        // Carregar senhas
-        async function loadSenhas() {
-            try {
-                const response = await fetch(`${API_BASE}/api/tv/senhas`);
-                if (response.ok) {
-                    const senhas = await response.json();
-                    displaySenhas(senhas);
-                    connectionStatus.classList.remove('offline');
-                } else {
-                    throw new Error('Erro na API');
-                }
-            } catch (error) {
-                console.error('Erro ao carregar senhas:', error);
-                connectionStatus.classList.add('offline');
-                displayError();
-            }
-        }
-
-        // Carregar estatísticas
-        async function loadStats() {
-            try {
-                const response = await fetch(`${API_BASE}/api/tv/estatisticas`);
-                if (response.ok) {
-                    const stats = await response.json();
-                    displayStats(stats);
-                }
-            } catch (error) {
-                console.error('Erro ao carregar estatísticas:', error);
-            }
-        }
-
-        // Exibir senhas
-        function displaySenhas(senhas) {
-            if (senhas.length === 0) {
-                senhasGrid.innerHTML = '<div class="no-senhas">Nenhuma senha aguardando</div>';
-                nextSenha.innerHTML = '<div class="next-number">--</div><div class="next-name">Nenhuma senha</div>';
-                return;
-            }
-
-            // Exibir todas as senhas
-            senhasGrid.innerHTML = senhas.map(senha => `
-                <div class="senha-card-tv ${['normal', 'alta', 'urgente'][senha.prioridade]}">
-                    <div class="senha-number-tv">${senha.senha}</div>
-                    <div class="senha-name-tv">${senha.nome}</div>
-                    <div class="senha-priority-tv ${['normal', 'alta', 'urgente'][senha.prioridade]}">
-                        ${['NORMAL', 'ALTA', 'URGENTE'][senha.prioridade]}
-                    </div>
-                </div>
-            `).join('');
-
-            // Definir próxima senha (primeira da lista)
-            const proxima = senhas[0];
-            nextSenha.innerHTML = `
-                <div class="next-number">${proxima.senha}</div>
-                <div class="next-name">${proxima.nome}</div>
-            `;
-        }
-
-        // Exibir estatísticas
-        function displayStats(stats) {
-            totalSenhas.textContent = stats.total_senhas || 0;
-            aguardando.textContent = stats.por_status?.aguardando || 0;
-            chamados.textContent = stats.por_status?.chamados || 0;
-            atendidos.textContent = stats.por_status?.atendidos || 0;
-        }
-
-        // Exibir erro
-        function displayError() {
-            senhasGrid.innerHTML = '<div class="no-senhas">Erro de conexão</div>';
-        }
-
-        // Inicialização
-        function init() {
-            updateTime();
-            loadSenhas();
-            loadStats();
-
-            // Atualizar horário a cada segundo
-            setInterval(updateTime, 1000);
-
-            // Atualizar dados a cada 10 segundos
-            setInterval(() => {
-                loadSenhas();
-                loadStats();
-            }, REFRESH_INTERVAL);
-
-            // Verificar conexão
-            setInterval(() => {
-                fetch(`${API_BASE}/api/tv/senhas`)
-                    .then(response => {
-                        if (response.ok) {
-                            connectionStatus.classList.remove('offline');
-                        } else {
-                            connectionStatus.classList.add('offline');
-                        }
-                    })
-                    .catch(() => {
-                        connectionStatus.classList.add('offline');
-                    });
-            }, 5000);
-        }
-
-        // Iniciar quando a página carregar
-        document.addEventListener('DOMContentLoaded', init);
-
-        // Atualizar quando a janela ganhar foco
-        window.addEventListener('focus', () => {
-            loadSenhas();
-            loadStats();
+            socket.on('senha_chamada', function (data) {
+                exibirChamada(data.senha, data.guiche || data.guiche_num || '--', data.timestamp ? new Date(data.timestamp).toLocaleTimeString('pt-BR') : undefined);
+            });
+            // Carregar última chamada inicial (opcional, pode buscar de uma API)
+            fetch('/api/tv/ultimas_chamadas')
+                .then(resp => resp.json())
+                .then(lista => {
+                    if (lista && lista.length > 0) {
+                        const ultima = lista[0];
+                        exibirChamada(ultima.senha, ultima.guiche, ultima.hora);
+                        ultimasChamadas = lista.map(item => ({senha: item.senha, guiche: item.guiche, hora: item.hora}));
+                        atualizarUltimasChamadas();
+                    }
+                });
         });
-
-        // Prevenir seleção de texto
-        document.addEventListener('selectstart', (e) => e.preventDefault());
-        document.addEventListener('dragstart', (e) => e.preventDefault());
     </script>
 </body>
 

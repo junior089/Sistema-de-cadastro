@@ -498,6 +498,8 @@
                             <option value="admin" {% if user.role=='admin' %}selected{% endif %}>Administrador</option>
                             <option value="cadastrador" {% if user.role=='cadastrador' %}selected{% endif %}>Cadastrador
                             </option>
+                            <option value="senhas" {% if user.role=='senhas' %}selected{% endif %}>Controle de Senhas
+                            </option>
                             <option value="visor" {% if user.role=='visor' %}selected{% endif %}>Visualizador</option>
                         </select>
                     </div>

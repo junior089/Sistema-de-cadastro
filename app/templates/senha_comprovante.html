@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Comprovante de Senha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #fff;
+            color: #222;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .comprovante-container {
+            max-width: 350px;
+            margin: 40px auto;
+            border: 2px dashed #bbb;
+            border-radius: 12px;
+            padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+            background: #fafafa;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .senha-grande {
+            text-align: center;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            letter-spacing: 4px;
+        }
+
+        .info {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info strong {
+            color: #2563eb;
+        }
+
+        .linha {
+            border-top: 1px dashed #bbb;
+            margin: 1.2rem 0;
+        }
+
+        .dados {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .rodape {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #888;
+            margin-top: 1.2rem;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .comprovante-container {
+                box-shadow: none;
+                border: none;
+                margin: 0;
+            }
+
+            .btn-imprimir {
+                display: none;
+            }
+        }
+
+        .btn-imprimir {
+            display: block;
+            width: 100%;
+            margin: 1.2rem 0 0 0;
+            padding: 0.7rem;
+            font-size: 1.1rem;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-imprimir:hover {
+            background: #1e40af;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="comprovante-container">
+        <div class="titulo">Comprovante de Senha</div>
+        <div class="senha-grande">{{ senha }}</div>
+        <div class="info"><strong>{{ nome }}</strong></div>
+        <div class="linha"></div>
+        <div class="dados">Data: <strong>{{ data }}</strong></div>
+        <div class="dados">Horário: <strong>{{ hora }}</strong></div>
+        <div class="dados">Serviço: <strong>{{ servico }}</strong></div>
+        <div class="dados">Guichê: <strong>{{ guiche }}</strong></div>
+        <button class="btn-imprimir" onclick="window.print()">Imprimir</button>
+        <div class="rodape">Guarde este comprovante até ser chamado no painel.</div>
+    </div>
+</body>
+
+</html>

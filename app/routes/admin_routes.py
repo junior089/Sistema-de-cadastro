@@ -49,7 +49,7 @@ def create_user():
         if len(novo_usuario) < 3 or len(nova_senha) < 4:
             flash("Usuário deve ter pelo menos 3 letras e senha pelo menos 4 caracteres.", 'error')
             return render_template('user_create.html')
-        if not novo_role in ['admin', 'cadastrador', 'visor']:
+        if not novo_role in ['admin', 'cadastrador', 'visor', 'senhas']:
             flash("Perfil inválido!", 'error')
             return render_template('user_create.html')
         if User.query.filter_by(username=novo_usuario).first():
@@ -85,7 +85,7 @@ def editar_usuario(user_id):
         if len(username) < 3 or len(password) < 4:
             flash("Usuário deve ter pelo menos 3 letras e senha pelo menos 4 caracteres.", 'error')
             return render_template('admin_dashboard.html', action='editar', user=user)
-        if not role in ['admin', 'cadastrador', 'visor']:
+        if not role in ['admin', 'cadastrador', 'visor', 'senhas']:
             flash("Perfil inválido!", 'error')
             return render_template('admin_dashboard.html', action='editar', user=user)
         user.username = username

@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+
+{% block title %}Painel do Atendente - Controle de Senhas{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Header -->
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0">
+                    <i class="fas fa-headset text-primary"></i>
+                    Painel do Atendente
+                </h1>
+                <div class="d-flex align-items-center">
+                    <span class="badge bg-success me-2" id="connection-status">
+                        <i class="fas fa-circle"></i> Conectado
+                    </span>
+                    <span class="text-muted">
+                        <i class="fas fa-user"></i> {{ current_user.username }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Estatísticas -->
+        <div class="col-12 mb-4">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h4 class="card-title" id="total-aguardando">0</h4>
+                                    <p class="card-text">Aguardando</p>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-clock fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h4 class="card-title" id="total-chamados">0</h4>
+                                    <p class="card-text">Chamados</p>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-bell fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-info text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h4 class="card-title" id="total-atendimento">0</h4>
+                                    <p class="card-text">Em Atendimento</p>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-user-check fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h4 class="card-title" id="total-atendidos">0</h4>
+                                    <p class="card-text">Atendidos</p>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-check-circle fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Senhas Aguardando -->
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-list"></i>
+                        Senhas Aguardando Atendimento
+                        <button class="btn btn-sm btn-outline-primary ms-2" onclick="atualizarLista()">
+                            <i class="fas fa-sync-alt"></i> Atualizar
+                        </button>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div id="lista-senhas" class="row">
+                        <!-- Senhas serão carregadas aqui via JavaScript -->
+                    </div>
+                    <div id="sem-senhas" class="text-center text-muted py-4" style="display: none;">
+                        <i class="fas fa-inbox fa-3x mb-3"></i>
+                        <h5>Nenhuma senha aguardando</h5>
+                        <p>Todas as pessoas foram atendidas!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Confirmação -->
+<div class="modal fade" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar Ação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-message"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirm-action">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast para notificações -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="notification-toast" class="toast" role="alert">
+        <div class="toast-header">
+            <i class="fas fa-bell text-primary me-2"></i>
+            <strong class="me-auto">Notificação</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body" id="toast-message">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+<script>
+    // Variáveis globais
+    let socket;
+    let currentAction = null;
+    let currentCadastroId = null;
+
+    // Inicialização do Socket.IO
+    document.addEventListener('DOMContentLoaded', function () {
+        // Conectar ao WebSocket
+        socket = io();
+
+        // Eventos de conexão
+        socket.on('connect', function () {
+            console.log('Conectado ao servidor WebSocket');
+            document.getElementById('connection-status').innerHTML = '<i class="fas fa-circle"></i> Conectado';
+            document.getElementById('connection-status').className = 'badge bg-success me-2';
+        });
+
+        socket.on('disconnect', function () {
+            console.log('Desconectado do servidor WebSocket');
+            document.getElementById('connection-status').innerHTML = '<i class="fas fa-circle"></i> Desconectado';
+            document.getElementById('connection-status').className = 'badge bg-danger me-2';
+        });
+
+        // Eventos de senhas
+        socket.on('senha_chamada', function (data) {
+            console.log('Senha chamada:', data);
+            showNotification(`Senha ${data.senha} chamada!`, 'info');
+            atualizarLista();
+        });
+
+        socket.on('senha_atendida', function (data) {
+            console.log('Senha atendida:', data);
+            showNotification(`Senha ${data.senha} em atendimento!`, 'success');
+            atualizarLista();
+        });
+
+        socket.on('atendimento_finalizado', function (data) {
+            console.log('Atendimento finalizado:', data);
+            showNotification(`Atendimento da senha ${data.senha} finalizado!`, 'success');
+            atualizarLista();
+        });
+
+        socket.on('senha_ausente', function (data) {
+            console.log('Senha ausente:', data);
+            showNotification(`Senha ${data.senha} marcada como ausente!`, 'warning');
+            atualizarLista();
+        });
+
+        socket.on('error', function (data) {
+            console.error('Erro:', data);
+            showNotification(data.message, 'error');
+        });
+
+        // Carregar dados iniciais
+        atualizarLista();
+        atualizarEstatisticas();
+
+        // Atualizar a cada 30 segundos
+        setInterval(function () {
+            atualizarLista();
+            atualizarEstatisticas();
+        }, 30000);
+    });
+
+    // Função para atualizar lista de senhas
+    function atualizarLista() {
+        fetch('/api/senhas/aguardando')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('lista-senhas');
+                const semSenhas = document.getElementById('sem-senhas');
+
+                if (data.length === 0) {
+                    container.innerHTML = '';
+                    semSenhas.style.display = 'block';
+                    return;
+                }
+
+                semSenhas.style.display = 'none';
+                container.innerHTML = '';
+
+                data.forEach(senha => {
+                    const card = criarCardSenha(senha);
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao carregar senhas:', error);
+                showNotification('Erro ao carregar senhas', 'error');
+            });
+    }
+
+    // Função para criar card de senha
+    function criarCardSenha(senha) {
+        const col = document.createElement('div');
+        col.className = 'col-md-6 col-lg-4 mb-3';
+
+        const prioridadeClass = {
+            0: 'border-primary',
+            1: 'border-warning',
+            2: 'border-danger'
+        };
+
+        const prioridadeText = {
+            0: 'Normal',
+            1: 'Alta',
+            2: 'Urgente'
+        };
+
+        const prioridadeIcon = {
+            0: 'fa-clock',
+            1: 'fa-exclamation-triangle',
+            2: 'fa-exclamation-circle'
+        };
+
+        col.innerHTML = `
+        <div class="card ${prioridadeClass[senha.prioridade]} h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="mb-0">
+                    <i class="fas ${prioridadeIcon[senha.prioridade]} text-${senha.prioridade === 0 ? 'primary' : senha.prioridade === 1 ? 'warning' : 'danger'}"></i>
+                    Senha ${senha.senha}
+                </h6>
+                <span class="badge bg-${senha.prioridade === 0 ? 'primary' : senha.prioridade === 1 ? 'warning' : 'danger'}">
+                    ${prioridadeText[senha.prioridade]}
+                </span>
+            </div>
+            <div class="card-body">
+                <h6 class="card-title">${senha.nome}</h6>
+                <p class="card-text text-muted small">
+                    <i class="fas fa-calendar"></i> ${formatarData(senha.data_hora)}
+                </p>
+                ${senha.tempo_espera ? `<p class="card-text text-muted small">
+                    <i class="fas fa-clock"></i> Aguardando: ${senha.tempo_espera}
+                </p>` : ''}
+                ${senha.observacoes ? `<p class="card-text small">
+                    <i class="fas fa-sticky-note"></i> ${senha.observacoes}
+                </p>` : ''}
+            </div>
+            <div class="card-footer">
+                <div class="btn-group w-100" role="group">
+                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="chamarSenha(${senha.id})">
+                        <i class="fas fa-bell"></i> Chamar
+                    </button>
+                    <button type="button" class="btn btn-outline-success btn-sm" onclick="atenderSenha(${senha.id})">
+                        <i class="fas fa-user-check"></i> Atender
+                    </button>
+                    <button type="button" class="btn btn-outline-warning btn-sm" onclick="marcarAusente(${senha.id})">
+                        <i class="fas fa-user-times"></i> Ausente
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+        return col;
+    }
+
+    // Função para atualizar estatísticas
+    function atualizarEstatisticas() {
+        fetch('/api/senhas/estatisticas')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('total-aguardando').textContent = data.aguardando || 0;
+                document.getElementById('total-chamados').textContent = data.chamados || 0;
+                document.getElementById('total-atendimento').textContent = data.em_atendimento || 0;
+                document.getElementById('total-atendidos').textContent = data.atendidos || 0;
+            })
+            .catch(error => {
+                console.error('Erro ao carregar estatísticas:', error);
+            });
+    }
+
+    // Funções de ação
+    function chamarSenha(cadastroId) {
+        confirmarAcao('chamar', cadastroId, 'Deseja chamar esta senha?');
+    }
+
+    function atenderSenha(cadastroId) {
+        confirmarAcao('atender', cadastroId, 'Deseja atender esta senha?');
+    }
+
+    function marcarAusente(cadastroId) {
+        confirmarAcao('ausente', cadastroId, 'Deseja marcar esta senha como ausente?');
+    }
+
+    function confirmarAcao(acao, cadastroId, mensagem) {
+        currentAction = acao;
+        currentCadastroId = cadastroId;
+        document.getElementById('confirm-message').textContent = mensagem;
+        document.getElementById('confirm-action').onclick = executarAcao;
+
+        const modal = new bootstrap.Modal(document.getElementById('confirmModal'));
+        modal.show();
+    }
+
+    function executarAcao() {
+        const data = {
+            cadastro_id: currentCadastroId,
+            usuario: '{{ current_user.username }}'
+        };
+
+        let evento = '';
+        switch (currentAction) {
+            case 'chamar':
+                evento = 'chamar_senha';
+                break;
+            case 'atender':
+                evento = 'atender_senha';
+                break;
+            case 'ausente':
+                evento = 'marcar_ausente';
+                break;
+        }
+
+        socket.emit(evento, data);
+
+        // Fechar modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('confirmModal'));
+        modal.hide();
+
+        // Limpar variáveis
+        currentAction = null;
+        currentCadastroId = null;
+    }
+
+    // Função para mostrar notificações
+    function showNotification(message, type = 'info') {
+        const toast = document.getElementById('notification-toast');
+        const toastMessage = document.getElementById('toast-message');
+
+        toastMessage.textContent = message;
+
+        // Remover classes de tipo anteriores
+        toast.className = 'toast';
+
+        // Adicionar classe de tipo
+        switch (type) {
+            case 'success':
+                toast.classList.add('bg-success', 'text-white');
+                break;
+            case 'error':
+                toast.classList.add('bg-danger', 'text-white');
+                break;
+            case 'warning':
+                toast.classList.add('bg-warning', 'text-dark');
+                break;
+            default:
+                toast.classList.add('bg-info', 'text-white');
+        }
+
+        const bsToast = new bootstrap.Toast(toast);
+        bsToast.show();
+    }
+
+    // Função para formatar data
+    function formatarData(dataString) {
+        const data = new Date(dataString);
+        return data.toLocaleString('pt-BR');
+    }
+</script>
+{% endblock %}

@@ -352,16 +352,16 @@ def api_tv_estatisticas():
         aguardando = Cadastro.query.filter_by(status_chamada='aguardando').count()
         chamados = Cadastro.query.filter_by(status_chamada='chamado').count()
         atendidos = Cadastro.query.filter_by(status_chamada='atendido').count()
+        em_atendimento = Cadastro.query.filter_by(status_chamada='em_atendimento').count()
         
         stats = {
             'total_senhas': total_senhas,
             'senhas_hoje': senhas_hoje,
             'senhas_semana': senhas_semana,
-            'por_status': {
-                'aguardando': aguardando,
-                'chamados': chamados,
-                'atendidos': atendidos
-            }
+            'aguardando': aguardando,
+            'chamados': chamados,
+            'em_atendimento': em_atendimento,
+            'atendidos': atendidos
         }
         
         logger.info(f"Estatísticas TV retornadas")
@@ -370,4 +370,38 @@ def api_tv_estatisticas():
         
     except Exception as e:
         logger.error(f"Erro ao buscar estatísticas TV: {str(e)}")
-        return jsonify({'error': 'Erro interno do servidor'}), 500 
+        return jsonify({'error': 'Erro interno do servidor'}), 500
+
+@senhas_bp.route('/painel_atendente')
+@login_required
+def painel_atendente():
+    """Painel do atendente para controle de senhas"""
+    if current_user.role not in ['senhas', 'admin']:
+        logger.warning(f"Acesso negado ao painel do atendente - Usuário: {current_user.username} - Role: {current_user.role}")
+        flash('Acesso negado. Você não tem permissão para acessar esta área.', 'danger')
+        return redirect(url_for('auth.login'))
+    
+    logger.info(f"Painel do atendente acessado - Usuário: {current_user.username}")
+    
+    try:
+        # Buscar estatísticas básicas
+        aguardando = Cadastro.query.filter_by(status_chamada='aguardando').count()
+        chamados = Cadastro.query.filter_by(status_chamada='chamado').count()
+        em_atendimento = Cadastro.query.filter_by(status_chamada='em_atendimento').count()
+        atendidos = Cadastro.query.filter_by(status_chamada='atendido').count()
+        
+        stats = {
+            'aguardando': aguardando,
+            'chamados': chamados,
+            'em_atendimento': em_atendimento,
+            'atendidos': atendidos
+        }
+        
+        logger.info(f"Painel do atendente carregado - Usuário: {current_user.username} - Stats: {stats}")
+        
+        return render_template('painel_atendente.html', stats=stats)
+                             
+    except Exception as e:
+        logger.error(f"Erro ao carregar painel do atendente - Usuário: {current_user.username} - Erro: {str(e)}")
+        flash('Erro ao carregar painel do atendente.', 'danger')
+        return render_template('painel_atendente.html', stats={}) 
