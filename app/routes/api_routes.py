@@ -1,7 +1,13 @@
 from flask import Blueprint, jsonify, Response, request, current_app
 from flask_login import login_required, current_user
 from app import db
-from app.models import Cadastro, Municipio, Estado, Descricao, Instituicao, User, Log
+from app.models.cadastro import Cadastro
+from app.models.municipio import Municipio
+from app.models.estado import Estado
+from app.models.descricao import Descricao
+from app.models.instituicao import Instituicao
+from app.models.user import User
+from app.models.log import Log
 from datetime import datetime, timedelta
 import json
 import threading

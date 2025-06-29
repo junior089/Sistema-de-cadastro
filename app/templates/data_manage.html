@@ -1,181 +1,909 @@
-{% extends 'layout.html' %}
-{% block title %}Gerenciar Dados - Sistema INCRA{% endblock %}
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-{% block content %}
-<div class="container">
-    <div class="form-panel">
-        <div class="form-header">
-            <h2 class="form-title">Gerenciar Dados</h2>
-            <p class="form-subtitle">Configure e adicione novos dados ao sistema</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Dados - Sistema INCRA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --secondary: #1e3a8a;
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border: #d1d5db;
+            --border-focus: #2c5530;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .brand-info h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .brand-info .subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background: #047857;
+        }
+
+        .btn-warning {
+            background: var(--warning);
+            color: #fff;
+        }
+
+        .btn-warning:hover {
+            background: #b45309;
+        }
+
+        .btn-danger {
+            background: var(--error);
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background: #b91c1c;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+        }
+
+        .search-section {
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 1rem;
+            align-items: end;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover {
+            background: #f1f5f9;
+        }
+
+        .table-actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-inactive {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .pagination-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pagination-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .pagination-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: var(--bg-secondary);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .close {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--text-primary);
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .alert-error {
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .search-row {
+                flex-direction: column;
+            }
+
+            .form-group {
+                min-width: auto;
+            }
+
+            .data-table {
+                font-size: 0.875rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <i class="fas fa-database"></i>
+            </div>
+            <div class="brand-info">
+                <h1>Sistema INCRA</h1>
+                <div class="subtitle">Gerenciamento de Dados</div>
+            </div>
         </div>
+        <div class="actions">
+            <a href="{{ url_for('admin.index_admin') }}" class="btn btn-outline">
+                <i class="fas fa-arrow-left"></i>
+                Voltar
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Estatísticas -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">{{ estados|length }}</div>
+                <div class="stat-label">Estados</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ municipios|length }}</div>
+                <div class="stat-label">Municípios</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ descricoes|length }}</div>
+                <div class="stat-label">Descrições</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ instituicoes|length }}</div>
+                <div class="stat-label">Instituições</div>
+            </div>
+        </div>
+
+        <!-- Mensagens Flash -->
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         {% for category, message in messages %}
-        <div class="toast show {{ category }}" role="alert">
-            <i class="fas fa-check-circle toast-icon"></i>
-            <span>{{ message }}</span>
-            <button type="button" onclick="this.parentElement.remove()" class="btn btn-secondary btn-sm"
-                title="Fechar mensagem">
-                <i class="fas fa-times"></i>
-            </button>
+        <div class="alert alert-{{ 'success' if category == 'success' else 'error' }}">
+            {{ message }}
         </div>
         {% endfor %}
         {% endif %}
         {% endwith %}
-        <form method="POST" id="dataForm">
-            <div class="form-grid">
+
+        <!-- Formulário de Adição -->
+        <div class="card">
+            <h2 class="page-title">
+                <i class="fas fa-plus-circle"></i>
+                Adicionar Novo Dado
+            </h2>
+
+            <form method="POST" id="addDataForm">
+                <div class="search-row">
+                    <div class="form-group">
+                        <label class="form-label">Tipo de Dado <span class="required">*</span></label>
+                        <select name="tipo_dado" id="tipo_dado" required class="form-control">
+                            <option value="">Selecione o tipo</option>
+                            <option value="estado">Estado</option>
+                            <option value="municipio">Município</option>
+                            <option value="descricao">Descrição</option>
+                            <option value="instituicao">Instituição</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="estado_group" style="display: none;">
+                        <label class="form-label">Estado <span class="required">*</span></label>
+                        <select name="estado_id" id="estado_id" class="form-control">
+                            <option value="">Selecione o estado</option>
+                            {% for estado in estados %}
+                            <option value="{{ estado.id }}">{{ estado.nome }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nome <span class="required">*</span></label>
+                        <input type="text" name="nome" id="nome" required class="form-control"
+                            placeholder="Digite o nome">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Seção de Busca -->
+        <div class="search-section">
+            <h3 style="margin-bottom: 1rem; color: var(--primary);">
+                <i class="fas fa-search"></i>
+                Buscar Dados
+            </h3>
+            <div class="search-row">
                 <div class="form-group">
-                    <label class="form-label">Tipo de Dado <span class="required">*</span></label>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="radio" id="tipo-estado" name="tipo_dado" value="estado" required>
-                            <span>Estado</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="radio" id="tipo-municipio" name="tipo_dado" value="municipio" required>
-                            <span>Município</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="radio" id="tipo-descricao" name="tipo_dado" value="descricao" required>
-                            <span>Descrição</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="radio" id="tipo-instituicao" name="tipo_dado" value="instituicao" required>
-                            <span>Instituição</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group" id="estadoField" style="display:none;">
-                    <label for="estado_id" class="form-label">Estado</label>
-                    <select id="estado_id" name="estado_id" class="form-control">
-                        <option value="" disabled selected>Selecione o estado</option>
-                        {% for estado in estados %}
-                        <option value="{{ estado.id }}">{{ estado.nome }}</option>
-                        {% endfor %}
+                    <label class="form-label">Tipo</label>
+                    <select id="search_tipo" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="estado">Estados</option>
+                        <option value="municipio">Municípios</option>
+                        <option value="descricao">Descrições</option>
+                        <option value="instituicao">Instituições</option>
                     </select>
-                    <div class="input-hint">
-                        <i class="fas fa-info-circle"></i>
-                        Obrigatório apenas para municípios
-                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Buscar por nome</label>
+                    <input type="text" id="search_nome" class="form-control" placeholder="Digite para buscar...">
+                </div>
+                <div class="form-group">
+                    <button type="button" id="btn_search" class="btn btn-outline">
+                        <i class="fas fa-search"></i>
+                        Buscar
+                    </button>
+                    <button type="button" id="btn_clear" class="btn btn-outline">
+                        <i class="fas fa-times"></i>
+                        Limpar
+                    </button>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="nome" class="form-label">Nome <span class="required">*</span></label>
-                <input type="text" id="nome" name="nome" class="form-control uppercase"
-                    placeholder="Digite o nome do item" maxlength="100" required>
-                <div
-                    style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">
-                    <span id="charCount">0</span>/100
-                    <span style="display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-keyboard"></i> O
-                        texto será automaticamente convertido para maiúsculas</span>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Carregando dados...</p>
+        </div>
+
+        <!-- Tabelas de Dados -->
+        <div id="data_tables">
+            <!-- Estados -->
+            <div class="card" id="estados_section">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-map"></i>
+                    Estados ({{ estados|length }})
+                </h3>
+                <div class="table-responsive">
+                    <table class="data-table" id="estados_table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Municípios</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for estado in estados %}
+                            <tr data-id="{{ estado.id }}" data-type="estado">
+                                <td>{{ estado.id }}</td>
+                                <td class="editable" data-field="nome">{{ estado.nome }}</td>
+                                <td>{{ estado.municipios|length }}</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-sm btn-warning edit-btn" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger delete-btn" title="Excluir">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <button type="submit" class="submit-button" id="submitButton">
-                <i class="fas fa-save"></i>
-                <span>Adicionar Dado</span>
-            </button>
-        </form>
-        <a href="{{ url_for('admin.index_admin') }}" class="btn btn-secondary" style="margin-top: 1.5rem;">
-            <i class="fas fa-arrow-left"></i> Voltar ao painel administrativo
-        </a>
-    </div>
-    <div class="info-panel">
-        <div class="info-card">
-            <div class="info-card-header">
-                <div class="info-card-icon">
-                    <i class="fas fa-database"></i>
+
+            <!-- Municípios -->
+            <div class="card" id="municipios_section">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-city"></i>
+                    Municípios ({{ municipios|length }})
+                </h3>
+                <div class="table-responsive">
+                    <table class="data-table" id="municipios_table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Estado</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for municipio in municipios %}
+                            <tr data-id="{{ municipio.id }}" data-type="municipio">
+                                <td>{{ municipio.id }}</td>
+                                <td class="editable" data-field="nome">{{ municipio.nome }}</td>
+                                <td>{{ municipio.estado.nome if municipio.estado else 'N/A' }}</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-sm btn-warning edit-btn" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger delete-btn" title="Excluir">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
-                <h3 class="info-card-title">Dica</h3>
             </div>
-            <div style="color: #6b7280; font-size: 0.95rem;">
-                Use este painel para cadastrar novos estados, municípios, descrições ou instituições que serão
-                utilizados nos cadastros do sistema.
+
+            <!-- Descrições -->
+            <div class="card" id="descricoes_section">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-tags"></i>
+                    Descrições ({{ descricoes|length }})
+                </h3>
+                <div class="table-responsive">
+                    <table class="data-table" id="descricoes_table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for descricao in descricoes %}
+                            <tr data-id="{{ descricao.id }}" data-type="descricao">
+                                <td>{{ descricao.id }}</td>
+                                <td class="editable" data-field="nome">{{ descricao.nome }}</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-sm btn-warning edit-btn" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger delete-btn" title="Excluir">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Instituições -->
+            <div class="card" id="instituicoes_section">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-building"></i>
+                    Instituições ({{ instituicoes|length }})
+                </h3>
+                <div class="table-responsive">
+                    <table class="data-table" id="instituicoes_table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for instituicao in instituicoes %}
+                            <tr data-id="{{ instituicao.id }}" data-type="instituicao">
+                                <td>{{ instituicao.id }}</td>
+                                <td class="editable" data-field="nome">{{ instituicao.nome }}</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-sm btn-warning edit-btn" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger delete-btn" title="Excluir">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
 
-{% block scripts %}
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const radioButtons = document.querySelectorAll('input[name="tipo_dado"]');
-        const estadoField = document.getElementById('estadoField');
-        const nomeInput = document.getElementById('nome');
-        const charCount = document.getElementById('charCount');
-        const submitButton = document.getElementById('submitButton');
+    <!-- Modal de Confirmação -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirmar Exclusão</h3>
+                <span class="close">&times;</span>
+            </div>
+            <p>Tem certeza que deseja excluir este item? Esta ação não pode ser desfeita.</p>
+            <div style="text-align: right; margin-top: 1.5rem;">
+                <button class="btn btn-outline" onclick="closeModal()">Cancelar</button>
+                <button class="btn btn-danger" id="confirmDelete">Excluir</button>
+            </div>
+        </div>
+    </div>
 
-        // Alternar campo de estado
-        radioButtons.forEach(radio => {
-            radio.addEventListener('change', function () {
-                if (this.value === 'municipio') {
-                    estadoField.style.display = '';
-                    document.getElementById('estado_id').required = true;
-                } else {
-                    estadoField.style.display = 'none';
-                    document.getElementById('estado_id').required = false;
-                    document.getElementById('estado_id').value = '';
-                }
-                const placeholders = {
-                    'estado': 'Digite o nome do estado (ex: DISTRITO FEDERAL)',
-                    'municipio': 'Digite o nome do município (ex: BRASÍLIA)',
-                    'descricao': 'Digite a descrição (ex: DOCUMENTAÇÃO RURAL)',
-                    'instituicao': 'Digite o nome da instituição (ex: INCRA)'
+    <script>
+        // Controle do formulário
+        document.getElementById('tipo_dado').addEventListener('change', function () {
+            const estadoGroup = document.getElementById('estado_group');
+            if (this.value === 'municipio') {
+                estadoGroup.style.display = 'block';
+                document.getElementById('estado_id').required = true;
+            } else {
+                estadoGroup.style.display = 'none';
+                document.getElementById('estado_id').required = false;
+            }
+        });
+
+        // Busca
+        document.getElementById('btn_search').addEventListener('click', function () {
+            const tipo = document.getElementById('search_tipo').value;
+            const nome = document.getElementById('search_nome').value.toLowerCase();
+
+            // Filtra as tabelas
+            const sections = ['estados_section', 'municipios_section', 'descricoes_section', 'instituicoes_section'];
+
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                const table = section.querySelector('.data-table');
+                const rows = table.querySelectorAll('tbody tr');
+
+                let visibleRows = 0;
+
+                rows.forEach(row => {
+                    const rowType = row.dataset.type;
+                    const rowName = row.querySelector('.editable').textContent.toLowerCase();
+
+                    const matchesTipo = !tipo || rowType === tipo;
+                    const matchesNome = !nome || rowName.includes(nome);
+
+                    if (matchesTipo && matchesNome) {
+                        row.style.display = '';
+                        visibleRows++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                // Atualiza o contador
+                const title = section.querySelector('h3');
+                const count = title.textContent.match(/\((\d+)\)/)[1];
+                title.innerHTML = title.innerHTML.replace(/\(\d+\)/, `(${visibleRows})`);
+            });
+        });
+
+        document.getElementById('btn_clear').addEventListener('click', function () {
+            document.getElementById('search_tipo').value = '';
+            document.getElementById('search_nome').value = '';
+            document.getElementById('btn_search').click();
+        });
+
+        // Edição inline
+        document.querySelectorAll('.edit-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const row = this.closest('tr');
+                const cell = row.querySelector('.editable');
+                const currentValue = cell.textContent;
+
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.value = currentValue;
+                input.className = 'form-control';
+                input.style.margin = '0';
+
+                const saveBtn = document.createElement('button');
+                saveBtn.className = 'btn btn-sm btn-success';
+                saveBtn.innerHTML = '<i class="fas fa-check"></i>';
+                saveBtn.style.marginLeft = '0.5rem';
+
+                const cancelBtn = document.createElement('button');
+                cancelBtn.className = 'btn btn-sm btn-outline';
+                cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
+                cancelBtn.style.marginLeft = '0.25rem';
+
+                cell.innerHTML = '';
+                cell.appendChild(input);
+                cell.appendChild(saveBtn);
+                cell.appendChild(cancelBtn);
+
+                input.focus();
+
+                saveBtn.addEventListener('click', function () {
+                    const newValue = input.value.trim();
+                    if (newValue && newValue !== currentValue) {
+                        // Aqui você faria a requisição AJAX para salvar
+                        cell.textContent = newValue;
+                    } else {
+                        cell.textContent = currentValue;
+                    }
+                });
+
+                cancelBtn.addEventListener('click', function () {
+                    cell.textContent = currentValue;
+                });
+
+                input.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                        saveBtn.click();
+                    }
+                });
+            });
+        });
+
+        // Exclusão
+        let itemToDelete = null;
+
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const row = this.closest('tr');
+                itemToDelete = {
+                    id: row.dataset.id,
+                    type: row.dataset.type,
+                    name: row.querySelector('.editable').textContent
                 };
-                nomeInput.placeholder = placeholders[this.value] || 'Digite o nome do item';
+                document.getElementById('confirmModal').style.display = 'block';
             });
         });
 
-        // Contador de caracteres
-        nomeInput.addEventListener('input', function () {
-            charCount.textContent = this.value.length;
+        document.getElementById('confirmDelete').addEventListener('click', function () {
+            if (itemToDelete) {
+                // Aqui você faria a requisição AJAX para excluir
+                const row = document.querySelector(`tr[data-id="${itemToDelete.id}"][data-type="${itemToDelete.type}"]`);
+                if (row) {
+                    row.remove();
+                }
+                closeModal();
+            }
         });
 
-        // Validação do formulário
-        document.getElementById('dataForm').addEventListener('submit', function (e) {
-            const selectedType = document.querySelector('input[name="tipo_dado"]:checked');
-            const nome = nomeInput.value.trim();
-            const estadoId = document.getElementById('estado_id').value;
-            if (!selectedType) {
-                e.preventDefault();
-                alert('Por favor, selecione o tipo de dado.');
-                return;
-            }
-            if (!nome) {
-                e.preventDefault();
-                alert('Por favor, digite o nome.');
-                nomeInput.focus();
-                return;
-            }
-            if (selectedType.value === 'municipio' && !estadoId) {
-                e.preventDefault();
-                alert('Por favor, selecione o estado para o município.');
-                document.getElementById('estado_id').focus();
-                return;
-            }
-            submitButton.disabled = true;
-            submitButton.classList.add('loading');
-            submitButton.querySelector('span').style.opacity = '0';
-        });
+        function closeModal() {
+            document.getElementById('confirmModal').style.display = 'none';
+            itemToDelete = null;
+        }
 
-        // Auto-foco
-        radioButtons.forEach(radio => {
-            radio.addEventListener('change', function () {
-                setTimeout(() => {
-                    nomeInput.focus();
-                }, 300);
-            });
-        });
-
-        // Validação do input
-        nomeInput.addEventListener('input', function () {
-            this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s\-]/g, '');
-            this.value = this.value.toUpperCase();
-            this.value = this.value.replace(/\s+/g, ' ');
-            if (this.value.startsWith(' ')) {
-                this.value = this.value.trimStart();
+        // Fechar modal ao clicar fora
+        window.onclick = function (event) {
+            const modal = document.getElementById('confirmModal');
+            if (event.target === modal) {
+                closeModal();
             }
-        });
-    });
-</script>
-{% endblock %}
+        }
+
+        // Fechar modal com X
+        document.querySelector('.close').onclick = closeModal;
+    </script>
+</body>
+
+</html>

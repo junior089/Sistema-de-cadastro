@@ -1985,3 +1985,314 @@
 2025-06-28 21:07:43,947 - INFO -  * Debugger PIN: 129-690-423
 2025-06-28 21:07:43,991 - WARNING -  * Debugger is active!
 2025-06-28 21:07:43,993 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 21:12:00,510 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\migrations\\__init__.py', reloading
+2025-06-28 21:12:00,513 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\migrations\\__init__.py', reloading
+2025-06-28 21:12:00,727 - INFO -  * Restarting with stat
+2025-06-28 21:12:00,727 - INFO -  * Restarting with stat
+2025-06-28 22:17:42,270 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:17:42,270 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:17:42,271 - INFO -  * Restarting with stat
+2025-06-28 22:17:43,450 - WARNING -  * Debugger is active!
+2025-06-28 22:17:43,453 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:17:53,821 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:53] "[31m[1mGET /index_admin HTTP/1.1[0m" 401 -
+2025-06-28 22:17:55,025 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:55] "[31m[1mGET /index_admin HTTP/1.1[0m" 401 -
+2025-06-28 22:17:55,640 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:55] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-06-28 22:17:55,709 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:55] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=vfWql4VEkUPzm79F1riC HTTP/1.1" 200 -
+2025-06-28 22:17:55,750 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:55] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 22:17:58,151 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:58] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-06-28 22:17:58,165 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:58] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 22:17:58,172 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:58] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 22:17:58,198 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:58] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=vfWql4VEkUPzm79F1riC HTTP/1.1[0m" 304 -
+2025-06-28 22:17:58,221 - INFO - 127.0.0.1 - - [28/Jun/2025 22:17:58] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 22:19:13,162 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:19:13,163 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:19:13,164 - INFO -  * Restarting with stat
+2025-06-28 22:19:14,197 - WARNING -  * Debugger is active!
+2025-06-28 22:19:14,200 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:19:15,189 - INFO - 127.0.0.1 - - [28/Jun/2025 22:19:15] "GET / HTTP/1.1" 200 -
+2025-06-28 22:20:04,583 - INFO -  * Detected change in 'C:\\Multirao mulher\\create_admin.py', reloading
+2025-06-28 22:20:04,751 - INFO -  * Restarting with stat
+2025-06-28 22:20:05,918 - WARNING -  * Debugger is active!
+2025-06-28 22:20:05,921 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:20:22,812 - INFO - 127.0.0.1 - - [28/Jun/2025 22:20:22] "POST / HTTP/1.1" 200 -
+2025-06-28 22:20:29,588 - INFO - 127.0.0.1 - - [28/Jun/2025 22:20:29] "POST / HTTP/1.1" 200 -
+2025-06-28 22:20:36,521 - INFO - 127.0.0.1 - - [28/Jun/2025 22:20:36] "POST / HTTP/1.1" 200 -
+2025-06-28 22:21:28,715 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\auth_routes.py', reloading
+2025-06-28 22:21:28,921 - INFO -  * Restarting with stat
+2025-06-28 22:21:29,934 - WARNING -  * Debugger is active!
+2025-06-28 22:21:29,937 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:22:00,546 - INFO - 127.0.0.1 - - [28/Jun/2025 22:22:00] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:22:00,562 - INFO - 127.0.0.1 - - [28/Jun/2025 22:22:00] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:22:06,404 - INFO - 127.0.0.1 - - [28/Jun/2025 22:22:06] "[35m[1mGET /criar_usuario HTTP/1.1[0m" 500 -
+2025-06-28 22:22:06,428 - INFO - 127.0.0.1 - - [28/Jun/2025 22:22:06] "GET /criar_usuario?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-28 22:22:06,430 - INFO - 127.0.0.1 - - [28/Jun/2025 22:22:06] "GET /criar_usuario?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-28 22:22:06,461 - INFO - 127.0.0.1 - - [28/Jun/2025 22:22:06] "GET /criar_usuario?__debugger__=yes&cmd=resource&f=console.png&s=zaZkJkBfdPPrq1vNz3A2 HTTP/1.1" 200 -
+2025-06-28 22:22:06,472 - INFO - 127.0.0.1 - - [28/Jun/2025 22:22:06] "GET /criar_usuario?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-28 22:23:32,791 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:32] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:23:38,066 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:38] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:23:42,751 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:42] "GET /ver_logs HTTP/1.1" 200 -
+2025-06-28 22:23:43,949 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:43] "[35m[1mGET /backup/manual HTTP/1.1[0m" 500 -
+2025-06-28 22:23:43,969 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:43] "GET /backup/manual?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-28 22:23:43,971 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:43] "GET /backup/manual?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-28 22:23:44,001 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:44] "GET /backup/manual?__debugger__=yes&cmd=resource&f=console.png&s=zaZkJkBfdPPrq1vNz3A2 HTTP/1.1" 200 -
+2025-06-28 22:23:44,029 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:44] "GET /backup/manual?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-28 22:23:45,635 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:45] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:23:45,656 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:45] "[33mGET /static/images/logo_incra.png HTTP/1.1[0m" 404 -
+2025-06-28 22:23:50,108 - INFO - 127.0.0.1 - - [28/Jun/2025 22:23:50] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:24:33,174 - INFO - 127.0.0.1 - - [28/Jun/2025 22:24:33] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:24:34,013 - INFO - 127.0.0.1 - - [28/Jun/2025 22:24:34] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:28:02,251 - INFO - 127.0.0.1 - - [28/Jun/2025 22:28:02] "[35m[1mGET /criar_usuario HTTP/1.1[0m" 500 -
+2025-06-28 22:28:02,265 - INFO - 127.0.0.1 - - [28/Jun/2025 22:28:02] "[36mGET /criar_usuario?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 22:28:02,266 - INFO - 127.0.0.1 - - [28/Jun/2025 22:28:02] "[36mGET /criar_usuario?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 22:28:02,392 - INFO - 127.0.0.1 - - [28/Jun/2025 22:28:02] "[36mGET /criar_usuario?__debugger__=yes&cmd=resource&f=console.png&s=zaZkJkBfdPPrq1vNz3A2 HTTP/1.1[0m" 304 -
+2025-06-28 22:28:02,544 - INFO - 127.0.0.1 - - [28/Jun/2025 22:28:02] "[36mGET /criar_usuario?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 22:29:00,257 - INFO - 127.0.0.1 - - [28/Jun/2025 22:29:00] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:30:31,206 - INFO - 127.0.0.1 - - [28/Jun/2025 22:30:31] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:30:34,192 - INFO - 127.0.0.1 - - [28/Jun/2025 22:30:34] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:30:59,213 - INFO - 127.0.0.1 - - [28/Jun/2025 22:30:59] "[32mPOST /criar_usuario HTTP/1.1[0m" 302 -
+2025-06-28 22:30:59,218 - INFO - 127.0.0.1 - - [28/Jun/2025 22:30:59] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:31:03,682 - INFO - 127.0.0.1 - - [28/Jun/2025 22:31:03] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:31:14,749 - INFO - 127.0.0.1 - - [28/Jun/2025 22:31:14] "[32mPOST /criar_usuario HTTP/1.1[0m" 302 -
+2025-06-28 22:31:14,755 - INFO - 127.0.0.1 - - [28/Jun/2025 22:31:14] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:31:19,455 - INFO - 127.0.0.1 - - [28/Jun/2025 22:31:19] "GET /editar_usuario/1 HTTP/1.1" 200 -
+2025-06-28 22:31:35,559 - INFO - 127.0.0.1 - - [28/Jun/2025 22:31:35] "[32mPOST /editar_usuario/1 HTTP/1.1[0m" 302 -
+2025-06-28 22:31:35,564 - INFO - 127.0.0.1 - - [28/Jun/2025 22:31:35] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:31:41,993 - INFO - 127.0.0.1 - - [28/Jun/2025 22:31:41] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 22:31:42,010 - INFO - 127.0.0.1 - - [28/Jun/2025 22:31:42] "GET / HTTP/1.1" 200 -
+2025-06-28 22:31:53,292 - INFO - 127.0.0.1 - - [28/Jun/2025 22:31:53] "POST / HTTP/1.1" 200 -
+2025-06-28 22:32:05,750 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:05] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:32:05,756 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:05] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:32:09,111 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:09] "GET / HTTP/1.1" 200 -
+2025-06-28 22:32:15,541 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:15] "POST / HTTP/1.1" 200 -
+2025-06-28 22:32:22,869 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:22] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:32:22,875 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:22] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:32:26,326 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:26] "GET /editar_usuario/3 HTTP/1.1" 200 -
+2025-06-28 22:32:31,177 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:31] "[32mPOST /editar_usuario/3 HTTP/1.1[0m" 302 -
+2025-06-28 22:32:31,182 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:31] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:32:35,271 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:35] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 22:32:35,289 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:35] "GET / HTTP/1.1" 200 -
+2025-06-28 22:32:42,153 - INFO - 127.0.0.1 - - [28/Jun/2025 22:32:42] "POST / HTTP/1.1" 200 -
+2025-06-28 22:33:21,471 - INFO -  * Detected change in 'C:\\Multirao mulher\\check_users.py', reloading
+2025-06-28 22:33:21,711 - INFO -  * Restarting with stat
+2025-06-28 22:33:22,845 - WARNING -  * Debugger is active!
+2025-06-28 22:33:22,848 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:33:34,481 - INFO -  * Detected change in 'C:\\Multirao mulher\\check_tables.py', reloading
+2025-06-28 22:33:34,724 - INFO -  * Restarting with stat
+2025-06-28 22:33:35,842 - WARNING -  * Debugger is active!
+2025-06-28 22:33:35,846 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:33:57,990 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:33:57,990 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:33:57,992 - INFO -  * Restarting with stat
+2025-06-28 22:33:59,103 - WARNING -  * Debugger is active!
+2025-06-28 22:33:59,105 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:34:37,771 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:34:37,771 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:34:37,773 - INFO -  * Restarting with stat
+2025-06-28 22:34:38,816 - WARNING -  * Debugger is active!
+2025-06-28 22:34:38,819 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:35:06,915 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\force_create_system_status_table.py', reloading
+2025-06-28 22:35:07,097 - INFO -  * Restarting with stat
+2025-06-28 22:35:07,167 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\force_create_system_status_table.py', reloading
+2025-06-28 22:35:07,447 - INFO -  * Restarting with stat
+2025-06-28 22:35:08,406 - WARNING -  * Debugger is active!
+2025-06-28 22:35:08,410 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:35:08,684 - WARNING -  * Debugger is active!
+2025-06-28 22:35:08,690 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:35:09,601 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 22:35:09,755 - INFO -  * Restarting with stat
+2025-06-28 22:35:09,885 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 22:35:10,155 - INFO -  * Restarting with stat
+2025-06-28 22:35:11,353 - WARNING -  * Debugger is active!
+2025-06-28 22:35:11,358 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:35:11,676 - WARNING -  * Debugger is active!
+2025-06-28 22:35:11,680 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:35:18,985 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:35:18,985 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:35:18,986 - INFO -  * Restarting with stat
+2025-06-28 22:35:20,068 - WARNING -  * Debugger is active!
+2025-06-28 22:35:20,071 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:35:43,978 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 22:35:44,218 - INFO -  * Restarting with stat
+2025-06-28 22:35:44,228 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 22:35:44,487 - INFO -  * Restarting with stat
+2025-06-28 22:35:45,556 - WARNING -  * Debugger is active!
+2025-06-28 22:35:45,560 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:35:45,695 - WARNING -  * Debugger is active!
+2025-06-28 22:35:45,698 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:35:52,888 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:35:52,888 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:35:52,890 - INFO -  * Restarting with stat
+2025-06-28 22:35:53,966 - WARNING -  * Debugger is active!
+2025-06-28 22:35:53,969 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:36:23,392 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 22:36:23,456 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 22:36:23,622 - INFO -  * Restarting with stat
+2025-06-28 22:36:23,719 - INFO -  * Restarting with stat
+2025-06-28 22:36:24,914 - WARNING -  * Debugger is active!
+2025-06-28 22:36:24,918 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:36:24,933 - WARNING -  * Debugger is active!
+2025-06-28 22:36:24,935 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:36:35,816 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:36:35,817 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:36:35,818 - INFO -  * Restarting with stat
+2025-06-28 22:36:36,887 - WARNING -  * Debugger is active!
+2025-06-28 22:36:36,891 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:37:32,100 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_create_all.py', reloading
+2025-06-28 22:37:32,103 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_create_all.py', reloading
+2025-06-28 22:37:32,245 - INFO -  * Restarting with stat
+2025-06-28 22:37:32,252 - INFO -  * Restarting with stat
+2025-06-28 22:37:33,337 - WARNING -  * Debugger is active!
+2025-06-28 22:37:33,340 - WARNING -  * Debugger is active!
+2025-06-28 22:37:33,340 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:37:33,344 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:39:42,674 - INFO - 127.0.0.1 - - [28/Jun/2025 22:39:42] "POST / HTTP/1.1" 200 -
+2025-06-28 22:40:02,826 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_flask_context.py', reloading
+2025-06-28 22:40:02,846 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_flask_context.py', reloading
+2025-06-28 22:40:03,052 - INFO -  * Restarting with stat
+2025-06-28 22:40:03,057 - INFO -  * Restarting with stat
+2025-06-28 22:40:04,095 - WARNING -  * Debugger is active!
+2025-06-28 22:40:04,097 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:40:04,102 - WARNING -  * Debugger is active!
+2025-06-28 22:40:04,105 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:41:24,304 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\database_config.py', reloading
+2025-06-28 22:41:24,306 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\database_config.py', reloading
+2025-06-28 22:41:24,599 - INFO -  * Restarting with stat
+2025-06-28 22:41:24,607 - INFO -  * Restarting with stat
+2025-06-28 22:41:26,020 - WARNING -  * Debugger is active!
+2025-06-28 22:41:26,024 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:41:53,238 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:41:53,238 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:41:53,239 - INFO -  * Restarting with stat
+2025-06-28 22:41:54,358 - WARNING -  * Debugger is active!
+2025-06-28 22:41:54,361 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:41:58,410 - INFO - 127.0.0.1 - - [28/Jun/2025 22:41:58] "POST / HTTP/1.1" 200 -
+2025-06-28 22:42:44,212 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:42:44,212 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:42:44,214 - INFO -  * Restarting with stat
+2025-06-28 22:42:45,212 - WARNING -  * Debugger is active!
+2025-06-28 22:42:45,214 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:42:48,328 - INFO - 127.0.0.1 - - [28/Jun/2025 22:42:48] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:42:48,342 - INFO - 127.0.0.1 - - [28/Jun/2025 22:42:48] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:42:51,713 - INFO - 127.0.0.1 - - [28/Jun/2025 22:42:51] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:43:03,604 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:03] "[32mPOST /criar_usuario HTTP/1.1[0m" 302 -
+2025-06-28 22:43:03,609 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:03] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:43:06,233 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:06] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 22:43:06,252 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:06] "GET / HTTP/1.1" 200 -
+2025-06-28 22:43:20,182 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:20] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:43:20,194 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:20] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 22:43:20,249 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:20] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 22:43:24,455 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:24] "POST /buscar_nome HTTP/1.1" 200 -
+2025-06-28 22:43:32,128 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:32] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 22:43:32,144 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:32] "GET / HTTP/1.1" 200 -
+2025-06-28 22:43:41,414 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:41] "POST / HTTP/1.1" 200 -
+2025-06-28 22:43:48,340 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:48] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:43:48,345 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:48] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:43:50,877 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:50] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:43:50,903 - INFO - 127.0.0.1 - - [28/Jun/2025 22:43:50] "[33mGET /static/images/logo_incra.png HTTP/1.1[0m" 404 -
+2025-06-28 22:44:40,557 - INFO - 127.0.0.1 - - [28/Jun/2025 22:44:40] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:46:03,437 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:03] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:46:10,805 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\admin_routes.py', reloading
+2025-06-28 22:46:11,066 - INFO -  * Restarting with stat
+2025-06-28 22:46:12,174 - WARNING -  * Debugger is active!
+2025-06-28 22:46:12,177 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:46:16,802 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:16] "[32mPOST /gerenciar_dados HTTP/1.1[0m" 302 -
+2025-06-28 22:46:16,816 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:16] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:46:22,119 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:22] "[32mPOST /gerenciar_dados HTTP/1.1[0m" 302 -
+2025-06-28 22:46:22,125 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:22] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:46:28,141 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:28] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:46:30,008 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:30] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:46:33,150 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:33] "[32mPOST /gerenciar_dados HTTP/1.1[0m" 302 -
+2025-06-28 22:46:33,156 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:33] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:46:35,494 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:35] "[32mPOST /gerenciar_dados HTTP/1.1[0m" 302 -
+2025-06-28 22:46:35,500 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:35] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:46:36,494 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:36] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:46:37,567 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:37] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 22:46:37,584 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:37] "GET / HTTP/1.1" 200 -
+2025-06-28 22:46:46,697 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:46] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:46:46,709 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:46] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 22:46:46,788 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:46] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 22:46:50,029 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:50] "POST /buscar_nome HTTP/1.1" 200 -
+2025-06-28 22:46:50,647 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:50] "GET /get_municipios/1 HTTP/1.1" 200 -
+2025-06-28 22:46:56,838 - INFO - 127.0.0.1 - - [28/Jun/2025 22:46:56] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 22:47:05,441 - INFO - 127.0.0.1 - - [28/Jun/2025 22:47:05] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 22:47:10,596 - INFO - 127.0.0.1 - - [28/Jun/2025 22:47:10] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 22:47:29,861 - INFO - 127.0.0.1 - - [28/Jun/2025 22:47:29] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 22:47:29,872 - INFO - 127.0.0.1 - - [28/Jun/2025 22:47:29] "GET / HTTP/1.1" 200 -
+2025-06-28 22:47:38,554 - INFO - 127.0.0.1 - - [28/Jun/2025 22:47:38] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:47:38,560 - INFO - 127.0.0.1 - - [28/Jun/2025 22:47:38] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:47:47,764 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\system_status.py', reloading
+2025-06-28 22:47:47,950 - INFO -  * Restarting with stat
+2025-06-28 22:47:49,146 - WARNING -  * Debugger is active!
+2025-06-28 22:47:49,150 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:47:51,176 - INFO - 127.0.0.1 - - [28/Jun/2025 22:47:51] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 22:48:04,043 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 22:48:04,278 - INFO -  * Restarting with stat
+2025-06-28 22:48:05,401 - WARNING -  * Debugger is active!
+2025-06-28 22:48:05,404 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:48:16,027 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\notification_utils.py', reloading
+2025-06-28 22:48:16,151 - INFO -  * Restarting with stat
+2025-06-28 22:48:17,249 - WARNING -  * Debugger is active!
+2025-06-28 22:48:17,252 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:48:38,496 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\validators.py', reloading
+2025-06-28 22:48:38,734 - INFO -  * Restarting with stat
+2025-06-28 22:48:39,949 - WARNING -  * Debugger is active!
+2025-06-28 22:48:39,952 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:49:06,479 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\audit_utils.py', reloading
+2025-06-28 22:49:06,702 - INFO -  * Restarting with stat
+2025-06-28 22:49:07,928 - WARNING -  * Debugger is active!
+2025-06-28 22:49:07,931 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:51:36,875 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\cache_utils.py', reloading
+2025-06-28 22:51:37,048 - INFO -  * Restarting with stat
+2025-06-28 22:51:38,118 - WARNING -  * Debugger is active!
+2025-06-28 22:51:38,121 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:52:17,286 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\performance_monitor.py', reloading
+2025-06-28 22:52:17,459 - INFO -  * Restarting with stat
+2025-06-28 22:52:18,933 - WARNING -  * Debugger is active!
+2025-06-28 22:52:18,936 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:52:34,586 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:52:34,586 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:52:34,587 - INFO -  * Restarting with stat
+2025-06-28 22:52:35,691 - WARNING -  * Debugger is active!
+2025-06-28 22:52:35,694 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:52:37,871 - INFO - 127.0.0.1 - - [28/Jun/2025 22:52:37] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:52:39,073 - INFO - 127.0.0.1 - - [28/Jun/2025 22:52:39] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:52:41,709 - INFO - 127.0.0.1 - - [28/Jun/2025 22:52:41] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 22:52:41,727 - INFO - 127.0.0.1 - - [28/Jun/2025 22:52:41] "GET / HTTP/1.1" 200 -
+2025-06-28 22:54:52,859 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\validators.py', reloading
+2025-06-28 22:54:53,038 - INFO -  * Restarting with stat
+2025-06-28 22:54:54,285 - WARNING -  * Debugger is active!
+2025-06-28 22:54:54,288 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:54:55,422 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\validators.py', reloading
+2025-06-28 22:54:55,564 - INFO -  * Restarting with stat
+2025-06-28 22:54:56,567 - WARNING -  * Debugger is active!
+2025-06-28 22:54:56,571 - INFO -  * Debugger PIN: 129-690-423

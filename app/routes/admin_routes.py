@@ -1,7 +1,13 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, send_file, jsonify, current_app
 from flask_login import login_required, current_user
 from app import db
-from app.models import User, Log, Estado, Municipio, Descricao, Instituicao, SystemStatus
+from app.models.user import User
+from app.models import SystemStatus
+from app.models.log import Log
+from app.models.estado import Estado
+from app.models.municipio import Municipio
+from app.models.descricao import Descricao
+from app.models.instituicao import Instituicao
 from datetime import datetime, UTC
 import os
 
@@ -142,13 +148,16 @@ def gerenciar_dados():
         flash("Acesso negado!", 'error')
         return render_template('error.html', mensagem="Acesso negado!", codigo=403), 403
     estados = Estado.query.all()
+    municipios = Municipio.query.all()
+    descricoes = Descricao.query.all()
+    instituicoes = Instituicao.query.all()
     if request.method == 'POST':
         tipo_dado = request.form.get('tipo_dado', '').strip().lower()
         nome = request.form.get('nome', '').strip().upper()
         mensagem = ""
         if not tipo_dado or not nome:
             flash("Tipo de dado e nome são obrigatórios!", 'error')
-            return render_template('data_manage.html', estados=estados)
+            return render_template('data_manage.html', estados=estados, municipios=municipios, descricoes=descricoes, instituicoes=instituicoes)
         if tipo_dado == 'estado':
             novo_estado = Estado(nome=nome)
             db.session.add(novo_estado)
@@ -159,7 +168,7 @@ def gerenciar_dados():
             estado_id = request.form.get('estado_id', '').strip()
             if not estado_id:
                 flash("Estado é obrigatório para município!", 'error')
-                return render_template('data_manage.html', estados=estados)
+                return render_template('data_manage.html', estados=estados, municipios=municipios, descricoes=descricoes, instituicoes=instituicoes)
             novo_municipio = Municipio(nome=nome, estado_id=estado_id)
             db.session.add(novo_municipio)
             db.session.commit()
@@ -180,12 +189,12 @@ def gerenciar_dados():
             log = Log(usuario=current_user.username, acao=f"Adicionou instituicao: {nome}")
         else:
             flash("Tipo de dado inválido!", 'error')
-            return render_template('data_manage.html', estados=estados)
+            return render_template('data_manage.html', estados=estados, municipios=municipios, descricoes=descricoes, instituicoes=instituicoes)
         db.session.add(log)
         db.session.commit()
         flash(mensagem, 'success')
         return redirect(url_for('admin.gerenciar_dados'))
-    return render_template('data_manage.html', estados=estados)
+    return render_template('data_manage.html', estados=estados, municipios=municipios, descricoes=descricoes, instituicoes=instituicoes)
 
 @admin_bp.route('/ver_logs')
 @login_required
@@ -268,14 +277,14 @@ def manage_maintenance():
     status = SystemStatus.query.first()
     if not status:
         status = SystemStatus(
+            status='OK',
+            last_update=datetime.now(UTC),
             maintenance_mode=False,
-            maintenance_message="Sistema em manutenção. Por favor, tente novamente mais tarde.",
-            last_updated=datetime.now(UTC)
+            maintenance_message="Sistema em manutenção. Por favor, tente novamente mais tarde."
         )
         db.session.add(status)
     status.maintenance_mode = not status.maintenance_mode
-    status.last_updated = datetime.now(UTC)
-    status.updated_by = current_user.id
+    status.last_update = datetime.now(UTC)
     db.session.commit()
     log = Log(
         usuario=current_user.username,

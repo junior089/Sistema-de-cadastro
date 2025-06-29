@@ -1,9 +1,16 @@
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for, flash, send_file, make_response
 from flask_login import login_required, current_user
 from app import db
-from app.models import Cadastro, User, Municipio, Estado, Descricao, Instituicao, Atendente, Log
+from app.models.cadastro import Cadastro
+from app.models.user import User
+from app.models.municipio import Municipio
+from app.models.estado import Estado
+from app.models.descricao import Descricao
+from app.models.instituicao import Instituicao
+from app.models.atendente import Atendente
+from app.models.log import Log
 from datetime import datetime, timedelta
-from app.utils import format_cadastro_for_notification, broadcast_notification
+from app.utils.notification_utils import format_cadastro_for_notification, broadcast_notification
 import io
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment

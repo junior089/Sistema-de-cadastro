@@ -1,11 +1,13 @@
 from flask import Flask
 from pathlib import Path
 from typing import Tuple
-from app.backup_utils import DatabaseBackup  # Importa a classe correta
+from app.utils.backup_utils import DatabaseBackup  # Importa a classe correta
+import os
 
 
 def configure_database_path(app: Flask) -> str:
-    base_dir = Path(app.root_path)
+    # Usa a pasta instance da raiz do projeto
+    base_dir = Path(app.instance_path)
     db_path = base_dir / 'cadastro.db'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
     db_path.parent.mkdir(exist_ok=True)

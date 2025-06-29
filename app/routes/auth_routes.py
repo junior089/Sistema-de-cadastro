@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
 from flask_login import login_user, login_required, logout_user, current_user
 from app import db
-from app.models import User, Log
+from app.models.user import User
+from app.models.log import Log
+from sqlalchemy import func
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -14,7 +16,7 @@ def login():
         if not username or not password:
             flash('Por favor, preencha todos os campos.', 'danger')
             return render_template('login.html')
-        user = User.query.filter_by(username=username).first()
+        user = User.query.filter(func.upper(User.username) == username).first()
         print(f"Resultado da busca no banco: {user}")
         if user and user.verify_password(password):
             login_user(user)
