@@ -1,5 +1,5 @@
 """
-Script para adicionar o campo 'atendida' na tabela Cadastro
+Script para adicionar coluna 'atendida' na tabela Cadastro
 Execute este script após fazer backup do banco de dados
 """
 
@@ -27,14 +27,14 @@ def add_atendida_field(db_path):
         cursor.execute("PRAGMA table_info(cadastro)")
         columns = [column[1] for column in cursor.fetchall()]
         if 'atendida' in columns:
-            print("Campo 'atendida' já existe na tabela!")
+            print("Coluna 'atendida' já existe na tabela!")
             return True
         cursor.execute("""
             ALTER TABLE cadastro
-                ADD COLUMN atendida BOOLEAN DEFAULT 0
+                ADD COLUMN atendida BOOLEAN NOT NULL DEFAULT 0
         """)
         conn.commit()
-        print("✅ Campo 'atendida' adicionado com sucesso!")
+        print("✅ Coluna 'atendida' adicionada com sucesso!")
         # Atualiza todos os registros antigos explicitamente
         cursor.execute("UPDATE cadastro SET atendida = 0 WHERE atendida IS NULL")
         conn.commit()

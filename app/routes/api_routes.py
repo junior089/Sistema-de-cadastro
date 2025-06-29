@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, Response, request, current_app
 from flask_login import login_required, current_user
 from app import db
-from app.models import Cadastro, Municipio, Estado, Descricao, instituicao, User, Log
+from app.models import Cadastro, Municipio, Estado, Descricao, Instituicao, User, Log
 from datetime import datetime, timedelta
 import json
 import threading

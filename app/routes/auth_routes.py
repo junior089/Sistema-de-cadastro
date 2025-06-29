@@ -16,7 +16,7 @@ def login():
             return render_template('login.html')
         user = User.query.filter_by(username=username).first()
         print(f"Resultado da busca no banco: {user}")
-        if user and user.password == password:
+        if user and user.verify_password(password):
             login_user(user)
             print(f"Login bem-sucedido para {user.username} (id={user.id})")
             try:
@@ -65,4 +65,4 @@ def trocar_senha():
             return redirect(url_for('cadastro.index_cadastro'))
         else:
             flash('Senha atual incorreta!', 'danger')
-    return render_template('trocar_senha.html')
+    return render_template('user_password_change.html')

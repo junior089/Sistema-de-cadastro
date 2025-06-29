@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for, flash, send_file, make_response
 from flask_login import login_required, current_user
 from app import db
-from app.models import Cadastro, User, Municipio, Estado, Descricao, instituicao, Atendente, Log
+from app.models import Cadastro, User, Municipio, Estado, Descricao, Instituicao, Atendente, Log
 from datetime import datetime, timedelta
 from app.utils import format_cadastro_for_notification, broadcast_notification
 import io
@@ -28,9 +28,9 @@ def index_cadastro():
     municipios = Municipio.query.all()
     estados = Estado.query.all()
     descricoes = Descricao.query.all()
-    instituicaoes = instituicao.query.all()
+    instituicaoes = Instituicao.query.all()
     atendentes = Atendente.query.all()
-    return render_template('index_cadastro.html', municipios=municipios, estados=estados, descricoes=descricoes,
+    return render_template('registration_dashboard.html', municipios=municipios, estados=estados, descricoes=descricoes,
                            instituicaoes=instituicaoes, atendentes=atendentes)
 
 @cadastro_bp.route('/cadastro', methods=['POST'])
@@ -44,13 +44,20 @@ def cadastro():
         telefone = request.form.get('telefone', '').strip()
         assentamento = request.form.get('assentamento', '').strip().upper()
         municipio_id = request.form.get('municipio') or None
-        estado_id = request.form.get('estado')
-        descricao_id = request.form.get('descricao')
-        instituicao_id = request.form.get('instituicao')
+        estado_id = request.form.get('estado', '').strip()
+        descricao_id = request.form.get('descricao', '').strip()
+        instituicao_id = request.form.get('instituicao', '').strip()
+        # Validação reforçada
         if not all([nome, cpf, telefone, assentamento, estado_id, descricao_id, instituicao_id]):
             return jsonify({'success': False, 'message': 'Campos obrigatórios não preenchidos'}), 400
+        if len(nome) < 3:
+            return jsonify({'success': False, 'message': 'Nome deve ter pelo menos 3 letras'}), 400
         if len(cpf) != 11 or not cpf.isdigit():
             return jsonify({'success': False, 'message': 'CPF inválido'}), 400
+        if not telefone.isdigit() or len(telefone) < 10:
+            return jsonify({'success': False, 'message': 'Telefone inválido'}), 400
+        if len(assentamento) < 3:
+            return jsonify({'success': False, 'message': 'Endereço/Assentamento inválido'}), 400
         dois_minutos_atras = datetime.now() - timedelta(minutes=2)
         cadastro_recente = Cadastro.query.filter(
             Cadastro.cpf == cpf,
@@ -150,7 +157,7 @@ def ver_cadastros():
     ]
     estados = Estado.query.all()
     descricoes = Descricao.query.all()
-    return render_template('ver_cadastros.html',
+    return render_template('registration_list.html',
                            cadastros=cadastros_formatados,
                            estados=estados,
                            descricoes=descricoes,

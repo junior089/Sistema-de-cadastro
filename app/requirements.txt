@@ -1,0 +1,5 @@
+# Este arquivo lista as dependências do projeto para instalação via pip
+Flask
+Flask-Login
+Flask-SQLAlchemy
+Flask-Migrate

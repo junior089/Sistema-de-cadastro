@@ -304,7 +304,8 @@
     <div style="max-width: 600px; margin: 2rem auto 0 auto; padding: 0 1rem;">
         {% for category, message in messages %}
         <div class="toast show {{ category }}" role="alert">
-            <i class="fas fa-{% if category == 'error' %}exclamation-circle{% elif category == 'warning' %}exclamation-triangle{% else %}check-circle{% endif %} toast-icon"></i>
+            <i
+                class="fas fa-{% if category == 'error' %}exclamation-circle{% elif category == 'warning' %}exclamation-triangle{% else %}check-circle{% endif %} toast-icon"></i>
             <span>{{ message }}</span>
             <button type="button" onclick="this.parentElement.remove()" class="btn btn-secondary btn-sm"
                 title="Fechar mensagem">
@@ -342,12 +343,12 @@
                     <i class="fas fa-times"></i>
                 </button>
             `;
-            
+
             document.body.appendChild(toast);
-            
+
             // Show toast
             setTimeout(() => toast.classList.add('show'), 100);
-            
+
             // Auto-hide after 5 seconds
             setTimeout(() => {
                 toast.classList.remove('show');
@@ -356,7 +357,7 @@
         }
 
         // Auto-hide flash messages after 5 seconds
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const toasts = document.querySelectorAll('.toast.show');
             toasts.forEach(toast => {
                 setTimeout(() => {
