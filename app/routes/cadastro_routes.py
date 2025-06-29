@@ -11,6 +11,7 @@ from app.models.atendente import Atendente
 from app.models.log import Log
 from datetime import datetime, timedelta
 from app.utils.notification_utils import format_cadastro_for_notification, broadcast_notification
+from app.utils.logger_config import get_logger, log_api_request, log_database_operation
 import io
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
@@ -26,55 +27,93 @@ import os
 from reportlab.lib.enums import TA_CENTER
 
 cadastro_bp = Blueprint('cadastro', __name__)
+logger = get_logger('cadastro')
 
 @cadastro_bp.route('/index_cadastro')
 @login_required
 def index_cadastro():
+    logger.info(f"Página de cadastro acessada - Usuário: {current_user.username}")
     if current_user.role != 'cadastrador':
+        logger.warning(f"Acesso negado à página de cadastro - Usuário: {current_user.username} - Role: {current_user.role}")
         return "Acesso negado!", 403
     municipios = Municipio.query.all()
     estados = Estado.query.all()
     descricoes = Descricao.query.all()
     instituicaoes = Instituicao.query.all()
     atendentes = Atendente.query.all()
+    logger.info(f"Dados carregados para página de cadastro - Estados: {len(estados)}, Descrições: {len(descricoes)}, Instituições: {len(instituicaoes)}")
     return render_template('registration_dashboard.html', municipios=municipios, estados=estados, descricoes=descricoes,
                            instituicaoes=instituicaoes, atendentes=atendentes)
 
 @cadastro_bp.route('/cadastro', methods=['POST'])
 @login_required
 def cadastro():
+    logger.info(f"Requisição de cadastro recebida - Usuário: {current_user.username}")
+    log_api_request('POST', '/cadastro', current_user.username, 200)
+    
     if current_user.role != 'cadastrador':
+        logger.warning(f"Acesso negado para cadastro - Usuário: {current_user.username} - Role: {current_user.role}")
+        log_api_request('POST', '/cadastro', current_user.username, 403, "Acesso negado")
         return jsonify({'success': False, 'message': 'Acesso negado!'}), 403
+    
     try:
+        # Log dos dados recebidos
+        logger.debug(f"Dados do formulário recebidos - Usuário: {current_user.username}")
+        logger.debug(f"Form data: {dict(request.form)}")
+        
         nome = request.form.get('nome', '').strip().upper()
         cpf = request.form.get('cpf', '').strip().replace('.', '').replace('-', '')
-        telefone = request.form.get('telefone', '').strip()
+        telefone = request.form.get('telefone', '').strip().replace('(', '').replace(')', '').replace(' ', '').replace('-', '')
         assentamento = request.form.get('assentamento', '').strip().upper()
         municipio_id = request.form.get('municipio') or None
         estado_id = request.form.get('estado', '').strip()
         descricao_id = request.form.get('descricao', '').strip()
         instituicao_id = request.form.get('instituicao', '').strip()
+        
+        logger.info(f"Processando cadastro - Nome: {nome}, CPF: {cpf}, Telefone: {telefone}")
+        
         # Validação reforçada
         if not all([nome, cpf, telefone, assentamento, estado_id, descricao_id, instituicao_id]):
+            logger.warning(f"Campos obrigatórios não preenchidos - Usuário: {current_user.username}")
+            log_api_request('POST', '/cadastro', current_user.username, 400, "Campos obrigatórios não preenchidos")
             return jsonify({'success': False, 'message': 'Campos obrigatórios não preenchidos'}), 400
+        
         if len(nome) < 3:
+            logger.warning(f"Nome muito curto - Usuário: {current_user.username} - Nome: {nome}")
+            log_api_request('POST', '/cadastro', current_user.username, 400, "Nome deve ter pelo menos 3 letras")
             return jsonify({'success': False, 'message': 'Nome deve ter pelo menos 3 letras'}), 400
+        
         if len(cpf) != 11 or not cpf.isdigit():
+            logger.warning(f"CPF inválido - Usuário: {current_user.username} - CPF: {cpf}")
+            log_api_request('POST', '/cadastro', current_user.username, 400, "CPF inválido")
             return jsonify({'success': False, 'message': 'CPF inválido'}), 400
+        
         if not telefone.isdigit() or len(telefone) < 10:
+            logger.warning(f"Telefone inválido - Usuário: {current_user.username} - Telefone: {telefone}")
+            log_api_request('POST', '/cadastro', current_user.username, 400, "Telefone inválido")
             return jsonify({'success': False, 'message': 'Telefone inválido'}), 400
+        
         if len(assentamento) < 3:
+            logger.warning(f"Assentamento inválido - Usuário: {current_user.username} - Assentamento: {assentamento}")
+            log_api_request('POST', '/cadastro', current_user.username, 400, "Endereço/Assentamento inválido")
             return jsonify({'success': False, 'message': 'Endereço/Assentamento inválido'}), 400
+        
+        # Verificar cadastro recente
         dois_minutos_atras = datetime.now() - timedelta(minutes=2)
         cadastro_recente = Cadastro.query.filter(
             Cadastro.cpf == cpf,
             Cadastro.data_hora >= dois_minutos_atras.strftime("%Y-%m-%d %H:%M:%S")
         ).first()
+        
         if cadastro_recente:
+            logger.warning(f"Cadastro recente encontrado - Usuário: {current_user.username} - CPF: {cpf}")
+            log_api_request('POST', '/cadastro', current_user.username, 400, "Cadastro já realizado recentemente")
             return jsonify({
                 'success': False,
                 'message': 'Cadastro já realizado recentemente para este CPF. Aguarde alguns minutos.'
             }), 400
+        
+        # Verificar cadastro existente hoje
         hoje_inicio = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
         hoje_fim = datetime.now().replace(hour=23, minute=59, second=59, microsecond=999999)
         cadastro_existente_hoje = Cadastro.query.filter(
@@ -83,13 +122,19 @@ def cadastro():
             Cadastro.data_hora >= hoje_inicio.strftime("%Y-%m-%d %H:%M:%S"),
             Cadastro.data_hora <= hoje_fim.strftime("%Y-%m-%d %H:%M:%S")
         ).first()
+        
         if cadastro_existente_hoje:
+            logger.warning(f"Cadastro existente hoje - Usuário: {current_user.username} - CPF: {cpf}")
+            log_api_request('POST', '/cadastro', current_user.username, 400, "Já existe cadastro para este CPF e serviço hoje")
             return jsonify({
                 'success': False,
                 'message': 'Já existe um cadastro para este CPF e serviço hoje.'
             }), 400
+        
+        # Criar novo cadastro
+        logger.info(f"Criando novo cadastro - Usuário: {current_user.username} - Nome: {nome}")
         novo_cadastro = Cadastro(
-            data_hora=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            data_hora=datetime.now(),
             nome=nome,
             cpf=cpf,
             telefone=telefone,
@@ -100,20 +145,54 @@ def cadastro():
             instituicao_id=instituicao_id,
             atendente_id=current_user.id
         )
-        db.session.add(novo_cadastro)
-        db.session.commit()
-        cadastro_data = format_cadastro_for_notification(novo_cadastro)
-        broadcast_notification('new_cadastro', cadastro_data)
+        
+        # Gerar senha de chamada automaticamente
+        novo_cadastro.gerar_senha_chamada()
+        
+        # Definir prioridade baseada em critérios (pode ser expandido)
+        # Por exemplo: se for urgente, prioridade alta
+        if descricao_id == '1':  # Assumindo que descrição ID 1 é urgente
+            novo_cadastro.definir_prioridade(2, "Cadastro urgente")
+        else:
+            novo_cadastro.definir_prioridade(0, "Cadastro normal")
+        
+        # Entrar na fila de espera
+        novo_cadastro.entrar_fila()
+        
+        # Registrar log de criação
+        log = Log(
+            usuario=current_user.username,
+            acao=f"Criou cadastro - Nome: {nome} - Senha: {novo_cadastro.senha_chamada}"
+        )
+        
         try:
-            log = Log(usuario=current_user.username, acao=f"Cadastro realizado: {nome} - CPF: {cpf}")
+            db.session.add(novo_cadastro)
             db.session.add(log)
             db.session.commit()
+            
+            logger.info(f"Cadastro criado com sucesso - ID: {novo_cadastro.id} - Senha: {novo_cadastro.senha_chamada}")
+            log_database_operation('CREATE', 'cadastro', novo_cadastro.id, current_user.username)
+            
+            # Preparar resposta de sucesso
+            response_data = {
+                'success': True,
+                'message': f'Cadastro realizado com sucesso! Senha: {novo_cadastro.senha_chamada}',
+                'cadastro_id': novo_cadastro.id,
+                'senha': novo_cadastro.senha_chamada,
+                'prioridade': novo_cadastro.prioridade
+            }
+            
+            return jsonify(response_data)
+            
         except Exception as e:
-            print(f"Erro ao registrar log: {e}")
-        return jsonify({'success': True, 'message': 'Cadastro realizado com sucesso!'})
+            db.session.rollback()
+            logger.error(f"Erro ao salvar cadastro - Usuário: {current_user.username} - Erro: {str(e)}")
+            return jsonify({'success': False, 'message': 'Erro interno do servidor'}), 500
+        
     except Exception as e:
         db.session.rollback()
-        print(f"Erro ao cadastrar: {str(e)}")
+        logger.error(f"Erro ao cadastrar - Usuário: {current_user.username} - Erro: {str(e)}")
+        log_api_request('POST', '/cadastro', current_user.username, 500, str(e))
         return jsonify({'success': False, 'message': 'Erro interno do servidor. Tente novamente.'}), 500
 
 @cadastro_bp.route('/ver_cadastros')
@@ -421,3 +500,182 @@ def toggle_atendimento(id):
     except Exception as e:
         db.session.rollback()
         return jsonify({'success': False, 'message': f'Erro ao alterar status: {str(e)}'})
+
+@cadastro_bp.route('/chamar/<int:cadastro_id>', methods=['POST', 'GET'])
+@login_required
+def chamar_beneficiaria(cadastro_id):
+    if current_user.role not in ['visor', 'admin']:
+        flash('Acesso negado!', 'error')
+        return redirect(url_for('cadastro.ver_cadastros'))
+    cadastro = Cadastro.query.get_or_404(cadastro_id)
+    from datetime import datetime
+    # Atualiza status e horário
+    cadastro.status_chamada = 'chamado'
+    cadastro.horario_chamada = datetime.now()
+    cadastro.registrar_chamada(current_user.username)
+    db.session.commit()
+    return render_template('chamada_painel.html', cadastro=cadastro)
+
+@cadastro_bp.route('/marcar_atendido/<int:cadastro_id>', methods=['POST'])
+@login_required
+def marcar_atendido(cadastro_id):
+    if current_user.role not in ['visor', 'admin']:
+        return jsonify({'success': False, 'message': 'Acesso negado!'}), 403
+    try:
+        cadastro = Cadastro.query.get_or_404(cadastro_id)
+        cadastro.status_chamada = 'atendido'
+        cadastro.atendida = True
+        cadastro.registrar_chamada(current_user.username)
+        db.session.commit()
+        
+        # Registrar log
+        log = Log(usuario=current_user.username, acao=f"Marcou como atendido: {cadastro.nome}")
+        db.session.add(log)
+        db.session.commit()
+        
+        return jsonify({'success': True, 'message': 'Beneficiária marcada como atendida!'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': f'Erro: {str(e)}'}), 500
+
+@cadastro_bp.route('/marcar_ausente/<int:cadastro_id>', methods=['POST'])
+@login_required
+def marcar_ausente(cadastro_id):
+    if current_user.role not in ['visor', 'admin']:
+        return jsonify({'success': False, 'message': 'Acesso negado!'}), 403
+    try:
+        cadastro = Cadastro.query.get_or_404(cadastro_id)
+        cadastro.status_chamada = 'ausente'
+        cadastro.registrar_chamada(current_user.username)
+        db.session.commit()
+        
+        # Registrar log
+        log = Log(usuario=current_user.username, acao=f"Marcou como ausente: {cadastro.nome}")
+        db.session.add(log)
+        db.session.commit()
+        
+        return jsonify({'success': True, 'message': 'Beneficiária marcada como ausente!'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': f'Erro: {str(e)}'}), 500
+
+@cadastro_bp.route('/historico_chamadas/<int:cadastro_id>')
+@login_required
+def historico_chamadas(cadastro_id):
+    if current_user.role not in ['visor', 'admin']:
+        return "Acesso negado!", 403
+    cadastro = Cadastro.query.get_or_404(cadastro_id)
+    
+    # Parse do histórico de chamadas
+    historico = []
+    if cadastro.historico_chamadas:
+        import json
+        try:
+            historico = json.loads(cadastro.historico_chamadas)
+        except:
+            historico = []
+    
+    return render_template('historico_chamadas.html', cadastro=cadastro, historico=historico)
+
+@cadastro_bp.route('/proximo_fila', methods=['POST'])
+@login_required
+def proximo_fila():
+    if current_user.role not in ['visor', 'admin']:
+        return jsonify({'success': False, 'message': 'Acesso negado!'}), 403
+    
+    try:
+        # Busca o próximo da fila por prioridade
+        proximo = Cadastro.query.filter(
+            Cadastro.status_chamada == 'aguardando',
+            Cadastro.posicao_fila.isnot(None)
+        ).order_by(
+            Cadastro.prioridade.desc(),
+            Cadastro.posicao_fila.asc()
+        ).first()
+        
+        if proximo:
+            return jsonify({
+                'success': True,
+                'cadastro': {
+                    'id': proximo.id,
+                    'nome': proximo.nome,
+                    'senha': proximo.senha_chamada,
+                    'prioridade': proximo.prioridade,
+                    'posicao': proximo.posicao_fila
+                }
+            })
+        else:
+            return jsonify({'success': False, 'message': 'Nenhuma pessoa na fila!'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Erro: {str(e)}'}), 500
+
+@cadastro_bp.route('/definir_prioridade/<int:cadastro_id>', methods=['POST'])
+@login_required
+def definir_prioridade(cadastro_id):
+    if current_user.role not in ['visor', 'admin']:
+        return jsonify({'success': False, 'message': 'Acesso negado!'}), 403
+    
+    try:
+        data = request.get_json()
+        nivel = data.get('nivel', 0)
+        
+        cadastro = Cadastro.query.get_or_404(cadastro_id)
+        cadastro.definir_prioridade(nivel)
+        cadastro.registrar_chamada(current_user.username, f"definiu prioridade {nivel}")
+        db.session.commit()
+        
+        return jsonify({'success': True, 'message': f'Prioridade definida como {["Normal", "Alta", "Urgente"][nivel]}!'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': f'Erro: {str(e)}'}), 500
+
+@cadastro_bp.route('/entrar_fila/<int:cadastro_id>', methods=['POST'])
+@login_required
+def entrar_fila(cadastro_id):
+    if current_user.role not in ['visor', 'admin']:
+        return jsonify({'success': False, 'message': 'Acesso negado!'}), 403
+    
+    try:
+        cadastro = Cadastro.query.get_or_404(cadastro_id)
+        cadastro.entrar_fila()
+        cadastro.registrar_chamada(current_user.username, "entrou na fila")
+        db.session.commit()
+        
+        return jsonify({'success': True, 'message': f'Cadastro colocado na fila na posição {cadastro.posicao_fila}!'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': f'Erro: {str(e)}'}), 500
+
+@cadastro_bp.route('/sair_fila/<int:cadastro_id>', methods=['POST'])
+@login_required
+def sair_fila(cadastro_id):
+    if current_user.role not in ['visor', 'admin']:
+        return jsonify({'success': False, 'message': 'Acesso negado!'}), 403
+    
+    try:
+        cadastro = Cadastro.query.get_or_404(cadastro_id)
+        cadastro.sair_fila()
+        cadastro.registrar_chamada(current_user.username, "saiu da fila")
+        db.session.commit()
+        
+        return jsonify({'success': True, 'message': 'Cadastro removido da fila!'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': f'Erro: {str(e)}'}), 500
+
+@cadastro_bp.route('/fila_chamadas')
+@login_required
+def fila_chamadas():
+    if current_user.role not in ['visor', 'admin']:
+        return "Acesso negado!", 403
+    
+    # Busca todos os cadastros na fila
+    fila = Cadastro.query.filter(
+        Cadastro.status_chamada == 'aguardando',
+        Cadastro.posicao_fila.isnot(None)
+    ).order_by(
+        Cadastro.prioridade.desc(),
+        Cadastro.posicao_fila.asc()
+    ).all()
+    
+    return render_template('fila_chamadas.html', fila=fila)

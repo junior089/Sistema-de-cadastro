@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Chamadas - {{ cadastro.nome }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8fafc;
+            color: #222;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 32px rgba(44, 85, 48, 0.12);
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .header h1 {
+            color: #2c5530;
+            margin-bottom: 0.5rem;
+        }
+
+        .beneficiaria-info {
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .beneficiaria-info h3 {
+            color: #2c5530;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .info-value {
+            color: #1f2937;
+            font-weight: 500;
+        }
+
+        .historico-list {
+            margin-top: 2rem;
+        }
+
+        .historico-item {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .historico-info {
+            flex: 1;
+        }
+
+        .historico-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status-chamado {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-atendido {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-ausente {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .btn-voltar {
+            background: #2c5530;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 2rem;
+        }
+
+        .btn-voltar:hover {
+            background: #4a7c59;
+        }
+
+        .sem-historico {
+            text-align: center;
+            color: #6b7280;
+            font-style: italic;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-history"></i> Histórico de Chamadas</h1>
+            <p>Registro completo de chamadas da beneficiária</p>
+        </div>
+
+        <div class="beneficiaria-info">
+            <h3>Informações da Beneficiária</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Nome:</span>
+                    <span class="info-value">{{ cadastro.nome }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">CPF:</span>
+                    <span class="info-value">{{ cadastro.cpf }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Telefone:</span>
+                    <span class="info-value">{{ cadastro.telefone }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Senha de Chamada:</span>
+                    <span class="info-value">{{ cadastro.senha_chamada or 'Não gerada' }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Status Atual:</span>
+                    <span class="info-value">{{ cadastro.status_chamada|capitalize }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Atendida:</span>
+                    <span class="info-value">{{ 'Sim' if cadastro.atendida else 'Não' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="historico-list">
+            <h3>Histórico de Chamadas</h3>
+            {% if historico %}
+                {% for chamada in historico|sort(attribute='data_hora', reverse=true) %}
+                <div class="historico-item">
+                    <div class="historico-info">
+                        <div><strong>{{ chamada.usuario }}</strong></div>
+                        <div>{{ chamada.data_hora }}</div>
+                    </div>
+                    <div class="historico-status status-{{ chamada.status }}">
+                        {{ chamada.status|capitalize }}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="sem-historico">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Nenhuma chamada registrada ainda.</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn-voltar" onclick="window.close()">Fechar</button>
+        </div>
+    </div>
+</body>
+</html> 

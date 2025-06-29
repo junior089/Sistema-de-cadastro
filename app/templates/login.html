@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sistema Particular</title>
+    <title>Login - Sistema INCRA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -166,8 +167,13 @@
         }
 
         @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
         }
 
         .error-message {
@@ -240,6 +246,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="login-container">
         <div class="logo-section">
@@ -247,55 +254,41 @@
                 <i class="fas fa-leaf"></i>
             </div>
             <h1 class="login-title">Sistema INCRA</h1>
-            <p class="login-subtitle">Acesso ao Sistema</p>
+            <p class="login-subtitle">Mutirão da Mulher Rural</p>
         </div>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="error-message">
-                        <i class="fas fa-exclamation-circle"></i>
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
 
         <form action="/" method="POST" id="loginForm">
             <div class="form-group">
                 <label for="username" class="form-label">Usuário</label>
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    class="form-input uppercase"
-                    placeholder="DIGITE SEU USUÁRIO"
-                    required
-                    autocomplete="username"
-                    style="text-transform: uppercase;"
-                >
+                <input type="text" id="username" name="username" class="form-input uppercase"
+                    placeholder="DIGITE SEU USUÁRIO" required autocomplete="username"
+                    style="text-transform: uppercase;">
             </div>
 
             <div class="form-group">
                 <label for="password" class="form-label">Senha</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    class="form-input"
-                    placeholder="Digite sua senha"
-                    required
-                    autocomplete="current-password"
-                >
+                <input type="password" id="password" name="password" class="form-input" placeholder="Digite sua senha"
+                    required autocomplete="current-password">
             </div>
 
             <button type="submit" class="login-button" id="loginButton">
-                <span>Entrar</span>
+                <span>Entrar no Sistema</span>
             </button>
         </form>
 
         <div class="footer-text">
-            <p>&copy;Todos os direitos reservados Particular.</p>
+            <p>&copy; 2024 Sistema INCRA - Mutirão da Mulher Rural</p>
         </div>
     </div>
 
@@ -312,7 +305,7 @@
 
             init() {
                 this.form.addEventListener('submit', this.handleSubmit.bind(this));
-                this.setupUppercaseInput(); // Adicione esta linha
+                this.setupUppercaseInput();
             }
 
             setupUppercaseInput() {
@@ -398,4 +391,5 @@
         });
     </script>
 </body>
+
 </html>

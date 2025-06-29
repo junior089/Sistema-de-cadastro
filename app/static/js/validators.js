@@ -47,38 +47,85 @@ function validateCPF(cpf) {
   return true;
 }
 
-// Função para formatar telefone (padrão: (12)912345678)
+// Função para formatar telefone (mais flexível)
 function formatPhone(input) {
   let value = input.value.replace(/\D/g, "");
+
+  // Remove zeros à esquerda do DDD
+  if (value.length > 2 && value.startsWith("0")) {
+    value = value.substring(1);
+  }
 
   if (value.length > 11) {
     value = value.slice(0, 11);
   }
 
-  if (value.length > 7) {
-    value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1)$2-$3");
+  // Formata baseado no número de dígitos
+  if (value.length === 11) {
+    // Celular: (61) 99244-5034
+    value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3");
+  } else if (value.length === 10) {
+    // Fixo: (61) 3244-5034
+    value = value.replace(/^(\d{2})(\d{4})(\d{4}).*/, "($1) $2-$3");
   } else if (value.length > 2) {
-    value = value.replace(/^(\d{2})(\d{0,5}).*/, "($1)$2");
+    // Formato parcial
+    value = value.replace(/^(\d{2})(\d{0,5}).*/, "($1) $2");
   }
 
   input.value = value;
 }
 
-// Função para validar telefone (padrão: (12)912345678)
+// Função para validar telefone (mais rigorosa)
 function validatePhone(phone) {
   phone = phone.replace(/\D/g, "");
 
-  // Deve ter exatamente 11 dígitos
-  if (phone.length !== 11) return false;
+  // Remove zeros à esquerda do DDD
+  if (phone.length > 2 && phone.startsWith("0")) {
+    phone = phone.substring(1);
+  }
+
+  // Aceita números de 10 ou 11 dígitos
+  if (phone.length < 10 || phone.length > 11) return false;
 
   // DDD deve estar entre 11 e 99
   const ddd = parseInt(phone.substring(0, 2));
   if (ddd < 11 || ddd > 99) return false;
 
-  // Deve começar com 9 após o DDD
-  if (phone.charAt(2) !== "9") return false;
+  // Lista de DDDs válidos no Brasil (atualizada)
+  const validDDDs = [
+    11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 24, 27, 28, 31, 32, 33, 34, 35,
+    37, 38, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 53, 54, 55, 61, 62, 63, 64,
+    65, 66, 67, 68, 69, 71, 73, 74, 75, 77, 79, 81, 82, 83, 84, 85, 86, 87, 88,
+    89, 91, 92, 93, 94, 95, 96, 97, 98, 99,
+  ];
+
+  if (!validDDDs.includes(ddd)) return false;
+
+  // Para números de 11 dígitos, verifica se o terceiro dígito é 8 ou 9
+  if (phone.length === 11) {
+    const terceiroDigito = parseInt(phone.charAt(2));
+    if (terceiroDigito !== 8 && terceiroDigito !== 9) return false;
+  }
+
+  // Para números de 10 dígitos, verifica se o terceiro dígito é 2, 3, 4, 5, 6, 7
+  if (phone.length === 10) {
+    const terceiroDigito = parseInt(phone.charAt(2));
+    if (terceiroDigito < 2 || terceiroDigito > 7) return false;
+  }
 
   return true;
+}
+
+// Função para normalizar telefone (remove formatação)
+function normalizePhone(phone) {
+  let normalized = phone.replace(/\D/g, "");
+
+  // Remove zeros à esquerda do DDD
+  if (normalized.length > 2 && normalized.startsWith("0")) {
+    normalized = normalized.substring(1);
+  }
+
+  return normalized;
 }
 
 // Event listeners para os campos
@@ -107,9 +154,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     telefoneInput.addEventListener("blur", function () {
-      const phone = this.value.replace(/\D/g, "");
+      const phone = normalizePhone(this.value);
       if (phone && !validatePhone(phone)) {
-        alert("Telefone inválido! Deve seguir o padrão (12)912345678");
+        alert(
+          "Telefone inválido! Use o formato (DDD) XXXXX-XXXX para celular ou (DDD) XXXX-XXXX para fixo.\n\nDDDs válidos: 11-99 (exceto 20, 23, 25, 26, 29, 30, 36, 39, 40, 50, 52, 56-60, 70, 72, 76, 78, 80, 90)"
+        );
         this.value = "";
         this.focus();
       }
@@ -158,3 +207,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// Função para validar formulário completo
+function validateForm(formId) {
+  const form = document.getElementById(formId);
+  if (!form) return true;
+
+  let isValid = true;
+  const errors = [];
+
+  // Validar CPF
+  const cpfInput = form.querySelector("#cpf");
+  if (cpfInput && cpfInput.value) {
+    const cpf = cpfInput.value.replace(/\D/g, "");
+    if (!validateCPF(cpf)) {
+      errors.push("CPF inválido");
+      isValid = false;
+    }
+  }
+
+  // Validar telefone
+  const telefoneInput = form.querySelector("#telefone");
+  if (telefoneInput && telefoneInput.value) {
+    const phone = normalizePhone(telefoneInput.value);
+    if (!validatePhone(phone)) {
+      errors.push("Telefone inválido");
+      isValid = false;
+    }
+  }
+
+  // Validar campos obrigatórios
+  const requiredFields = form.querySelectorAll("[required]");
+  requiredFields.forEach((field) => {
+    if (!field.value.trim()) {
+      const label = field.previousElementSibling?.textContent || field.name;
+      errors.push(`${label} é obrigatório`);
+      isValid = false;
+    }
+  });
+
+  if (!isValid) {
+    alert("Por favor, corrija os seguintes erros:\n" + errors.join("\n"));
+  }
+
+  return isValid;
+}

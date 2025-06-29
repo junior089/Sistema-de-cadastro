@@ -511,7 +511,7 @@
         </div>
         {% else %}
         <div class="actions-grid">
-            <a class="action-card" href="{{ url_for('admin.criar_usuario') }}">
+            <a class="action-card" href="{{ url_for('admin.create_user') }}">
                 <div class="action-icon" style="background: var(--success);">
                     <i class="fas fa-user-plus"></i>
                 </div>
@@ -519,7 +519,7 @@
                 <div class="action-description">Adicione novos usuários ao sistema com diferentes níveis de acesso</div>
             </a>
 
-            <a class="action-card" href="{{ url_for('admin.ver_logs') }}">
+            <a class="action-card" href="{{ url_for('admin.view_logs') }}">
                 <div class="action-icon" style="background: var(--secondary);">
                     <i class="fas fa-history"></i>
                 </div>
@@ -527,7 +527,7 @@
                 <div class="action-description">Monitore atividades e histórico do sistema</div>
             </a>
 
-            <a class="action-card" href="{{ url_for('admin.create_backup', backup_type='manual') }}">
+            <a class="action-card" href="{{ url_for('admin.manage_backups') }}">
                 <div class="action-icon" style="background: var(--warning);">
                     <i class="fas fa-database"></i>
                 </div>
@@ -552,19 +552,15 @@
                 </h2>
                 <div style="display: flex; gap: 1rem;">
                     {% if status and status.maintenance_mode %}
-                    <form action="{{ url_for('admin.manage_maintenance') }}" method="POST" style="display:inline;">
-                        <button type="submit" name="manutencao" class="btn btn-primary">
-                            <i class="fas fa-play"></i>
-                            Desativar Manutenção
-                        </button>
-                    </form>
+                    <button onclick="toggleMaintenance()" class="btn btn-primary">
+                        <i class="fas fa-play"></i>
+                        Desativar Manutenção
+                    </button>
                     {% else %}
-                    <form action="{{ url_for('admin.manage_maintenance') }}" method="POST" style="display:inline;">
-                        <button type="submit" name="manutencao" class="btn btn-warning">
-                            <i class="fas fa-pause"></i>
-                            Ativar Manutenção
-                        </button>
-                    </form>
+                    <button onclick="toggleMaintenance()" class="btn btn-warning">
+                        <i class="fas fa-pause"></i>
+                        Ativar Manutenção
+                    </button>
                     {% endif %}
                 </div>
             </div>
@@ -629,6 +625,25 @@
                 }
             });
         });
+
+        // Função para alternar modo manutenção
+        function toggleMaintenance() {
+            if (confirm('Deseja alterar o modo de manutenção do sistema?')) {
+                fetch('/admin/toggle_maintenance', { method: 'POST' })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            location.reload();
+                        } else {
+                            alert('Erro ao alterar modo manutenção: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                        alert('Erro ao alterar modo manutenção');
+                    });
+            }
+        }
     </script>
 </body>
 

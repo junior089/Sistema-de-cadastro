@@ -1,803 +1,621 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Sistema INCRA</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2c5530;
-            --primary-light: #4a7c59;
-            --secondary: #1e3a8a;
-            --success: #059669;
-            --warning: #d97706;
-            --error: #dc2626;
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --border: #d1d5db;
-            --border-focus: #2c5530;
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
+{% block title %}Cadastro - Sistema INCRA{% endblock %}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+{% block extra_css %}
+<style>
+    :root {
+        --primary: #2c5530;
+        --primary-light: #4a7c59;
+        --secondary: #1e3a8a;
+        --success: #059669;
+        --warning: #d97706;
+        --error: #dc2626;
+        --bg-primary: #f8fafc;
+        --bg-secondary: #ffffff;
+        --text-primary: #1f2937;
+        --text-secondary: #6b7280;
+        --border: #d1d5db;
+        --border-focus: #2c5530;
+        --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 2rem;
+    }
 
-        .header {
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
-        }
+    .form-panel {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+    }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .form-header {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
 
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+    .form-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+    }
 
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
+    .form-subtitle {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+    }
 
-        .brand-info h1 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
 
-        .brand-info .subtitle {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
 
-        .header-stats {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
+    .form-label {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
 
-        .stat-item {
-            text-align: center;
-            padding: 0.5rem 1rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-        }
+    .form-label i {
+        color: var(--primary);
+        font-size: 0.875rem;
+    }
 
-        .stat-number {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
+    .required {
+        color: var(--error);
+        font-weight: 600;
+    }
 
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-        }
+    .optional {
+        color: var(--text-secondary);
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
 
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+    .form-control {
+        padding: 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        font-size: 0.875rem;
+        transition: border-color 0.2s;
+    }
 
-        .user-info {
-            text-align: right;
-        }
+    .form-control:focus {
+        outline: none;
+        border-color: var(--border-focus);
+        box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
+    }
 
-        .user-name {
-            font-weight: 600;
-            font-size: 0.875rem;
-        }
+    .form-control:disabled {
+        background-color: var(--bg-primary);
+        cursor: not-allowed;
+    }
 
-        .user-role {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
+    .submit-button {
+        width: 100%;
+        padding: 1rem;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: all 0.2s;
-        }
+    .submit-button:hover {
+        background: var(--primary-light);
+    }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
+    .submit-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
 
-        .btn-primary:hover {
-            background: var(--primary-light);
-        }
+    .info-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 
-        .btn-secondary {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-        }
+    .info-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+    }
 
-        .btn-secondary:hover {
-            background: var(--bg-primary);
-        }
+    .info-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
 
+    .info-card-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--primary);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .info-card-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .quick-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-box {
+        text-align: center;
+        padding: 1rem;
+        background: var(--bg-primary);
+        border-radius: 4px;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.25rem;
+    }
+
+    .stat-desc {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .quick-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .quick-action {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background: var(--bg-primary);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+
+    .quick-action:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
+
+    .quick-action-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--primary);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.875rem;
+    }
+
+    .quick-action:hover .quick-action-icon {
+        background: white;
+        color: var(--primary);
+    }
+
+    .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--success);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 4px;
+        box-shadow: var(--shadow-lg);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .toast.show {
+        transform: translateX(0);
+    }
+
+    .toast.error {
+        background: var(--error);
+    }
+
+    .toast-icon {
+        font-size: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 2rem;
-        }
-
-        .form-panel {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-        }
-
-        .form-header {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .form-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .form-subtitle {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
+            grid-template-columns: 1fr;
         }
 
         .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            position: relative;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            font-size: 0.875rem;
-        }
-
-        .required {
-            color: var(--error);
-        }
-
-        .optional {
-            color: var(--text-secondary);
-            font-weight: 400;
-            font-size: 0.75rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--border-focus);
-            box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
-        }
-
-        .form-control:valid {
-            border-color: var(--success);
-        }
-
-        .form-control:invalid:not(:placeholder-shown) {
-            border-color: var(--error);
-        }
-
-        .submit-button {
-            width: 100%;
-            padding: 1rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .submit-button:hover {
-            background: var(--primary-light);
-        }
-
-        .submit-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .info-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .info-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-        }
-
-        .info-card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .info-card-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .info-card-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
+            grid-template-columns: 1fr;
         }
 
         .quick-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
         }
+    }
+</style>
+{% endblock %}
 
-        .stat-box {
-            text-align: center;
-            padding: 1rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-        }
+{% block content %}
+<div class="container">
+    <div class="form-panel">
+        <div class="form-header">
+            <h1 class="form-title">
+                <i class="fas fa-user-plus"></i>
+                Cadastro de Participante
+            </h1>
+            <p class="form-subtitle">Preencha os dados para cadastrar um novo participante no mutirão</p>
+        </div>
 
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-desc {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-        }
-
-        .quick-actions {
-            display: grid;
-            gap: 0.75rem;
-        }
-
-        .quick-action {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.75rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-
-        .quick-action:hover {
-            background: var(--border);
-        }
-
-        .quick-action-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.875rem;
-        }
-
-        .toast {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 1rem;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            min-width: 300px;
-            transform: translateX(120%);
-            transition: transform 0.3s;
-            z-index: 1000;
-        }
-
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        .toast.success {
-            border-left: 4px solid var(--success);
-        }
-
-        .toast.error {
-            border-left: 4px solid var(--error);
-        }
-
-        .toast-icon {
-            font-size: 1.25rem;
-        }
-
-        .toast.success .toast-icon {
-            color: var(--success);
-        }
-
-        .toast.error .toast-icon {
-            color: var(--error);
-        }
-
-        @media (max-width: 1024px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-
-            .header-stats {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .quick-stats {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo-section">
-                <div class="logo-icon">
-                    <i class="fas fa-leaf"></i>
+        <form id="cadastroForm" method="POST" action="{{ url_for('cadastro.cadastro') }}">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="nome" class="form-label">
+                        <i class="fas fa-user"></i>
+                        Nome Completo <span class="required">*</span>
+                    </label>
+                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite o nome completo"
+                        style="text-transform: uppercase" required>
                 </div>
-                <div class="brand-info">
-                    <h1>MUTIRÃO DA MULHER RURAL</h1>
-                    <div class="subtitle">Sistema de Cadastro - Particular</div>
+
+                <div class="form-group">
+                    <label for="cpf" class="form-label">
+                        <i class="fas fa-id-card"></i>
+                        CPF <span class="required">*</span>
+                    </label>
+                    <input type="text" id="cpf" name="cpf" class="form-control" placeholder="000.000.000-00" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone" class="form-label">
+                        <i class="fas fa-phone"></i>
+                        Telefone <span class="required">*</span>
+                    </label>
+                    <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="(00) 00000-0000"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="assentamento" class="form-label">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Endereço/Assentamento <span class="required">*</span>
+                    </label>
+                    <input type="text" id="assentamento" name="assentamento" class="form-control"
+                        placeholder="Digite o endereço" style="text-transform: uppercase" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="estado" class="form-label">
+                        <i class="fas fa-map"></i>
+                        Estado <span class="required">*</span>
+                    </label>
+                    <select id="estado" name="estado" class="form-control" required>
+                        <option value="">Selecione o estado</option>
+                        {% for estado in estados %}
+                        <option value="{{ estado.id }}">{{ estado.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="municipio" class="form-label">
+                        <i class="fas fa-city"></i>
+                        Município <span class="optional">(opcional)</span>
+                    </label>
+                    <select id="municipio" name="municipio" class="form-control" disabled>
+                        <option value="">Primeiro selecione o estado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao" class="form-label">
+                        <i class="fas fa-tag"></i>
+                        Descrição <span class="required">*</span>
+                    </label>
+                    <select id="descricao" name="descricao" class="form-control" required>
+                        <option value="">Selecione a descrição</option>
+                        {% for descricao in descricoes %}
+                        <option value="{{ descricao.id }}">{{ descricao.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="instituicao" class="form-label">
+                        <i class="fas fa-building"></i>
+                        Instituição <span class="required">*</span>
+                    </label>
+                    <select id="instituicao" name="instituicao" class="form-control" required>
+                        <option value="">Selecione a instituição</option>
+                        {% for instituicao in instituicaoes %}
+                        <option value="{{ instituicao.id }}">{{ instituicao.nome }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
 
-            <div class="header-stats">
-                <div class="stat-item">
-                    <div class="stat-number" id="todayCount">0</div>
-                    <div class="stat-label">Hoje</div>
+            <button type="submit" class="submit-button">
+                <i class="fas fa-save"></i>
+                Cadastrar
+            </button>
+        </form>
+    </div>
+
+    <div class="info-panel">
+        <div class="info-card">
+            <div class="info-card-header">
+                <div class="info-card-icon">
+                    <i class="fas fa-chart-bar"></i>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="totalCount">0</div>
-                    <div class="stat-label">Total</div>
+                <h3 class="info-card-title">Estatísticas</h3>
+            </div>
+            <div class="quick-stats">
+                <div class="stat-box">
+                    <div class="stat-value" id="todayStats">0</div>
+                    <div class="stat-desc">Hoje</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="weekStats">0</div>
+                    <div class="stat-desc">Semana</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="monthStats">0</div>
+                    <div class="stat-desc">Mês</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="totalStats">0</div>
+                    <div class="stat-desc">Total</div>
                 </div>
             </div>
+        </div>
 
-            <div class="user-menu">
-                <div class="user-info">
-                    <div class="user-name">{{ current_user.username }}</div>
-                    <div class="user-role">Cadastrador</div>
+        <div class="info-card">
+            <div class="info-card-header">
+                <div class="info-card-icon">
+                    <i class="fas fa-tools"></i>
                 </div>
-                <a href="{{ url_for('auth.logout') }}" class="btn btn-secondary">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Sair
+                <h3 class="info-card-title">Ações</h3>
+            </div>
+            <div class="quick-actions">
+                <a href="{{ url_for('cadastro.ver_cadastros') }}" class="quick-action">
+                    <div class="quick-action-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <span>Ver Cadastros</span>
+                </a>
+                <div class="quick-action" onclick="clearForm()">
+                    <div class="quick-action-icon">
+                        <i class="fas fa-eraser"></i>
+                    </div>
+                    <span>Limpar Formulário</span>
+                </div>
+                <a href="{{ url_for('cadastro.fila_chamadas') }}" class="quick-action">
+                    <div class="quick-action-icon">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <span>Fila de Chamadas</span>
                 </a>
             </div>
         </div>
-    </header>
-
-    <div class="container">
-        <div class="form-panel">
-            <div class="form-header">
-                <h2 class="form-title">Novo Cadastro</h2>
-                <p class="form-subtitle">Preencha os dados abaixo</p>
-            </div>
-
-            <form action="{{ url_for('cadastro.cadastro') }}" method="POST" id="cadastroForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="cpf" class="form-label">
-                            CPF <span class="required">*</span>
-                        </label>
-                        <input type="text" id="cpf" name="cpf" class="form-control" placeholder="000.000.000-00"
-                            maxlength="14" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nome" class="form-label">
-                            Nome Completo <span class="required">*</span>
-                        </label>
-                        <input type="text" id="nome" name="nome" class="form-control"
-                            placeholder="Digite o nome completo" style="text-transform: uppercase" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefone" class="form-label">
-                            Telefone <span class="required">*</span>
-                        </label>
-                        <input type="tel" id="telefone" name="telefone" class="form-control"
-                            placeholder="(00) 00000-0000" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="assentamento" class="form-label">
-                            Endereço/Assentamento <span class="required">*</span>
-                        </label>
-                        <input type="text" id="assentamento" name="assentamento" class="form-control"
-                            placeholder="Digite o endereço" style="text-transform: uppercase" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="estado" class="form-label">
-                            Estado <span class="required">*</span>
-                        </label>
-                        <select id="estado" name="estado" class="form-control" required
-                            onchange="updateMunicipios(this.value)">
-                            <option value="">Selecione o estado</option>
-                            {% for estado in estados %}
-                            <option value="{{ estado.id }}">{{ estado.nome }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="municipio" class="form-label">
-                            Município <span class="optional">(opcional)</span>
-                        </label>
-                        <select id="municipio" name="municipio" class="form-control" disabled>
-                            <option value="">Primeiro selecione o estado</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="descricao" class="form-label">
-                            Descrição <span class="required">*</span>
-                        </label>
-                        <select id="descricao" name="descricao" class="form-control" required>
-                            <option value="">Selecione a descrição</option>
-                            {% for descricao in descricoes %}
-                            <option value="{{ descricao.id }}">{{ descricao.nome }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="instituicao" class="form-label">
-                            Instituição <span class="required">*</span>
-                        </label>
-                        <select id="instituicao" name="instituicao" class="form-control" required>
-                            <option value="">Selecione a instituição</option>
-                            {% for instituicao in instituicaoes %}
-                            <option value="{{ instituicao.id }}">{{ instituicao.nome }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-button">
-                    <i class="fas fa-save"></i>
-                    Cadastrar
-                </button>
-            </form>
-        </div>
-
-        <div class="info-panel">
-            <div class="info-card">
-                <div class="info-card-header">
-                    <div class="info-card-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3 class="info-card-title">Estatísticas</h3>
-                </div>
-                <div class="quick-stats">
-                    <div class="stat-box">
-                        <div class="stat-value" id="todayStats">0</div>
-                        <div class="stat-desc">Hoje</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="weekStats">0</div>
-                        <div class="stat-desc">Semana</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="monthStats">0</div>
-                        <div class="stat-desc">Mês</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="totalStats">0</div>
-                        <div class="stat-desc">Total</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-header">
-                    <div class="info-card-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3 class="info-card-title">Ações</h3>
-                </div>
-                <div class="quick-actions">
-                    <a href="{{ url_for('cadastro.ver_cadastros') }}" class="quick-action">
-                        <div class="quick-action-icon">
-                            <i class="fas fa-table"></i>
-                        </div>
-                        <span>Ver Cadastros</span>
-                    </a>
-                    <div class="quick-action" onclick="clearForm()">
-                        <div class="quick-action-icon">
-                            <i class="fas fa-eraser"></i>
-                        </div>
-                        <span>Limpar Formulário</span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+</div>
 
-    <div class="toast" id="toast">
-        <i class="fas fa-check-circle toast-icon"></i>
-        <span id="toast-message">Operação realizada com sucesso!</span>
-    </div>
+<div class="toast" id="toast">
+    <i class="fas fa-check-circle toast-icon"></i>
+    <span id="toast-message">Operação realizada com sucesso!</span>
+</div>
+{% endblock %}
 
-    <script>
-        // Máscaras de input
-        document.getElementById('cpf').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            value = value.replace(/(\d{3})(\d)/, '$1.$2');
-            value = value.replace(/(\d{3})(\d)/, '$1.$2');
-            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-            e.target.value = value;
-        });
+{% block extra_js %}
+<script>
+    // Event listener para o campo estado
+    document.getElementById('estado').addEventListener('change', function () {
+        updateMunicipios(this.value);
+    });
 
-        document.getElementById('telefone').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            value = value.replace(/(\d{2})(\d)/, '($1) $2');
-            value = value.replace(/(\d{5})(\d)/, '$1-$2');
-            e.target.value = value;
-        });
-
-        // Validação de CPF
-        function validateCPF(cpf) {
-            cpf = cpf.replace(/\D/g, '');
-            if (cpf.length !== 11) return false;
-            if (/^(\d)\1{10}$/.test(cpf)) return false;
-
-            let sum = 0;
-            for (let i = 0; i < 9; i++) {
-                sum += parseInt(cpf.charAt(i)) * (10 - i);
-            }
-            let remainder = (sum * 10) % 11;
-            if (remainder === 10 || remainder === 11) remainder = 0;
-            if (remainder !== parseInt(cpf.charAt(9))) return false;
-
-            sum = 0;
-            for (let i = 0; i < 10; i++) {
-                sum += parseInt(cpf.charAt(i)) * (11 - i);
-            }
-            remainder = (sum * 10) % 11;
-            if (remainder === 10 || remainder === 11) remainder = 0;
-            return remainder === parseInt(cpf.charAt(10));
-        }
-
-        // Buscar dados por CPF
-        document.getElementById('cpf').addEventListener('blur', async function (e) {
-            const cpf = e.target.value;
-            if (cpf.length === 14 && validateCPF(cpf)) {
-                try {
-                    const response = await fetch('/buscar_nome', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ cpf: cpf })
-                    });
-                    const data = await response.json();
-                    if (data.success && data.nome) {
-                        document.getElementById('nome').value = data.nome;
-                        if (data.telefone) document.getElementById('telefone').value = data.telefone;
-                        if (data.assentamento) document.getElementById('assentamento').value = data.assentamento;
-                        if (data.estado_id) {
-                            document.getElementById('estado').value = data.estado_id;
-                            await updateMunicipios(data.estado_id);
-                            if (data.municipio_id) {
-                                document.getElementById('municipio').value = data.municipio_id;
-                            }
-                        }
-                        showToast('Dados encontrados e preenchidos automaticamente!', 'success');
-                    }
-                } catch (error) {
-                    console.error('Erro ao buscar dados:', error);
-                }
-            }
-        });
-
-        // Atualizar municípios
-        async function updateMunicipios(estadoId) {
-            const municipioSelect = document.getElementById('municipio');
-            if (!estadoId) {
-                municipioSelect.disabled = true;
-                municipioSelect.innerHTML = '<option value="">Primeiro selecione o estado</option>';
-                return;
-            }
-
+    // Buscar dados por CPF
+    document.getElementById('cpf').addEventListener('blur', async function (e) {
+        const cpf = e.target.value;
+        if (cpf.length === 14 && validateCPF(cpf)) {
             try {
-                const response = await fetch(`/get_municipios/${estadoId}`);
-                const municipios = await response.json();
-                municipioSelect.innerHTML = '<option value="">Selecione o município (opcional)</option>';
-                municipios.forEach(municipio => {
-                    const option = document.createElement('option');
-                    option.value = municipio.id;
-                    option.textContent = municipio.nome;
-                    municipioSelect.appendChild(option);
-                });
-                municipioSelect.disabled = false;
-            } catch (error) {
-                console.error('Erro ao carregar municípios:', error);
-            }
-        }
-
-        // Limpar formulário
-        function clearForm() {
-            document.getElementById('cadastroForm').reset();
-            document.getElementById('municipio').disabled = true;
-            document.getElementById('municipio').innerHTML = '<option value="">Primeiro selecione o estado</option>';
-            showToast('Formulário limpo com sucesso!', 'success');
-        }
-
-        // Toast notification
-        function showToast(message, type = 'success') {
-            const toast = document.getElementById('toast');
-            const messageEl = document.getElementById('toast-message');
-            const icon = toast.querySelector('.toast-icon');
-
-            messageEl.textContent = message;
-            toast.className = `toast ${type}`;
-
-            if (type === 'error') {
-                icon.className = 'fas fa-exclamation-circle toast-icon';
-            } else {
-                icon.className = 'fas fa-check-circle toast-icon';
-            }
-
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
-        }
-
-        // Carregar estatísticas
-        async function loadStats() {
-            try {
-                const response = await fetch('/api/stats');
-                const stats = await response.json();
-                document.getElementById('todayStats').textContent = stats.today || 0;
-                document.getElementById('weekStats').textContent = stats.week || 0;
-                document.getElementById('monthStats').textContent = stats.month || 0;
-                document.getElementById('totalStats').textContent = stats.total || 0;
-                document.getElementById('todayCount').textContent = stats.today || 0;
-                document.getElementById('totalCount').textContent = stats.total || 0;
-            } catch (error) {
-                console.error('Erro ao carregar estatísticas:', error);
-            }
-        }
-
-        // Submissão do formulário
-        document.getElementById('cadastroForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const submitButton = document.querySelector('.submit-button');
-            submitButton.disabled = true;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cadastrando...';
-
-            try {
-                const formData = new FormData(this);
-                const response = await fetch(this.action, {
+                const response = await fetch('/buscar_nome', {
                     method: 'POST',
-                    body: formData
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cpf: cpf })
                 });
                 const data = await response.json();
-
-                if (data.success) {
-                    showToast('Cadastro realizado com sucesso!', 'success');
-                    this.reset();
-                    loadStats();
-                } else {
-                    showToast(data.message || 'Erro ao realizar cadastro', 'error');
+                if (data.success && data.nome) {
+                    document.getElementById('nome').value = data.nome;
+                    if (data.telefone) document.getElementById('telefone').value = data.telefone;
+                    if (data.assentamento) document.getElementById('assentamento').value = data.assentamento;
+                    if (data.estado_id) {
+                        document.getElementById('estado').value = data.estado_id;
+                        await updateMunicipios(data.estado_id);
+                        if (data.municipio_id) {
+                            document.getElementById('municipio').value = data.municipio_id;
+                        }
+                    }
+                    showToast('Dados encontrados e preenchidos automaticamente!', 'success');
                 }
             } catch (error) {
-                showToast('Erro de conexão', 'error');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.innerHTML = '<i class="fas fa-save"></i> Cadastrar';
+                console.error('Erro ao buscar dados:', error);
             }
-        });
+        }
+    });
 
-        // Carregar estatísticas ao iniciar
-        document.addEventListener('DOMContentLoaded', loadStats);
-    </script>
-</body>
+    // Atualizar municípios
+    async function updateMunicipios(estadoId) {
+        const municipioSelect = document.getElementById('municipio');
+        if (!estadoId) {
+            municipioSelect.disabled = true;
+            municipioSelect.innerHTML = '<option value="">Primeiro selecione o estado</option>';
+            return;
+        }
 
-</html>
+        try {
+            const response = await fetch(`/get_municipios/${estadoId}`);
+            const municipios = await response.json();
+            municipioSelect.innerHTML = '<option value="">Selecione o município (opcional)</option>';
+            municipios.forEach(municipio => {
+                const option = document.createElement('option');
+                option.value = municipio.id;
+                option.textContent = municipio.nome;
+                municipioSelect.appendChild(option);
+            });
+            municipioSelect.disabled = false;
+        } catch (error) {
+            console.error('Erro ao carregar municípios:', error);
+        }
+    }
+
+    // Limpar formulário
+    function clearForm() {
+        document.getElementById('cadastroForm').reset();
+        document.getElementById('municipio').disabled = true;
+        document.getElementById('municipio').innerHTML = '<option value="">Primeiro selecione o estado</option>';
+        showToast('Formulário limpo com sucesso!', 'success');
+    }
+
+    // Toast notification
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        const messageEl = document.getElementById('toast-message');
+        const icon = toast.querySelector('.toast-icon');
+
+        messageEl.textContent = message;
+        toast.className = `toast ${type}`;
+
+        if (type === 'error') {
+            icon.className = 'fas fa-exclamation-circle toast-icon';
+        } else {
+            icon.className = 'fas fa-check-circle toast-icon';
+        }
+
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // Carregar estatísticas
+    async function loadStats() {
+        try {
+            const response = await fetch('/api/stats');
+            const stats = await response.json();
+            document.getElementById('todayStats').textContent = stats.today || 0;
+            document.getElementById('weekStats').textContent = stats.week || 0;
+            document.getElementById('monthStats').textContent = stats.month || 0;
+            document.getElementById('totalStats').textContent = stats.total || 0;
+        } catch (error) {
+            console.error('Erro ao carregar estatísticas:', error);
+        }
+    }
+
+    // Submissão do formulário com validação
+    document.getElementById('cadastroForm').addEventListener('submit', async function (e) {
+        console.log('Formulário submetido - Iniciando validação');
+        e.preventDefault();
+
+        // Validar formulário antes de enviar
+        console.log('Validando formulário...');
+        if (!validateForm('cadastroForm')) {
+            console.log('Validação falhou');
+            return;
+        }
+        console.log('Validação passou');
+
+        const submitButton = document.querySelector('.submit-button');
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cadastrando...';
+
+        try {
+            const formData = new FormData(this);
+            console.log('FormData criado:', formData);
+
+            // Log dos dados do formulário
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+            console.log('Enviando requisição para:', this.action);
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData
+            });
+            console.log('Resposta recebida:', response.status);
+
+            const data = await response.json();
+            console.log('Dados da resposta:', data);
+
+            if (data.success) {
+                showToast('Cadastro realizado com sucesso!', 'success');
+                this.reset();
+                loadStats();
+            } else {
+                showToast(data.message || 'Erro ao realizar cadastro', 'error');
+            }
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+            showToast('Erro de conexão', 'error');
+        } finally {
+            submitButton.disabled = false;
+            submitButton.innerHTML = '<i class="fas fa-save"></i> Cadastrar';
+        }
+    });
+
+    // Carregar estatísticas ao iniciar
+    document.addEventListener('DOMContentLoaded', loadStats);
+</script>
+{% endblock %}

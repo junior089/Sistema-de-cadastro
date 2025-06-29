@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Senhas - Sistema INCRA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a23;
+            --secondary: #1e3a8a;
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+            --info: #0891b2;
+
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f1f5f9;
+
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+
+            --border: #d1d5db;
+            --border-light: #e5e7eb;
+            --border-focus: #2c5530;
+
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+            --radius: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --transition: all 0.2s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-info {
+            text-align: right;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .user-role {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .logout-btn {
+            background: var(--error);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            background: #b91c1c;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .stat-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .stat-icon.normal {
+            background: var(--info);
+        }
+
+        .stat-icon.alta {
+            background: var(--warning);
+        }
+
+        .stat-icon.urgente {
+            background: var(--error);
+        }
+
+        .stat-icon.total {
+            background: var(--primary);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-panel {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+
+        .side-panel {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .panel-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .refresh-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .refresh-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Senha Cards */
+        .senha-card {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .senha-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .senha-card.normal {
+            border-left-color: var(--info);
+        }
+
+        .senha-card.alta {
+            border-left-color: var(--warning);
+        }
+
+        .senha-card.urgente {
+            border-left-color: var(--error);
+        }
+
+        .senha-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .senha-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .senha-priority {
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .senha-priority.normal {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .senha-priority.alta {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .senha-priority.urgente {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .senha-info {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .senha-details h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .senha-details p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .senha-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .action-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .action-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .action-btn.secondary {
+            background: var(--text-secondary);
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--text-primary);
+        }
+
+        /* Search Section */
+        .search-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .header-content {
+                padding: 1rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-top: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--success);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .toast.error {
+            background: var(--error);
+        }
+
+        .toast.warning {
+            background: var(--warning);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Sistema de Senhas</h1>
+                    <p>Mutirão da Mulher Rural</p>
+                </div>
+            </div>
+            <div class="user-section">
+                <div class="user-info">
+                    <div class="user-name">{{ current_user.username }}</div>
+                    <div class="user-role">{{ current_user.role.title() }}</div>
+                </div>
+                <a href="{{ url_for('auth.logout') }}" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Dashboard de Senhas</h1>
+            <p class="page-subtitle">Gerencie e acompanhe as senhas de chamada do sistema</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-title">Total de Senhas</div>
+                    <div class="stat-icon total">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                </div>
+                <div class="stat-value">{{ stats.total }}</div>
+                <div class="stat-description">Senhas geradas no sistema</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-title">Aguardando</div>
+                    <div class="stat-icon normal">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+                <div class="stat-value">{{ stats.aguardando }}</div>
+                <div class="stat-description">Aguardando chamada</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-title">Chamados</div>
+                    <div class="stat-icon alta">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                </div>
+                <div class="stat-value">{{ stats.chamados }}</div>
+                <div class="stat-description">Chamados hoje</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-title">Atendidos</div>
+                    <div class="stat-icon urgente">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+                <div class="stat-value">{{ stats.atendidos }}</div>
+                <div class="stat-description">Atendidos hoje</div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Main Panel -->
+            <div class="main-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Senhas Aguardando Chamada</h2>
+                    <button class="refresh-btn" onclick="refreshSenhas()">
+                        <i class="fas fa-sync-alt"></i> Atualizar
+                    </button>
+                </div>
+
+                <div id="senhas-container">
+                    {% if proximas_senhas %}
+                    {% for cadastro in proximas_senhas %}
+                    <div class="senha-card {{ ['normal', 'alta', 'urgente'][cadastro.prioridade] }}">
+                        <div class="senha-header">
+                            <div class="senha-number">{{ cadastro.senha_chamada }}</div>
+                            <div class="senha-priority {{ ['normal', 'alta', 'urgente'][cadastro.prioridade] }}">
+                                {{ ['NORMAL', 'ALTA', 'URGENTE'][cadastro.prioridade] }}
+                            </div>
+                        </div>
+                        <div class="senha-info">
+                            <div class="senha-details">
+                                <h4>{{ cadastro.nome }}</h4>
+                                <p><i class="fas fa-calendar"></i> {{ cadastro.data_hora.strftime('%d/%m/%Y %H:%M') }}
+                                </p>
+                                {% if cadastro.observacoes %}
+                                <p><i class="fas fa-info-circle"></i> {{ cadastro.observacoes }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="senha-actions">
+                                <button class="action-btn" onclick="chamarSenha('{{ cadastro.senha_chamada }}')"
+                                    title="Chamar">
+                                    <i class="fas fa-bullhorn"></i>
+                                </button>
+                                <button class="action-btn secondary" onclick="verDetalhes({{ cadastro.id }})"
+                                    title="Ver detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        Nenhuma senha aguardando chamada
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Side Panel -->
+            <div class="side-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Buscar Senha</h2>
+                </div>
+
+                <div class="search-section">
+                    <input type="text" id="search-senha" class="search-input" placeholder="Digite o número da senha...">
+                    <button class="refresh-btn" style="width: 100%; margin-top: 0.5rem;" onclick="buscarSenha()">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </div>
+
+                <div id="search-result">
+                    <!-- Resultado da busca será exibido aqui -->
+                </div>
+
+                <div class="panel-header" style="margin-top: 2rem;">
+                    <h2 class="panel-title">Estatísticas por Prioridade</h2>
+                </div>
+
+                <div class="stats-mini">
+                    <div class="stat-mini">
+                        <div class="stat-mini-header">
+                            <span class="stat-mini-title">Normal</span>
+                            <span class="stat-mini-value">{{ stats.normal }}</span>
+                        </div>
+                        <div class="stat-mini-bar">
+                            <div class="stat-mini-fill normal"
+                                style="width: {{ (stats.normal / stats.total * 100) if stats.total > 0 else 0 }}%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-mini">
+                        <div class="stat-mini-header">
+                            <span class="stat-mini-title">Alta</span>
+                            <span class="stat-mini-value">{{ stats.alta }}</span>
+                        </div>
+                        <div class="stat-mini-bar">
+                            <div class="stat-mini-fill alta"
+                                style="width: {{ (stats.alta / stats.total * 100) if stats.total > 0 else 0 }}%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-mini">
+                        <div class="stat-mini-header">
+                            <span class="stat-mini-title">Urgente</span>
+                            <span class="stat-mini-value">{{ stats.urgente }}</span>
+                        </div>
+                        <div class="stat-mini-bar">
+                            <div class="stat-mini-fill urgente"
+                                style="width: {{ (stats.urgente / stats.total * 100) if stats.total > 0 else 0 }}%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Operação realizada com sucesso!</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Funções principais
+        function refreshSenhas() {
+            fetch('/api/senhas/aguardando')
+                .then(response => response.json())
+                .then(data => {
+                    updateSenhasContainer(data);
+                    showToast('Senhas atualizadas com sucesso!', 'success');
+                })
+                .catch(error => {
+                    console.error('Erro ao atualizar senhas:', error);
+                    showToast('Erro ao atualizar senhas', 'error');
+                });
+        }
+
+        function buscarSenha() {
+            const senha = document.getElementById('search-senha').value.trim();
+            if (!senha) {
+                showToast('Digite um número de senha', 'warning');
+                return;
+            }
+
+            fetch(`/api/senhas/buscar/${senha}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        showToast(data.error, 'error');
+                        document.getElementById('search-result').innerHTML = '';
+                    } else {
+                        displaySearchResult(data);
+                        showToast('Senha encontrada!', 'success');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar senha:', error);
+                    showToast('Erro ao buscar senha', 'error');
+                });
+        }
+
+        function chamarSenha(senha) {
+            // Implementar chamada de senha
+            showToast(`Chamando senha ${senha}...`, 'success');
+        }
+
+        function verDetalhes(id) {
+            // Implementar visualização de detalhes
+            showToast('Abrindo detalhes...', 'success');
+        }
+
+        function updateSenhasContainer(senhas) {
+            const container = document.getElementById('senhas-container');
+
+            if (senhas.length === 0) {
+                container.innerHTML = '<div class="loading"><div class="loading-spinner"></div>Nenhuma senha aguardando chamada</div>';
+                return;
+            }
+
+            container.innerHTML = senhas.map(senha => `
+                <div class="senha-card ${['normal', 'alta', 'urgente'][senha.prioridade]}">
+                    <div class="senha-header">
+                        <div class="senha-number">${senha.senha}</div>
+                        <div class="senha-priority ${['normal', 'alta', 'urgente'][senha.prioridade]}">
+                            ${['NORMAL', 'ALTA', 'URGENTE'][senha.prioridade]}
+                        </div>
+                    </div>
+                    <div class="senha-info">
+                        <div class="senha-details">
+                            <h4>${senha.nome}</h4>
+                            <p><i class="fas fa-calendar"></i> ${new Date(senha.data_hora).toLocaleString('pt-BR')}</p>
+                            ${senha.observacoes ? `<p><i class="fas fa-info-circle"></i> ${senha.observacoes}</p>` : ''}
+                        </div>
+                        <div class="senha-actions">
+                            <button class="action-btn" onclick="chamarSenha('${senha.senha}')" title="Chamar">
+                                <i class="fas fa-bullhorn"></i>
+                            </button>
+                            <button class="action-btn secondary" onclick="verDetalhes(${senha.id})" title="Ver detalhes">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function displaySearchResult(data) {
+            const resultDiv = document.getElementById('search-result');
+            resultDiv.innerHTML = `
+                <div class="senha-card ${['normal', 'alta', 'urgente'][data.prioridade]}">
+                    <div class="senha-header">
+                        <div class="senha-number">${data.senha}</div>
+                        <div class="senha-priority ${['normal', 'alta', 'urgente'][data.prioridade]}">
+                            ${['NORMAL', 'ALTA', 'URGENTE'][data.prioridade]}
+                        </div>
+                    </div>
+                    <div class="senha-details">
+                        <h4>${data.nome}</h4>
+                        <p><i class="fas fa-id-card"></i> ${data.cpf}</p>
+                        <p><i class="fas fa-phone"></i> ${data.telefone || 'Não informado'}</p>
+                        <p><i class="fas fa-calendar"></i> ${new Date(data.data_hora).toLocaleString('pt-BR')}</p>
+                        <p><i class="fas fa-info-circle"></i> Status: ${data.status_chamada}</p>
+                        ${data.observacoes ? `<p><i class="fas fa-comment"></i> ${data.observacoes}</p>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+
+            toast.className = `toast ${type}`;
+            toastMessage.textContent = message;
+
+            toast.style.display = 'flex';
+
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function () {
+            // Auto-refresh a cada 30 segundos
+            setInterval(refreshSenhas, 30000);
+
+            // Enter key para buscar
+            document.getElementById('search-senha').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    buscarSenha();
+                }
+            });
+        });
+    </script>
+
+    <!-- Estilos adicionais para mini stats -->
+    <style>
+        .stats-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .stat-mini {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            padding: 1rem;
+        }
+
+        .stat-mini-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-mini-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stat-mini-value {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-mini-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .stat-mini-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .stat-mini-fill.normal {
+            background: var(--info);
+        }
+
+        .stat-mini-fill.alta {
+            background: var(--warning);
+        }
+
+        .stat-mini-fill.urgente {
+            background: var(--error);
+        }
+    </style>
+</body>
+
+</html>

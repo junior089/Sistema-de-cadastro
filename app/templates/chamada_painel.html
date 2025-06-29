@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamada - {{ cadastro.nome }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8fafc;
+            color: #222;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .painel-chamada {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 32px rgba(44, 85, 48, 0.12);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            max-width: 420px;
+        }
+
+        .painel-chamada h1 {
+            font-size: 2.2rem;
+            color: #2c5530;
+            margin-bottom: 1.5rem;
+        }
+
+        .senha-chamada {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #1e3a8a;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.2rem;
+            background: #e0e7ef;
+            border-radius: 12px;
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+        }
+
+        .status-chamada {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .nome-beneficiaria {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .hora-chamada {
+            color: #6b7280;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-voltar {
+            margin-top: 2rem;
+            background: #2c5530;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-voltar:hover {
+            background: #4a7c59;
+        }
+
+        .acoes-chamada {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .btn-acao {
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .btn-atendido {
+            background: #059669;
+            color: white;
+        }
+
+        .btn-atendido:hover {
+            background: #047857;
+        }
+
+        .btn-ausente {
+            background: #dc2626;
+            color: white;
+        }
+
+        .btn-ausente:hover {
+            background: #b91c1c;
+        }
+
+        @media (max-width: 600px) {
+            .painel-chamada {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .senha-chamada {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="painel-chamada">
+        <h1><i class="fas fa-bullhorn"></i> CHAMADA</h1>
+        <div class="senha-chamada">{{ cadastro.senha_chamada }}</div>
+        <div class="status-chamada">
+            <i class="fas fa-volume-up"></i> {{ cadastro.status_chamada|capitalize }}
+        </div>
+        <div class="nome-beneficiaria">{{ cadastro.nome }}</div>
+        <div class="hora-chamada">
+            {% if cadastro.horario_chamada %}
+            {{ cadastro.horario_chamada.strftime('%d/%m/%Y %H:%M:%S') }}
+            {% endif %}
+        </div>
+        <div class="acoes-chamada">
+            <button class="btn-acao btn-atendido" onclick="marcarAtendido()">
+                <i class="fas fa-check"></i> Atendido
+            </button>
+            <button class="btn-acao btn-ausente" onclick="marcarAusente()">
+                <i class="fas fa-times"></i> Ausente
+            </button>
+        </div>
+        <button class="btn-voltar" onclick="window.close()">Fechar</button>
+    </div>
+
+    <script>
+        function marcarAtendido() {
+            if (confirm('Confirmar que a beneficiária foi atendida?')) {
+                fetch(`/marcar_atendido/{{ cadastro.id }}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Beneficiária marcada como atendida!');
+                            window.close();
+                        } else {
+                            alert('Erro: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                        alert('Erro ao processar a ação');
+                    });
+            }
+        }
+
+        function marcarAusente() {
+            if (confirm('Confirmar que a beneficiária está ausente?')) {
+                fetch(`/marcar_ausente/{{ cadastro.id }}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Beneficiária marcada como ausente!');
+                            window.close();
+                        } else {
+                            alert('Erro: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                        alert('Erro ao processar a ação');
+                    });
+            }
+        }
+    </script>
+</body>
+
+</html>

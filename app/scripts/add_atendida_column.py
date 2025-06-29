@@ -63,6 +63,52 @@ def create_backup(db_path):
         print(f"❌ Erro ao criar backup: {e}")
         return False
 
+def add_chamada_fields(db_path):
+    if not os.path.exists(db_path):
+        print(f"Arquivo de banco não encontrado: {db_path}")
+        return
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    try:
+        # Adiciona coluna senha_chamada
+        cursor.execute("ALTER TABLE cadastro ADD COLUMN senha_chamada VARCHAR(8);")
+    except Exception as e:
+        print(f"Coluna senha_chamada: {e}")
+    try:
+        # Adiciona coluna status_chamada
+        cursor.execute("ALTER TABLE cadastro ADD COLUMN status_chamada VARCHAR(20) DEFAULT 'aguardando';")
+    except Exception as e:
+        print(f"Coluna status_chamada: {e}")
+    try:
+        # Adiciona coluna horario_chamada
+        cursor.execute("ALTER TABLE cadastro ADD COLUMN horario_chamada DATETIME;")
+    except Exception as e:
+        print(f"Coluna horario_chamada: {e}")
+    try:
+        # Adiciona coluna historico_chamadas
+        cursor.execute("ALTER TABLE cadastro ADD COLUMN historico_chamadas TEXT;")
+    except Exception as e:
+        print(f"Coluna historico_chamadas: {e}")
+    try:
+        # Adiciona coluna prioridade
+        cursor.execute("ALTER TABLE cadastro ADD COLUMN prioridade INTEGER DEFAULT 0;")
+    except Exception as e:
+        print(f"Coluna prioridade: {e}")
+    try:
+        # Adiciona coluna posicao_fila
+        cursor.execute("ALTER TABLE cadastro ADD COLUMN posicao_fila INTEGER;")
+    except Exception as e:
+        print(f"Coluna posicao_fila: {e}")
+    try:
+        # Adiciona coluna observacoes
+        cursor.execute("ALTER TABLE cadastro ADD COLUMN observacoes TEXT;")
+    except Exception as e:
+        print(f"Coluna observacoes: {e}")
+    
+    conn.commit()
+    conn.close()
+    print("✅ Campos de chamada adicionados com sucesso!")
+
 if __name__ == "__main__":
     print("🔄 Iniciando modificação do banco de dados...")
     db_path = get_db_path()
@@ -74,6 +120,7 @@ if __name__ == "__main__":
         if add_atendida_field(db_path):
             print("\n✅ Modificação concluída com sucesso!")
             print("🔄 Reinicie a aplicação Flask para aplicar as mudanças")
+            add_chamada_fields(db_path)
         else:
             print("\n❌ Falha na modificação do banco de dados")
     else:

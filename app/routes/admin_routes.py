@@ -8,6 +8,7 @@ from app.models.estado import Estado
 from app.models.municipio import Municipio
 from app.models.descricao import Descricao
 from app.models.instituicao import Instituicao
+from app.models.cadastro import Cadastro
 from datetime import datetime, UTC
 import os
 
@@ -32,9 +33,9 @@ def gerenciar_usuarios():
     users = User.query.all()
     return render_template('user_manage.html', users=users)
 
-@admin_bp.route('/criar_usuario', methods=['GET', 'POST'])
+@admin_bp.route('/create_user', methods=['GET', 'POST'])
 @login_required
-def criar_usuario():
+def create_user():
     if current_user.role != 'admin':
         flash("Acesso negado!", 'error')
         return render_template('error.html', mensagem="Acesso negado!", codigo=403), 403
@@ -196,104 +197,85 @@ def gerenciar_dados():
         return redirect(url_for('admin.gerenciar_dados'))
     return render_template('data_manage.html', estados=estados, municipios=municipios, descricoes=descricoes, instituicoes=instituicoes)
 
-@admin_bp.route('/ver_logs')
+@admin_bp.route('/view_logs')
 @login_required
-def ver_logs():
+def view_logs():
     if current_user.role != 'admin':
         flash("Acesso negado!", 'error')
         return render_template('error.html', mensagem="Acesso negado!", codigo=403), 403
-    logs = Log.query.order_by(Log.data_hora.desc()).all()
+    logs = Log.query.order_by(Log.data_hora.desc()).limit(100).all()
     return render_template('log_list.html', logs=logs)
 
-@admin_bp.route('/backup/<backup_type>')
+@admin_bp.route('/backup', methods=['POST'])
 @login_required
-def create_backup(backup_type='manual'):
+def backup():
     if current_user.role != 'admin':
-        flash("Acesso negado!", 'error')
-        return render_template('error.html', mensagem="Acesso negado!", codigo=403), 403
-    if backup_type not in ['manual', 'daily', 'weekly', 'monthly']:
-        backup_type = 'manual'
-    backup_system = current_app.backup_system
-    success, message = backup_system.create_backup(backup_type)
-    if success:
-        log = Log(usuario=current_user.username,
-                  acao=f"Backup {backup_type} realizado: {message}")
-        db.session.add(log)
-        db.session.commit()
-        flash(message, 'success')
-    else:
-        flash(f"Erro ao criar backup: {message}", 'error')
-    return redirect(url_for('admin.manage_backups'))
+        return jsonify({"success": False, "message": "Acesso negado!"}), 403
+    try:
+        backup_system = current_app.config.get('BACKUP_SYSTEM')
+        if backup_system:
+            success, message = backup_system.create_backup('manual')
+            if success:
+                log = Log(usuario=current_user.username, acao="Backup manual criado")
+                db.session.add(log)
+                db.session.commit()
+                return jsonify({"success": True, "message": message})
+            else:
+                return jsonify({"success": False, "message": message})
+        else:
+            return jsonify({"success": False, "message": "Sistema de backup não disponível"})
+    except Exception as e:
+        return jsonify({"success": False, "message": f"Erro ao criar backup: {str(e)}"})
 
-@admin_bp.route('/backups/manage')
+@admin_bp.route('/manage_backups')
 @login_required
 def manage_backups():
     if current_user.role != 'admin':
         flash("Acesso negado!", 'error')
         return render_template('error.html', mensagem="Acesso negado!", codigo=403), 403
-    backup_system = current_app.backup_system
-    backups = backup_system.list_backups()
-    return render_template('backup_manage.html', backups=backups)
+    try:
+        backup_system = current_app.config.get('BACKUP_SYSTEM')
+        if backup_system:
+            backups = backup_system.list_backups()
+        else:
+            backups = []
+        return render_template('manage_backups.html', backups=backups)
+    except Exception as e:
+        flash(f"Erro ao carregar backups: {str(e)}", 'error')
+        return render_template('manage_backups.html', backups=[])
 
-@admin_bp.route('/backup/restore/<path:backup_file>')
+@admin_bp.route('/toggle_maintenance', methods=['POST'])
 @login_required
-def restore_backup(backup_file):
+def toggle_maintenance():
     if current_user.role != 'admin':
-        flash("Acesso negado!", 'error')
-        return render_template('error.html', mensagem="Acesso negado!", codigo=403), 403
-    backup_system = current_app.backup_system
-    backup_path = os.path.join(backup_system.backup_dir, backup_file)
-    success, message = backup_system.restore_backup(backup_path)
-    if success:
-        log = Log(usuario=current_user.username,
-                  acao=f"Restauração realizada: {message}")
+        return jsonify({"success": False, "message": "Acesso negado!"}), 403
+    
+    try:
+        status = SystemStatus.query.first()
+        if not status:
+            status = SystemStatus()
+            db.session.add(status)
+        
+        status.maintenance_mode = not status.maintenance_mode
+        status.last_update = datetime.now(UTC)
+        
+        if status.maintenance_mode:
+            status.maintenance_message = "Sistema em manutenção. Por favor, tente novamente mais tarde."
+        
+        db.session.commit()
+        
+        log = Log(
+            usuario=current_user.username, 
+            acao=f"{'Ativou' if status.maintenance_mode else 'Desativou'} modo manutenção"
+        )
         db.session.add(log)
         db.session.commit()
-        flash(message, 'success')
-    else:
-        flash(f"Erro ao restaurar backup: {message}", 'error')
-    return redirect(url_for('admin.manage_backups'))
-
-@admin_bp.route('/backup/download/<path:backup_file>')
-@login_required
-def download_backup(backup_file):
-    if current_user.role != 'admin':
-        flash("Acesso negado!", 'error')
-        return render_template('error.html', mensagem="Acesso negado!", codigo=403), 403
-    backup_system = current_app.backup_system
-    backup_path = os.path.join(backup_system.backup_dir, backup_file)
-    try:
-        return send_file(backup_path, as_attachment=True)
+        
+        return jsonify({
+            "success": True, 
+            "maintenance_mode": status.maintenance_mode,
+            "message": f"Modo manutenção {'ativado' if status.maintenance_mode else 'desativado'} com sucesso!"
+        })
     except Exception as e:
-        flash(f"Erro ao baixar backup: {str(e)}", 'error')
-        return redirect(url_for('admin.manage_backups'))
-
-@admin_bp.route('/manage_maintenance', methods=['POST'])
-@login_required
-def manage_maintenance():
-    if current_user.role != 'admin':
-        flash("Acesso negado!", 'error')
-        return render_template('error.html', mensagem="Acesso negado!", codigo=403), 403
-    status = SystemStatus.query.first()
-    if not status:
-        status = SystemStatus(
-            status='OK',
-            last_update=datetime.now(UTC),
-            maintenance_mode=False,
-            maintenance_message="Sistema em manutenção. Por favor, tente novamente mais tarde."
-        )
-        db.session.add(status)
-    status.maintenance_mode = not status.maintenance_mode
-    status.last_update = datetime.now(UTC)
-    db.session.commit()
-    log = Log(
-        usuario=current_user.username,
-        acao=f"{'Ativou' if status.maintenance_mode else 'Desativou'} modo de manutenção"
-    )
-    db.session.add(log)
-    db.session.commit()
-    flash(
-        f"Modo de manutenção {'ativado' if status.maintenance_mode else 'desativado'} com sucesso!",
-        'success'
-    )
-    return redirect(url_for('admin.index_admin'))
+        db.session.rollback()
+        return jsonify({"success": False, "message": f"Erro: {str(e)}"}), 500

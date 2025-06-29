@@ -1077,6 +1077,11 @@
                     <span>Conectado</span>
                 </div>
 
+                <a href="{{ url_for('cadastro.fila_chamadas') }}" class="btn btn-info">
+                    <i class="fas fa-list-ol"></i>
+                    Fila de Chamadas
+                </a>
+
                 <a href="{{ url_for('cadastro.index_cadastro') }}" class="btn btn-primary">
                     <i class="fas fa-plus"></i>
                     Novo Cadastro
@@ -1386,9 +1391,9 @@
                         <tr data-id="{{ item.cadastro.id }}" class="cadastro-row"
                             data-status="{{ 'atendida' if item.cadastro.atendida else 'nao-atendida' }}">
                             <td>
-                                <div style="font-weight: 600;">{{ item.cadastro.data_hora.split(' ')[0] }}</div>
-                                <small style="color: var(--text-secondary);">{{ item.cadastro.data_hora.split(' ')[1]
-                                    }}</small>
+                                <div style="font-weight: 600;">{{ item.cadastro.data_hora.strftime('%d/%m/%Y') }}</div>
+                                <small style="color: var(--text-secondary);">{{
+                                    item.cadastro.data_hora.strftime('%H:%M:%S') }}</small>
                             </td>
                             <td>
                                 <div style="font-weight: 600;">{{ item.cadastro.nome }}</div>
@@ -1451,6 +1456,17 @@
                                         <i class="fas {{ 'fa-times' if item.cadastro.atendida else 'fa-check' }}"></i>
                                     </button>
                                     {% endif %}
+                                    <form
+                                        action="{{ url_for('cadastro.chamar_beneficiaria', cadastro_id=item.cadastro.id) }}"
+                                        method="post" target="_blank" style="display:inline;">
+                                        <button type="submit" class="btn btn-success" title="Chamar beneficiária">
+                                            <i class="fas fa-bullhorn"></i> Chamar
+                                        </button>
+                                    </form>
+                                    <a href="{{ url_for('cadastro.historico_chamadas', cadastro_id=item.cadastro.id) }}"
+                                        target="_blank" class="btn btn-info" title="Ver histórico de chamadas">
+                                        <i class="fas fa-history"></i> Histórico
+                                    </a>
                                 </div>
                             </td>
                         </tr>

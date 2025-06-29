@@ -2296,3 +2296,977 @@
 2025-06-28 22:54:55,564 - INFO -  * Restarting with stat
 2025-06-28 22:54:56,567 - WARNING -  * Debugger is active!
 2025-06-28 22:54:56,571 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:58:34,191 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:58:34,191 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:58:34,194 - INFO -  * Restarting with stat
+2025-06-28 22:58:35,575 - WARNING -  * Debugger is active!
+2025-06-28 22:58:35,578 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:58:35,649 - INFO - 127.0.0.1 - - [28/Jun/2025 22:58:35] "GET / HTTP/1.1" 200 -
+2025-06-28 22:58:35,678 - INFO - 127.0.0.1 - - [28/Jun/2025 22:58:35] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 22:58:53,040 - INFO - 127.0.0.1 - - [28/Jun/2025 22:58:53] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:58:53,060 - INFO - 127.0.0.1 - - [28/Jun/2025 22:58:53] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:59:04,853 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:04] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:59:10,105 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:10] "GET /criar_usuario HTTP/1.1" 200 -
+2025-06-28 22:59:23,013 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:23] "[32mPOST /criar_usuario HTTP/1.1[0m" 302 -
+2025-06-28 22:59:23,018 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:23] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 22:59:25,588 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:25] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 22:59:25,599 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:25] "GET / HTTP/1.1" 200 -
+2025-06-28 22:59:25,651 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:25] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 22:59:34,777 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:34] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 22:59:34,807 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:34] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 22:59:34,869 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:34] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 22:59:39,888 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:39] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 22:59:42,570 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:42] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 22:59:42,616 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:42] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 22:59:47,635 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:47] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 22:59:48,423 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 22:59:48,423 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 22:59:48,425 - INFO -  * Restarting with stat
+2025-06-28 22:59:49,618 - WARNING -  * Debugger is active!
+2025-06-28 22:59:49,621 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 22:59:52,652 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:52] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 22:59:57,664 - INFO - 127.0.0.1 - - [28/Jun/2025 22:59:57] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:00,375 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:00] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 23:00:00,435 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:00] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:05,457 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:05] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:10,470 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:10] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:15,484 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:15] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:20,497 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:20] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:25,513 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:25] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:30,528 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:30] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:35,539 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:35] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:40,551 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:40] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:45,561 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:45] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:50,574 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:50] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:00:55,587 - INFO - 127.0.0.1 - - [28/Jun/2025 23:00:55] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:00,601 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:00] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:05,616 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:05] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:10,630 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:10] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:15,644 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:15] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:20,657 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:20] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:25,671 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:25] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:30,687 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:30] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:35,699 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:35] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:40,712 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:40] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:45,724 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:45] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:50,740 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:50] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:01:55,754 - INFO - 127.0.0.1 - - [28/Jun/2025 23:01:55] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:00,768 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:00] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:05,780 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:05] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:10,795 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:10] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:15,809 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:15] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:20,822 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:20] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:25,837 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:25] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:30,850 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:30] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:35,863 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:35] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:40,874 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:40] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:45,886 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:45] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:02:49,989 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:49] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 23:02:50,010 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:50] "GET / HTTP/1.1" 200 -
+2025-06-28 23:02:51,087 - INFO - 127.0.0.1 - - [28/Jun/2025 23:02:51] "GET / HTTP/1.1" 200 -
+2025-06-28 23:03:08,889 - INFO - 127.0.0.1 - - [28/Jun/2025 23:03:08] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:03:08,904 - INFO - 127.0.0.1 - - [28/Jun/2025 23:03:08] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:03:08,931 - INFO - 127.0.0.1 - - [28/Jun/2025 23:03:08] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:03:08,980 - INFO - 127.0.0.1 - - [28/Jun/2025 23:03:08] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:03:48,035 - INFO - 127.0.0.1 - - [28/Jun/2025 23:03:48] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:04:00,649 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:00] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 23:04:00,653 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:00] "GET / HTTP/1.1" 200 -
+2025-06-28 23:04:06,929 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:06] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:04:06,961 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:06] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 23:04:07,018 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:07] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:12,045 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:12] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:17,056 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:17] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:22,071 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:22] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:27,083 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:27] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:32,099 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:32] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:37,113 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:37] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:42,126 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:42] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:47,135 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:47] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:52,148 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:52] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:04:57,162 - INFO - 127.0.0.1 - - [28/Jun/2025 23:04:57] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:05:02,174 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:02] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:05:07,189 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:07] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:05:12,204 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:12] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:05:17,214 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:17] "[35m[1mGET /events HTTP/1.1[0m" 500 -
+2025-06-28 23:05:20,763 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:20] "[35m[1mGET /ver_cadastros HTTP/1.1[0m" 500 -
+2025-06-28 23:05:20,783 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:20] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:05:20,787 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:20] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:05:20,810 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:20] "GET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png&s=Vo2mM9JCceyJw5FqMzne HTTP/1.1" 200 -
+2025-06-28 23:05:21,721 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:21] "[35m[1mGET /ver_cadastros HTTP/1.1[0m" 500 -
+2025-06-28 23:05:21,754 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:21] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:05:21,756 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:21] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:05:21,778 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:21] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png&s=Vo2mM9JCceyJw5FqMzne HTTP/1.1[0m" 304 -
+2025-06-28 23:05:21,802 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:21] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 23:05:59,447 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:59] "[35m[1mGET /ver_cadastros HTTP/1.1[0m" 500 -
+2025-06-28 23:05:59,468 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:59] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:05:59,469 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:59] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:05:59,491 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:59] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png&s=Vo2mM9JCceyJw5FqMzne HTTP/1.1[0m" 304 -
+2025-06-28 23:05:59,517 - INFO - 127.0.0.1 - - [28/Jun/2025 23:05:59] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,169 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[35m[1mGET /ver_cadastros HTTP/1.1[0m" 500 -
+2025-06-28 23:06:00,187 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,189 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,217 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png&s=Vo2mM9JCceyJw5FqMzne HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,238 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,344 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[35m[1mGET /ver_cadastros HTTP/1.1[0m" 500 -
+2025-06-28 23:06:00,369 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,370 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,407 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png&s=Vo2mM9JCceyJw5FqMzne HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,456 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,537 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[35m[1mGET /ver_cadastros HTTP/1.1[0m" 500 -
+2025-06-28 23:06:00,576 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,577 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,615 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png&s=Vo2mM9JCceyJw5FqMzne HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,633 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,746 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[35m[1mGET /ver_cadastros HTTP/1.1[0m" 500 -
+2025-06-28 23:06:00,790 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,793 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,829 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png&s=Vo2mM9JCceyJw5FqMzne HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,847 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,922 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[35m[1mGET /ver_cadastros HTTP/1.1[0m" 500 -
+2025-06-28 23:06:00,956 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:06:00,958 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:00] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:06:01,003 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:01] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png&s=Vo2mM9JCceyJw5FqMzne HTTP/1.1[0m" 304 -
+2025-06-28 23:06:01,037 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:01] "[36mGET /ver_cadastros?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 23:06:06,083 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:06] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:06:06,088 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:06] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:06:06,113 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:06] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:06:06,155 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:06] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:06:47,380 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:47] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 23:06:47,399 - INFO - 127.0.0.1 - - [28/Jun/2025 23:06:47] "GET / HTTP/1.1" 200 -
+2025-06-28 23:10:51,739 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\api_routes.py', reloading
+2025-06-28 23:10:51,769 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\api_routes.py', reloading
+2025-06-28 23:10:52,048 - INFO -  * Restarting with stat
+2025-06-28 23:10:52,101 - INFO -  * Restarting with stat
+2025-06-28 23:10:53,570 - WARNING -  * Debugger is active!
+2025-06-28 23:10:53,570 - WARNING -  * Debugger is active!
+2025-06-28 23:10:53,573 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:10:53,574 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:17:14,930 - INFO - 127.0.0.1 - - [28/Jun/2025 23:17:14] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:17:14,947 - INFO - 127.0.0.1 - - [28/Jun/2025 23:17:14] "[35m[1mGET /index_admin HTTP/1.1[0m" 500 -
+2025-06-28 23:17:14,988 - INFO - 127.0.0.1 - - [28/Jun/2025 23:17:14] "GET /index_admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-28 23:17:14,999 - INFO - 127.0.0.1 - - [28/Jun/2025 23:17:14] "GET /index_admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-28 23:17:15,110 - INFO - 127.0.0.1 - - [28/Jun/2025 23:17:15] "GET /index_admin?__debugger__=yes&cmd=resource&f=console.png&s=fKqUyO7VMIGsuvVAdfHa HTTP/1.1" 200 -
+2025-06-28 23:17:15,158 - INFO - 127.0.0.1 - - [28/Jun/2025 23:17:15] "GET /index_admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-28 23:32:09,271 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:09] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 23:32:09,313 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:09] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:32:09,490 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:09] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:32:09,535 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:09] "[33mGET /api/alerts HTTP/1.1[0m" 404 -
+2025-06-28 23:32:09,540 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:09] "[33mGET /api/activities HTTP/1.1[0m" 404 -
+2025-06-28 23:32:13,216 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:13] "GET /gerenciar_usuarios HTTP/1.1" 200 -
+2025-06-28 23:32:13,238 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:13] "[33mGET /static/images/logo_incra.png HTTP/1.1[0m" 404 -
+2025-06-28 23:32:16,009 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:16] "GET /gerenciar_usuarios HTTP/1.1" 200 -
+2025-06-28 23:32:16,023 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:16] "[33mGET /static/images/logo_incra.png HTTP/1.1[0m" 404 -
+2025-06-28 23:32:19,283 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:19] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 23:32:29,316 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:29] "[33mGET /api/activities HTTP/1.1[0m" 404 -
+2025-06-28 23:32:41,018 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:41] "GET /gerenciar_usuarios HTTP/1.1" 200 -
+2025-06-28 23:32:41,043 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:41] "[33mGET /static/images/logo_incra.png HTTP/1.1[0m" 404 -
+2025-06-28 23:32:43,581 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:43] "GET /ver_logs HTTP/1.1" 200 -
+2025-06-28 23:32:44,927 - INFO - 127.0.0.1 - - [28/Jun/2025 23:32:44] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 23:34:09,310 - INFO - 127.0.0.1 - - [28/Jun/2025 23:34:09] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 23:34:09,324 - INFO - 127.0.0.1 - - [28/Jun/2025 23:34:09] "GET / HTTP/1.1" 200 -
+2025-06-28 23:34:16,120 - INFO - 127.0.0.1 - - [28/Jun/2025 23:34:16] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:34:16,135 - INFO - 127.0.0.1 - - [28/Jun/2025 23:34:16] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 23:34:16,165 - INFO - 127.0.0.1 - - [28/Jun/2025 23:34:16] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:34:16,202 - INFO - 127.0.0.1 - - [28/Jun/2025 23:34:16] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:34:16,204 - INFO - 127.0.0.1 - - [28/Jun/2025 23:34:16] "GET /api/cadastros HTTP/1.1" 200 -
+2025-06-28 23:35:08,973 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:08] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 23:35:09,007 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:09] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:35:09,043 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:09] "GET /api/cadastros HTTP/1.1" 200 -
+2025-06-28 23:35:09,044 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:09] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:35:09,745 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:09] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 23:35:09,776 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:09] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:35:09,820 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:09] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:35:09,823 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:09] "GET /api/cadastros HTTP/1.1" 200 -
+2025-06-28 23:35:14,874 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:14] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 23:35:14,890 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:14] "GET / HTTP/1.1" 200 -
+2025-06-28 23:35:25,068 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:25] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:35:25,079 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:25] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 23:35:25,112 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:25] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:35:25,154 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:25] "GET /api/cadastros HTTP/1.1" 200 -
+2025-06-28 23:35:25,156 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:25] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:35:33,305 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:33] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 23:35:35,261 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:35] "GET /gerenciar_usuarios HTTP/1.1" 200 -
+2025-06-28 23:35:35,307 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:35] "[33mGET /static/images/logo_incra.png HTTP/1.1[0m" 404 -
+2025-06-28 23:35:44,359 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:44] "[33mGET /admin/usuarios HTTP/1.1[0m" 404 -
+2025-06-28 23:35:47,005 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:47] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 23:35:48,655 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:48] "[33mGET /admin/logs HTTP/1.1[0m" 404 -
+2025-06-28 23:35:53,741 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:53] "GET /gerenciar_dados HTTP/1.1" 200 -
+2025-06-28 23:35:57,616 - INFO - 127.0.0.1 - - [28/Jun/2025 23:35:57] "GET /ver_logs HTTP/1.1" 200 -
+2025-06-28 23:36:09,990 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:09] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 23:36:10,010 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:10] "GET / HTTP/1.1" 200 -
+2025-06-28 23:36:20,230 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:20] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:36:20,244 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:20] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:36:20,274 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:20] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:36:20,308 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:20] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:36:40,403 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:40] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:36:40,423 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:40] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:36:40,445 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:40] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:36:53,792 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:53] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:36:53,817 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:53] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:36:53,866 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:53] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:36:54,546 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:54] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:36:54,577 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:54] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:36:54,605 - INFO - 127.0.0.1 - - [28/Jun/2025 23:36:54] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:38:07,771 - INFO - 127.0.0.1 - - [28/Jun/2025 23:38:07] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:38:07,793 - INFO - 127.0.0.1 - - [28/Jun/2025 23:38:07] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:38:07,818 - INFO - 127.0.0.1 - - [28/Jun/2025 23:38:07] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:38:13,998 - INFO - 127.0.0.1 - - [28/Jun/2025 23:38:13] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 23:38:14,021 - INFO - 127.0.0.1 - - [28/Jun/2025 23:38:14] "GET / HTTP/1.1" 200 -
+2025-06-28 23:39:40,755 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:40] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:39:40,783 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:40] "[35m[1mGET /index_admin HTTP/1.1[0m" 500 -
+2025-06-28 23:39:40,810 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:40] "[36mGET /index_admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:39:40,815 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:40] "[36mGET /index_admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:39:40,862 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:40] "[36mGET /index_admin?__debugger__=yes&cmd=resource&f=console.png&s=fKqUyO7VMIGsuvVAdfHa HTTP/1.1[0m" 304 -
+2025-06-28 23:39:40,887 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:40] "[36mGET /index_admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 23:39:44,878 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:44] "[35m[1mGET /index_admin HTTP/1.1[0m" 500 -
+2025-06-28 23:39:44,897 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:44] "[36mGET /index_admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-28 23:39:44,899 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:44] "[36mGET /index_admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-28 23:39:44,919 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:44] "[36mGET /index_admin?__debugger__=yes&cmd=resource&f=console.png&s=fKqUyO7VMIGsuvVAdfHa HTTP/1.1[0m" 304 -
+2025-06-28 23:39:44,943 - INFO - 127.0.0.1 - - [28/Jun/2025 23:39:44] "[36mGET /index_admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-28 23:41:16,408 - INFO - 127.0.0.1 - - [28/Jun/2025 23:41:16] "POST / HTTP/1.1" 200 -
+2025-06-28 23:41:25,198 - INFO - 127.0.0.1 - - [28/Jun/2025 23:41:25] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:41:25,204 - INFO - 127.0.0.1 - - [28/Jun/2025 23:41:25] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:41:25,240 - INFO - 127.0.0.1 - - [28/Jun/2025 23:41:25] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:41:25,280 - INFO - 127.0.0.1 - - [28/Jun/2025 23:41:25] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:42:27,871 - INFO - 127.0.0.1 - - [28/Jun/2025 23:42:27] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:42:27,893 - INFO - 127.0.0.1 - - [28/Jun/2025 23:42:27] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:42:27,929 - INFO - 127.0.0.1 - - [28/Jun/2025 23:42:27] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:43:32,952 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\admin_routes.py', reloading
+2025-06-28 23:43:33,131 - INFO -  * Restarting with stat
+2025-06-28 23:43:33,174 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\admin_routes.py', reloading
+2025-06-28 23:43:33,508 - INFO -  * Restarting with stat
+2025-06-28 23:43:34,788 - WARNING -  * Debugger is active!
+2025-06-28 23:43:34,795 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:43:35,043 - WARNING -  * Debugger is active!
+2025-06-28 23:43:35,048 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:44:17,223 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\api_routes.py', reloading
+2025-06-28 23:44:17,452 - INFO -  * Restarting with stat
+2025-06-28 23:44:17,457 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\api_routes.py', reloading
+2025-06-28 23:44:17,772 - INFO -  * Restarting with stat
+2025-06-28 23:44:18,882 - WARNING -  * Debugger is active!
+2025-06-28 23:44:18,887 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:44:19,112 - WARNING -  * Debugger is active!
+2025-06-28 23:44:19,116 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:44:22,415 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:22] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:22,435 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:22] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:22,478 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:22] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:23,161 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:23,211 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:23,248 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:23,347 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:23,369 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:23,418 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:23,536 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:23,565 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:23,616 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:23,734 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:23,753 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:23,787 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:23,911 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:23,946 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:23,976 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:23] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:24,144 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:24,171 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:24,208 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:24,369 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:24,394 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:24,436 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:24,564 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:24,607 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:24,650 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:24,770 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:24,813 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:24,836 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:24] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:27,621 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 23:44:27,867 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 23:44:27,871 - INFO -  * Restarting with stat
+2025-06-28 23:44:28,107 - INFO -  * Restarting with stat
+2025-06-28 23:44:29,147 - WARNING -  * Debugger is active!
+2025-06-28 23:44:29,152 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:44:29,353 - WARNING -  * Debugger is active!
+2025-06-28 23:44:29,356 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:44:44,465 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 23:44:44,465 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 23:44:44,466 - INFO -  * Restarting with stat
+2025-06-28 23:44:45,823 - WARNING -  * Debugger is active!
+2025-06-28 23:44:45,826 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:44:52,592 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:52] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:44:52,616 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:52] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-28 23:44:52,668 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:52] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:44:54,055 - INFO - 127.0.0.1 - - [28/Jun/2025 23:44:54] "GET / HTTP/1.1" 200 -
+2025-06-28 23:45:01,119 - INFO - 127.0.0.1 - - [28/Jun/2025 23:45:01] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:45:01,132 - INFO - 127.0.0.1 - - [28/Jun/2025 23:45:01] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 23:45:01,192 - INFO - 127.0.0.1 - - [28/Jun/2025 23:45:01] "GET /api/activities HTTP/1.1" 200 -
+2025-06-28 23:45:01,193 - INFO - 127.0.0.1 - - [28/Jun/2025 23:45:01] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:45:29,191 - INFO - 127.0.0.1 - - [28/Jun/2025 23:45:29] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:45:29,207 - INFO - 127.0.0.1 - - [28/Jun/2025 23:45:29] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 23:45:29,264 - INFO - 127.0.0.1 - - [28/Jun/2025 23:45:29] "GET /api/cadastros HTTP/1.1" 200 -
+2025-06-28 23:45:29,280 - INFO - 127.0.0.1 - - [28/Jun/2025 23:45:29] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:49:39,604 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 23:49:39,633 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 23:49:39,905 - INFO -  * Restarting with stat
+2025-06-28 23:49:39,936 - INFO -  * Restarting with stat
+2025-06-28 23:49:40,030 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-28 23:49:40,336 - INFO -  * Restarting with stat
+2025-06-28 23:49:41,334 - WARNING -  * Debugger is active!
+2025-06-28 23:49:41,337 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:49:41,349 - WARNING -  * Debugger is active!
+2025-06-28 23:49:41,352 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:49:41,597 - WARNING -  * Debugger is active!
+2025-06-28 23:49:41,600 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:53:04,417 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:04] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 23:53:04,591 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:04] "GET /events HTTP/1.1" 200 -
+2025-06-28 23:53:05,600 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:05] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-28 23:53:05,644 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:05] "GET /events HTTP/1.1" 200 -
+2025-06-28 23:53:10,214 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:10] "GET /export_cadastros HTTP/1.1" 200 -
+2025-06-28 23:53:10,372 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:10] "GET /export_cadastros HTTP/1.1" 200 -
+2025-06-28 23:53:11,828 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:11] "GET /export_cadastros HTTP/1.1" 200 -
+2025-06-28 23:53:23,880 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 23:53:23,880 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 23:53:23,881 - INFO -  * Restarting with stat
+2025-06-28 23:53:25,196 - WARNING -  * Debugger is active!
+2025-06-28 23:53:25,199 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:53:33,724 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:33] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 23:53:33,739 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:33] "GET / HTTP/1.1" 200 -
+2025-06-28 23:53:42,093 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:42] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:53:42,106 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:42] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 23:53:50,413 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:50] "[35m[1mGET /create_user HTTP/1.1[0m" 500 -
+2025-06-28 23:53:50,441 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:50] "GET /create_user?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-28 23:53:50,443 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:50] "GET /create_user?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-28 23:53:50,478 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:50] "GET /create_user?__debugger__=yes&cmd=resource&f=console.png&s=884liTk8xdJ6xQPjB3K2 HTTP/1.1" 200 -
+2025-06-28 23:53:50,494 - INFO - 127.0.0.1 - - [28/Jun/2025 23:53:50] "GET /create_user?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-28 23:54:22,775 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\admin_routes.py', reloading
+2025-06-28 23:54:22,929 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\admin_routes.py', reloading
+2025-06-28 23:54:23,042 - INFO -  * Restarting with stat
+2025-06-28 23:54:23,146 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\admin_routes.py', reloading
+2025-06-28 23:54:23,173 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\admin_routes.py', reloading
+2025-06-28 23:54:23,205 - INFO -  * Restarting with stat
+2025-06-28 23:54:23,417 - INFO -  * Restarting with stat
+2025-06-28 23:54:23,442 - INFO -  * Restarting with stat
+2025-06-28 23:54:24,513 - WARNING -  * Debugger is active!
+2025-06-28 23:54:24,517 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:54:24,618 - WARNING -  * Debugger is active!
+2025-06-28 23:54:24,622 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:54:24,832 - WARNING -  * Debugger is active!
+2025-06-28 23:54:24,835 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:54:24,854 - WARNING -  * Debugger is active!
+2025-06-28 23:54:24,857 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:54:55,283 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-28 23:54:55,283 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-28 23:54:55,284 - INFO -  * Restarting with stat
+2025-06-28 23:54:56,277 - INFO - 127.0.0.1 - - [28/Jun/2025 23:54:56] "GET /create_user HTTP/1.1" 200 -
+2025-06-28 23:54:56,534 - WARNING -  * Debugger is active!
+2025-06-28 23:54:56,538 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:55:04,057 - INFO - 127.0.0.1 - - [28/Jun/2025 23:55:04] "GET /index_admin HTTP/1.1" 200 -
+2025-06-28 23:57:18,655 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-28 23:57:18,655 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-28 23:57:18,837 - INFO -  * Restarting with stat
+2025-06-28 23:57:18,837 - INFO -  * Restarting with stat
+2025-06-28 23:57:18,960 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-28 23:57:18,982 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-28 23:57:19,241 - INFO -  * Restarting with stat
+2025-06-28 23:57:19,282 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-28 23:57:19,295 - INFO -  * Restarting with stat
+2025-06-28 23:57:19,595 - INFO -  * Restarting with stat
+2025-06-28 23:57:20,512 - WARNING -  * Debugger is active!
+2025-06-28 23:57:20,513 - WARNING -  * Debugger is active!
+2025-06-28 23:57:20,516 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:20,516 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:20,930 - WARNING -  * Debugger is active!
+2025-06-28 23:57:20,934 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:20,987 - WARNING -  * Debugger is active!
+2025-06-28 23:57:20,990 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:21,198 - WARNING -  * Debugger is active!
+2025-06-28 23:57:21,202 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:30,130 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:30,131 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:30,376 - INFO -  * Restarting with stat
+2025-06-28 23:57:30,377 - INFO -  * Restarting with stat
+2025-06-28 23:57:30,531 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:30,565 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:30,714 - INFO -  * Restarting with stat
+2025-06-28 23:57:30,745 - INFO -  * Restarting with stat
+2025-06-28 23:57:30,781 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:30,964 - INFO -  * Restarting with stat
+2025-06-28 23:57:31,597 - WARNING -  * Debugger is active!
+2025-06-28 23:57:31,601 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:31,652 - WARNING -  * Debugger is active!
+2025-06-28 23:57:31,657 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:31,969 - WARNING -  * Debugger is active!
+2025-06-28 23:57:31,973 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:32,006 - WARNING -  * Debugger is active!
+2025-06-28 23:57:32,009 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:32,225 - WARNING -  * Debugger is active!
+2025-06-28 23:57:32,229 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:52,319 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:52,539 - INFO -  * Restarting with stat
+2025-06-28 23:57:52,750 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:52,801 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:53,131 - INFO -  * Restarting with stat
+2025-06-28 23:57:53,204 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:53,210 - INFO -  * Restarting with stat
+2025-06-28 23:57:53,252 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:57:53,470 - INFO -  * Restarting with stat
+2025-06-28 23:57:53,521 - INFO -  * Restarting with stat
+2025-06-28 23:57:54,595 - WARNING -  * Debugger is active!
+2025-06-28 23:57:54,599 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:55,155 - WARNING -  * Debugger is active!
+2025-06-28 23:57:55,160 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:55,249 - WARNING -  * Debugger is active!
+2025-06-28 23:57:55,256 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:55,425 - WARNING -  * Debugger is active!
+2025-06-28 23:57:55,430 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:57:55,567 - WARNING -  * Debugger is active!
+2025-06-28 23:57:55,577 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:01,138 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:58:01,308 - INFO -  * Restarting with stat
+2025-06-28 23:58:01,769 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:58:01,787 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:58:01,942 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:58:01,984 - INFO -  * Restarting with stat
+2025-06-28 23:58:01,997 - INFO -  * Restarting with stat
+2025-06-28 23:58:02,049 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-28 23:58:02,157 - INFO -  * Restarting with stat
+2025-06-28 23:58:02,233 - INFO -  * Restarting with stat
+2025-06-28 23:58:02,655 - WARNING -  * Debugger is active!
+2025-06-28 23:58:02,661 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:03,569 - WARNING -  * Debugger is active!
+2025-06-28 23:58:03,575 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:03,602 - WARNING -  * Debugger is active!
+2025-06-28 23:58:03,608 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:03,730 - WARNING -  * Debugger is active!
+2025-06-28 23:58:03,735 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:03,813 - WARNING -  * Debugger is active!
+2025-06-28 23:58:03,818 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:48,254 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:58:48,254 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:58:48,485 - INFO -  * Restarting with stat
+2025-06-28 23:58:48,486 - INFO -  * Restarting with stat
+2025-06-28 23:58:48,893 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:58:48,929 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:58:49,210 - INFO -  * Restarting with stat
+2025-06-28 23:58:49,240 - INFO -  * Restarting with stat
+2025-06-28 23:58:49,322 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:58:49,600 - INFO -  * Restarting with stat
+2025-06-28 23:58:50,339 - WARNING -  * Debugger is active!
+2025-06-28 23:58:50,344 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:50,350 - WARNING -  * Debugger is active!
+2025-06-28 23:58:50,354 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:51,008 - WARNING -  * Debugger is active!
+2025-06-28 23:58:51,012 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:51,053 - WARNING -  * Debugger is active!
+2025-06-28 23:58:51,057 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:58:51,283 - WARNING -  * Debugger is active!
+2025-06-28 23:58:51,285 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:59:00,712 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:00] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-28 23:59:00,726 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:00] "GET / HTTP/1.1" 200 -
+2025-06-28 23:59:06,947 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:06] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-28 23:59:06,963 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:06] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-28 23:59:07,032 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:07] "GET /api/stats HTTP/1.1" 200 -
+2025-06-28 23:59:11,655 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:11] "POST /buscar_nome HTTP/1.1" 200 -
+2025-06-28 23:59:12,244 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:12] "GET /get_municipios/1 HTTP/1.1" 200 -
+2025-06-28 23:59:15,372 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:59:15,396 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:59:15,577 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:59:15,700 - INFO -  * Restarting with stat
+2025-06-28 23:59:15,726 - INFO -  * Restarting with stat
+2025-06-28 23:59:15,932 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:59:15,944 - INFO -  * Restarting with stat
+2025-06-28 23:59:15,971 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-28 23:59:16,258 - INFO -  * Restarting with stat
+2025-06-28 23:59:16,270 - INFO -  * Restarting with stat
+2025-06-28 23:59:18,075 - WARNING -  * Debugger is active!
+2025-06-28 23:59:18,080 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:59:18,167 - WARNING -  * Debugger is active!
+2025-06-28 23:59:18,176 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:59:18,211 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:18] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 23:59:18,269 - WARNING -  * Debugger is active!
+2025-06-28 23:59:18,274 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:59:18,546 - WARNING -  * Debugger is active!
+2025-06-28 23:59:18,550 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:59:18,558 - WARNING -  * Debugger is active!
+2025-06-28 23:59:18,562 - INFO -  * Debugger PIN: 129-690-423
+2025-06-28 23:59:31,002 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:31] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 23:59:40,205 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:40] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 23:59:48,500 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:48] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 23:59:50,189 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:50] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 23:59:50,399 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:50] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 23:59:50,606 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:50] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 23:59:50,805 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:50] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-28 23:59:51,006 - INFO - 127.0.0.1 - - [28/Jun/2025 23:59:51] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:00:41,884 - INFO - 127.0.0.1 - - [29/Jun/2025 00:00:41] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:01:27,331 - INFO - 127.0.0.1 - - [29/Jun/2025 00:01:27] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:01:29,066 - INFO - 127.0.0.1 - - [29/Jun/2025 00:01:29] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-29 00:01:29,121 - INFO - 127.0.0.1 - - [29/Jun/2025 00:01:29] "GET /api/stats HTTP/1.1" 200 -
+2025-06-29 00:01:31,241 - INFO - 127.0.0.1 - - [29/Jun/2025 00:01:31] "POST /buscar_nome HTTP/1.1" 200 -
+2025-06-29 00:01:32,749 - INFO - 127.0.0.1 - - [29/Jun/2025 00:01:32] "GET /get_municipios/1 HTTP/1.1" 200 -
+2025-06-29 00:01:37,949 - INFO - 127.0.0.1 - - [29/Jun/2025 00:01:37] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:02:02,849 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-29 00:02:02,849 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-29 00:02:02,850 - INFO -  * Restarting with stat
+2025-06-29 00:02:04,134 - WARNING -  * Debugger is active!
+2025-06-29 00:02:04,137 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:13,452 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:13,458 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:13,552 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:13,677 - INFO -  * Restarting with stat
+2025-06-29 00:02:13,692 - INFO -  * Restarting with stat
+2025-06-29 00:02:13,695 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:13,817 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:13,831 - INFO -  * Restarting with stat
+2025-06-29 00:02:14,025 - INFO -  * Restarting with stat
+2025-06-29 00:02:14,222 - INFO -  * Restarting with stat
+2025-06-29 00:02:14,307 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:14,604 - INFO -  * Restarting with stat
+2025-06-29 00:02:15,498 - WARNING -  * Debugger is active!
+2025-06-29 00:02:15,502 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:15,514 - WARNING -  * Debugger is active!
+2025-06-29 00:02:15,517 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:15,593 - WARNING -  * Debugger is active!
+2025-06-29 00:02:15,596 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:15,642 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:15,739 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:15,803 - WARNING -  * Debugger is active!
+2025-06-29 00:02:15,807 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:15,859 - WARNING -  * Debugger is active!
+2025-06-29 00:02:15,863 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:15,898 - INFO -  * Restarting with stat
+2025-06-29 00:02:15,971 - INFO -  * Restarting with stat
+2025-06-29 00:02:16,231 - WARNING -  * Debugger is active!
+2025-06-29 00:02:16,238 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:16,746 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:17,015 - INFO -  * Restarting with stat
+2025-06-29 00:02:17,721 - WARNING -  * Debugger is active!
+2025-06-29 00:02:17,725 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:17,768 - WARNING -  * Debugger is active!
+2025-06-29 00:02:17,773 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:18,616 - WARNING -  * Debugger is active!
+2025-06-29 00:02:18,620 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:02:58,270 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:58,289 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:58,463 - INFO -  * Restarting with stat
+2025-06-29 00:02:58,488 - INFO -  * Restarting with stat
+2025-06-29 00:02:58,595 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:58,807 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:58,967 - INFO -  * Restarting with stat
+2025-06-29 00:02:59,058 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:59,067 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:02:59,254 - INFO -  * Restarting with stat
+2025-06-29 00:02:59,461 - INFO -  * Restarting with stat
+2025-06-29 00:02:59,462 - INFO -  * Restarting with stat
+2025-06-29 00:03:00,506 - WARNING -  * Debugger is active!
+2025-06-29 00:03:00,510 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:00,543 - WARNING -  * Debugger is active!
+2025-06-29 00:03:00,549 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:01,041 - WARNING -  * Debugger is active!
+2025-06-29 00:03:01,047 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:01,424 - WARNING -  * Debugger is active!
+2025-06-29 00:03:01,429 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:01,506 - WARNING -  * Debugger is active!
+2025-06-29 00:03:01,510 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:01,517 - WARNING -  * Debugger is active!
+2025-06-29 00:03:01,523 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:07,579 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:03:07,802 - INFO -  * Restarting with stat
+2025-06-29 00:03:07,987 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:03:08,083 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:03:08,121 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:03:08,203 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:03:08,375 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:03:08,455 - INFO -  * Restarting with stat
+2025-06-29 00:03:08,551 - INFO -  * Restarting with stat
+2025-06-29 00:03:08,568 - INFO -  * Restarting with stat
+2025-06-29 00:03:08,681 - INFO -  * Restarting with stat
+2025-06-29 00:03:08,760 - INFO -  * Restarting with stat
+2025-06-29 00:03:09,741 - WARNING -  * Debugger is active!
+2025-06-29 00:03:09,746 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:10,332 - WARNING -  * Debugger is active!
+2025-06-29 00:03:10,337 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:10,420 - WARNING -  * Debugger is active!
+2025-06-29 00:03:10,424 - WARNING -  * Debugger is active!
+2025-06-29 00:03:10,430 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:10,431 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:10,464 - WARNING -  * Debugger is active!
+2025-06-29 00:03:10,469 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:03:10,601 - WARNING -  * Debugger is active!
+2025-06-29 00:03:10,608 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:04:26,953 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:26] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-29 00:04:27,010 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:27] "GET /api/stats HTTP/1.1" 200 -
+2025-06-29 00:04:28,898 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:28] "POST /buscar_nome HTTP/1.1" 200 -
+2025-06-29 00:04:29,609 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:29] "GET /get_municipios/1 HTTP/1.1" 200 -
+2025-06-29 00:04:33,215 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:33] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:04:34,130 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:34] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:04:34,330 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:34] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:04:34,506 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:34] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:04:34,706 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:34] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:04:34,890 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:34] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:04:36,209 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:36] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-29 00:04:36,251 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:36] "GET /api/stats HTTP/1.1" 200 -
+2025-06-29 00:04:37,834 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:37] "POST /buscar_nome HTTP/1.1" 200 -
+2025-06-29 00:04:39,383 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:39] "GET /get_municipios/1 HTTP/1.1" 200 -
+2025-06-29 00:04:45,179 - INFO - 127.0.0.1 - - [29/Jun/2025 00:04:45] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:06:20,339 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:20,594 - INFO -  * Restarting with stat
+2025-06-29 00:06:20,757 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:20,771 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:20,834 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:20,945 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:20,952 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:21,014 - INFO -  * Restarting with stat
+2025-06-29 00:06:21,020 - INFO -  * Restarting with stat
+2025-06-29 00:06:21,104 - INFO -  * Restarting with stat
+2025-06-29 00:06:21,219 - INFO -  * Restarting with stat
+2025-06-29 00:06:21,249 - INFO -  * Restarting with stat
+2025-06-29 00:06:22,321 - WARNING -  * Debugger is active!
+2025-06-29 00:06:22,325 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:22,707 - WARNING -  * Debugger is active!
+2025-06-29 00:06:22,711 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:22,717 - WARNING -  * Debugger is active!
+2025-06-29 00:06:22,721 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:22,762 - WARNING -  * Debugger is active!
+2025-06-29 00:06:22,765 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:22,860 - WARNING -  * Debugger is active!
+2025-06-29 00:06:22,862 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:22,899 - WARNING -  * Debugger is active!
+2025-06-29 00:06:22,902 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:23,546 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:23,856 - INFO -  * Restarting with stat
+2025-06-29 00:06:23,921 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:23,931 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:23,954 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:24,047 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:24,098 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\models\\cadastro.py', reloading
+2025-06-29 00:06:24,306 - INFO -  * Restarting with stat
+2025-06-29 00:06:24,337 - INFO -  * Restarting with stat
+2025-06-29 00:06:24,347 - INFO -  * Restarting with stat
+2025-06-29 00:06:24,437 - INFO -  * Restarting with stat
+2025-06-29 00:06:24,499 - INFO -  * Restarting with stat
+2025-06-29 00:06:25,897 - WARNING -  * Debugger is active!
+2025-06-29 00:06:25,902 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:26,068 - WARNING -  * Debugger is active!
+2025-06-29 00:06:26,073 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:26,108 - WARNING -  * Debugger is active!
+2025-06-29 00:06:26,113 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:26,128 - WARNING -  * Debugger is active!
+2025-06-29 00:06:26,132 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:26,199 - WARNING -  * Debugger is active!
+2025-06-29 00:06:26,203 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:26,204 - WARNING -  * Debugger is active!
+2025-06-29 00:06:26,209 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:26,313 - INFO - 127.0.0.1 - - [29/Jun/2025 00:06:26] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:06:29,003 - INFO - 127.0.0.1 - - [29/Jun/2025 00:06:29] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-29 00:06:29,066 - INFO - 127.0.0.1 - - [29/Jun/2025 00:06:29] "[35m[1mGET /api/stats HTTP/1.1[0m" 500 -
+2025-06-29 00:06:30,620 - INFO - 127.0.0.1 - - [29/Jun/2025 00:06:30] "[35m[1mPOST /buscar_nome HTTP/1.1[0m" 500 -
+2025-06-29 00:06:32,411 - INFO - 127.0.0.1 - - [29/Jun/2025 00:06:32] "GET /get_municipios/1 HTTP/1.1" 200 -
+2025-06-29 00:06:36,236 - INFO - 127.0.0.1 - - [29/Jun/2025 00:06:36] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:06:36,687 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-29 00:06:36,909 - INFO -  * Restarting with stat
+2025-06-29 00:06:37,046 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-29 00:06:37,117 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-29 00:06:37,118 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-29 00:06:37,150 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-29 00:06:37,174 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-29 00:06:37,388 - INFO -  * Restarting with stat
+2025-06-29 00:06:37,440 - INFO -  * Restarting with stat
+2025-06-29 00:06:37,453 - INFO -  * Restarting with stat
+2025-06-29 00:06:37,496 - INFO -  * Restarting with stat
+2025-06-29 00:06:37,496 - INFO -  * Restarting with stat
+2025-06-29 00:06:38,782 - WARNING -  * Debugger is active!
+2025-06-29 00:06:38,786 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:38,911 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\scripts\\add_atendida_column.py', reloading
+2025-06-29 00:06:39,138 - INFO -  * Restarting with stat
+2025-06-29 00:06:39,146 - WARNING -  * Debugger is active!
+2025-06-29 00:06:39,150 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:39,214 - WARNING -  * Debugger is active!
+2025-06-29 00:06:39,220 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:39,272 - WARNING -  * Debugger is active!
+2025-06-29 00:06:39,277 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:39,295 - WARNING -  * Debugger is active!
+2025-06-29 00:06:39,308 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:39,347 - WARNING -  * Debugger is active!
+2025-06-29 00:06:39,353 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:06:40,725 - WARNING -  * Debugger is active!
+2025-06-29 00:06:40,728 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:08,838 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:08,976 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:09,053 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:09,124 - INFO -  * Restarting with stat
+2025-06-29 00:07:09,135 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:09,178 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:09,253 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:09,331 - INFO -  * Restarting with stat
+2025-06-29 00:07:09,408 - INFO -  * Restarting with stat
+2025-06-29 00:07:09,487 - INFO -  * Restarting with stat
+2025-06-29 00:07:09,542 - INFO -  * Restarting with stat
+2025-06-29 00:07:09,593 - INFO -  * Restarting with stat
+2025-06-29 00:07:10,883 - WARNING -  * Debugger is active!
+2025-06-29 00:07:10,888 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:11,030 - WARNING -  * Debugger is active!
+2025-06-29 00:07:11,035 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:11,144 - WARNING -  * Debugger is active!
+2025-06-29 00:07:11,149 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:11,178 - WARNING -  * Debugger is active!
+2025-06-29 00:07:11,183 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:11,201 - WARNING -  * Debugger is active!
+2025-06-29 00:07:11,204 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:11,244 - WARNING -  * Debugger is active!
+2025-06-29 00:07:11,248 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:11,365 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:11,519 - INFO -  * Restarting with stat
+2025-06-29 00:07:12,106 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:12,249 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:12,362 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:12,415 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:12,418 - INFO -  * Restarting with stat
+2025-06-29 00:07:12,422 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\routes\\cadastro_routes.py', reloading
+2025-06-29 00:07:12,581 - INFO -  * Restarting with stat
+2025-06-29 00:07:12,678 - INFO -  * Restarting with stat
+2025-06-29 00:07:12,736 - INFO -  * Restarting with stat
+2025-06-29 00:07:12,736 - INFO -  * Restarting with stat
+2025-06-29 00:07:13,264 - WARNING -  * Debugger is active!
+2025-06-29 00:07:13,269 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:14,240 - WARNING -  * Debugger is active!
+2025-06-29 00:07:14,243 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:14,274 - WARNING -  * Debugger is active!
+2025-06-29 00:07:14,278 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:14,339 - WARNING -  * Debugger is active!
+2025-06-29 00:07:14,343 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:14,376 - WARNING -  * Debugger is active!
+2025-06-29 00:07:14,379 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:07:14,400 - WARNING -  * Debugger is active!
+2025-06-29 00:07:14,404 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:08:28,517 - INFO - 127.0.0.1 - - [29/Jun/2025 00:08:28] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:08:30,060 - INFO - 127.0.0.1 - - [29/Jun/2025 00:08:30] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-29 00:08:30,117 - INFO - 127.0.0.1 - - [29/Jun/2025 00:08:30] "GET /api/stats HTTP/1.1" 200 -
+2025-06-29 00:08:30,690 - INFO - 127.0.0.1 - - [29/Jun/2025 00:08:30] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-29 00:08:30,747 - INFO - 127.0.0.1 - - [29/Jun/2025 00:08:30] "GET /api/stats HTTP/1.1" 200 -
+2025-06-29 00:08:41,506 - INFO - 127.0.0.1 - - [29/Jun/2025 00:08:41] "POST /buscar_nome HTTP/1.1" 200 -
+2025-06-29 00:08:42,102 - INFO - 127.0.0.1 - - [29/Jun/2025 00:08:42] "GET /get_municipios/1 HTTP/1.1" 200 -
+2025-06-29 00:08:56,291 - INFO - 127.0.0.1 - - [29/Jun/2025 00:08:56] "[31m[1mPOST /cadastro HTTP/1.1[0m" 400 -
+2025-06-29 00:11:44,893 - INFO - 127.0.0.1 - - [29/Jun/2025 00:11:44] "[35m[1mGET /index_cadastro HTTP/1.1[0m" 500 -
+2025-06-29 00:11:44,909 - INFO - 127.0.0.1 - - [29/Jun/2025 00:11:44] "GET /index_cadastro?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-06-29 00:11:44,916 - INFO - 127.0.0.1 - - [29/Jun/2025 00:11:44] "GET /index_cadastro?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-06-29 00:11:44,950 - INFO - 127.0.0.1 - - [29/Jun/2025 00:11:44] "GET /index_cadastro?__debugger__=yes&cmd=resource&f=console.png&s=wT3umopW9bVvjPsvOr7R HTTP/1.1" 200 -
+2025-06-29 00:11:44,978 - INFO - 127.0.0.1 - - [29/Jun/2025 00:11:44] "GET /index_cadastro?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-06-29 00:12:52,090 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\backup_utils.py', reloading
+2025-06-29 00:12:52,340 - INFO -  * Restarting with stat
+2025-06-29 00:12:52,521 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\backup_utils.py', reloading
+2025-06-29 00:12:52,583 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\backup_utils.py', reloading
+2025-06-29 00:12:52,608 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\backup_utils.py', reloading
+2025-06-29 00:12:52,672 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\backup_utils.py', reloading
+2025-06-29 00:12:52,706 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\backup_utils.py', reloading
+2025-06-29 00:12:52,869 - INFO -  * Restarting with stat
+2025-06-29 00:12:52,930 - INFO -  * Restarting with stat
+2025-06-29 00:12:52,975 - INFO -  * Restarting with stat
+2025-06-29 00:12:53,084 - INFO -  * Restarting with stat
+2025-06-29 00:12:53,090 - INFO -  * Restarting with stat
+2025-06-29 00:12:54,545 - WARNING -  * Debugger is active!
+2025-06-29 00:12:54,549 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:12:55,077 - WARNING -  * Debugger is active!
+2025-06-29 00:12:55,084 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:12:55,098 - WARNING -  * Debugger is active!
+2025-06-29 00:12:55,099 - WARNING -  * Debugger is active!
+2025-06-29 00:12:55,102 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:12:55,105 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:12:55,274 - WARNING -  * Debugger is active!
+2025-06-29 00:12:55,277 - WARNING -  * Debugger is active!
+2025-06-29 00:12:55,278 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:12:55,281 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:17,880 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:18,042 - INFO -  * Restarting with stat
+2025-06-29 00:13:18,236 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:18,467 - INFO -  * Restarting with stat
+2025-06-29 00:13:18,806 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:18,883 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:18,888 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:18,936 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:19,100 - INFO -  * Restarting with stat
+2025-06-29 00:13:19,186 - INFO -  * Restarting with stat
+2025-06-29 00:13:19,199 - INFO -  * Restarting with stat
+2025-06-29 00:13:19,240 - INFO -  * Restarting with stat
+2025-06-29 00:13:19,490 - WARNING -  * Debugger is active!
+2025-06-29 00:13:19,493 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:19,859 - WARNING -  * Debugger is active!
+2025-06-29 00:13:19,863 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:20,419 - WARNING -  * Debugger is active!
+2025-06-29 00:13:20,423 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:20,476 - WARNING -  * Debugger is active!
+2025-06-29 00:13:20,480 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:20,527 - WARNING -  * Debugger is active!
+2025-06-29 00:13:20,527 - WARNING -  * Debugger is active!
+2025-06-29 00:13:20,531 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:20,531 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:39,055 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:39,242 - INFO -  * Restarting with stat
+2025-06-29 00:13:39,711 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:39,758 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:39,879 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:39,929 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:39,933 - INFO -  * Restarting with stat
+2025-06-29 00:13:39,937 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:40,006 - INFO -  * Restarting with stat
+2025-06-29 00:13:40,157 - INFO -  * Restarting with stat
+2025-06-29 00:13:40,209 - INFO -  * Restarting with stat
+2025-06-29 00:13:40,214 - INFO -  * Restarting with stat
+2025-06-29 00:13:40,648 - WARNING -  * Debugger is active!
+2025-06-29 00:13:40,651 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:41,383 - WARNING -  * Debugger is active!
+2025-06-29 00:13:41,387 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:41,420 - WARNING -  * Debugger is active!
+2025-06-29 00:13:41,424 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:41,573 - WARNING -  * Debugger is active!
+2025-06-29 00:13:41,576 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:41,602 - WARNING -  * Debugger is active!
+2025-06-29 00:13:41,607 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:41,631 - WARNING -  * Debugger is active!
+2025-06-29 00:13:41,635 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:42,579 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:42,617 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:42,743 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:42,769 - INFO -  * Restarting with stat
+2025-06-29 00:13:42,774 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:42,795 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:42,843 - INFO -  * Restarting with stat
+2025-06-29 00:13:42,912 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:13:43,054 - INFO -  * Restarting with stat
+2025-06-29 00:13:43,103 - INFO -  * Restarting with stat
+2025-06-29 00:13:43,152 - INFO -  * Restarting with stat
+2025-06-29 00:13:43,215 - INFO -  * Restarting with stat
+2025-06-29 00:13:44,704 - WARNING -  * Debugger is active!
+2025-06-29 00:13:44,709 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:44,712 - WARNING -  * Debugger is active!
+2025-06-29 00:13:44,717 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:44,811 - WARNING -  * Debugger is active!
+2025-06-29 00:13:44,816 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:44,872 - WARNING -  * Debugger is active!
+2025-06-29 00:13:44,876 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:44,895 - WARNING -  * Debugger is active!
+2025-06-29 00:13:44,901 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:13:44,967 - WARNING -  * Debugger is active!
+2025-06-29 00:13:44,972 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:15:02,065 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:15:02,163 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:15:02,200 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:15:02,212 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:15:02,347 - INFO -  * Restarting with stat
+2025-06-29 00:15:02,379 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:15:02,404 - INFO -  * Detected change in 'C:\\Multirao mulher\\test_phone_validation.py', reloading
+2025-06-29 00:15:02,490 - INFO -  * Restarting with stat
+2025-06-29 00:15:02,552 - INFO -  * Restarting with stat
+2025-06-29 00:15:02,581 - INFO -  * Restarting with stat
+2025-06-29 00:15:02,759 - INFO -  * Restarting with stat
+2025-06-29 00:15:02,776 - INFO -  * Restarting with stat
+2025-06-29 00:15:04,497 - WARNING -  * Debugger is active!
+2025-06-29 00:15:04,503 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:15:04,538 - WARNING -  * Debugger is active!
+2025-06-29 00:15:04,541 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:15:04,570 - WARNING -  * Debugger is active!
+2025-06-29 00:15:04,576 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:15:04,582 - WARNING -  * Debugger is active!
+2025-06-29 00:15:04,587 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:15:04,681 - WARNING -  * Debugger is active!
+2025-06-29 00:15:04,685 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:15:04,737 - WARNING -  * Debugger is active!
+2025-06-29 00:15:04,741 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:15:46,587 - INFO - 127.0.0.1 - - [29/Jun/2025 00:15:46] "[35m[1mGET /index_cadastro HTTP/1.1[0m" 500 -
+2025-06-29 00:15:46,621 - INFO - 127.0.0.1 - - [29/Jun/2025 00:15:46] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-29 00:15:46,623 - INFO - 127.0.0.1 - - [29/Jun/2025 00:15:46] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-29 00:15:46,653 - INFO - 127.0.0.1 - - [29/Jun/2025 00:15:46] "GET /index_cadastro?__debugger__=yes&cmd=resource&f=console.png&s=KHCIEO8Irf02gF8ISjbC HTTP/1.1" 200 -
+2025-06-29 00:15:46,665 - INFO - 127.0.0.1 - - [29/Jun/2025 00:15:46] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-29 00:16:09,641 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.93:5000
+2025-06-29 00:16:09,641 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-29 00:16:09,642 - INFO -  * Restarting with stat
+2025-06-29 00:16:10,753 - WARNING -  * Debugger is active!
+2025-06-29 00:16:10,757 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:16:11,786 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:11] "[35m[1mGET /index_cadastro HTTP/1.1[0m" 500 -
+2025-06-29 00:16:11,805 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:11] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-29 00:16:11,809 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:11] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-29 00:16:11,834 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:11] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=console.png&s=KHCIEO8Irf02gF8ISjbC HTTP/1.1[0m" 304 -
+2025-06-29 00:16:11,876 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:11] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-06-29 00:16:14,732 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:14] "GET / HTTP/1.1" 200 -
+2025-06-29 00:16:18,934 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:18] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-29 00:16:18,951 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:18] "[35m[1mGET /index_cadastro HTTP/1.1[0m" 500 -
+2025-06-29 00:16:18,980 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:18] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-06-29 00:16:18,981 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:18] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-06-29 00:16:19,016 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:19] "[36mGET /index_cadastro?__debugger__=yes&cmd=resource&f=console.png&s=KHCIEO8Irf02gF8ISjbC HTTP/1.1[0m" 304 -
+2025-06-29 00:16:50,615 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:50] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-29 00:16:50,641 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:50] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-29 00:16:50,688 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:50] "GET /api/stats HTTP/1.1" 200 -
+2025-06-29 00:16:55,638 - INFO - 127.0.0.1 - - [29/Jun/2025 00:16:55] "GET /get_municipios/1 HTTP/1.1" 200 -
+2025-06-29 00:20:03,069 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:03] "GET /index_cadastro HTTP/1.1" 200 -
+2025-06-29 00:20:03,087 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:03] "[33mGET /static/js/validators.js HTTP/1.1[0m" 404 -
+2025-06-29 00:20:03,114 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:03] "GET /api/stats HTTP/1.1" 200 -
+2025-06-29 00:20:05,140 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:05] "GET /get_municipios/1 HTTP/1.1" 200 -
+2025-06-29 00:20:36,920 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:36] "[31m[1mGET /fila_chamadas HTTP/1.1[0m" 403 -
+2025-06-29 00:20:39,390 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:39] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-29 00:20:39,409 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:39] "GET / HTTP/1.1" 200 -
+2025-06-29 00:20:48,360 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:48] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-06-29 00:20:48,400 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:48] "GET /ver_cadastros HTTP/1.1" 200 -
+2025-06-29 00:20:48,460 - INFO - 127.0.0.1 - - [29/Jun/2025 00:20:48] "GET /events HTTP/1.1" 200 -
+2025-06-29 00:21:01,438 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\logger_config.py', reloading
+2025-06-29 00:21:01,440 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\logger_config.py', reloading
+2025-06-29 00:21:01,554 - INFO - 127.0.0.1 - - [29/Jun/2025 00:21:01] "GET /relatorio_cadastros HTTP/1.1" 200 -
+2025-06-29 00:21:01,735 - INFO -  * Restarting with stat
+2025-06-29 00:21:01,750 - INFO -  * Restarting with stat
+2025-06-29 00:21:02,014 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\logger_config.py', reloading
+2025-06-29 00:21:02,064 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\logger_config.py', reloading
+2025-06-29 00:21:02,091 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\logger_config.py', reloading
+2025-06-29 00:21:02,107 - INFO - 127.0.0.1 - - [29/Jun/2025 00:21:02] "GET /relatorio_cadastros HTTP/1.1" 200 -
+2025-06-29 00:21:02,135 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\logger_config.py', reloading
+2025-06-29 00:21:02,146 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\utils\\logger_config.py', reloading
+2025-06-29 00:21:02,438 - INFO -  * Restarting with stat
+2025-06-29 00:21:02,494 - INFO -  * Restarting with stat
+2025-06-29 00:21:02,525 - INFO -  * Restarting with stat
+2025-06-29 00:21:02,526 - INFO -  * Restarting with stat
+2025-06-29 00:21:02,659 - INFO -  * Restarting with stat
+2025-06-29 00:21:04,105 - WARNING -  * Debugger is active!
+2025-06-29 00:21:04,110 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:21:04,139 - WARNING -  * Debugger is active!
+2025-06-29 00:21:04,146 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:21:04,612 - WARNING -  * Debugger is active!
+2025-06-29 00:21:04,619 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:21:04,639 - WARNING -  * Debugger is active!
+2025-06-29 00:21:04,644 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:21:04,650 - WARNING -  * Debugger is active!
+2025-06-29 00:21:04,655 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:21:04,681 - WARNING -  * Debugger is active!
+2025-06-29 00:21:04,686 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:21:04,866 - WARNING -  * Debugger is active!
+2025-06-29 00:21:04,871 - INFO -  * Debugger PIN: 129-690-423
+2025-06-29 00:21:05,301 - INFO - 127.0.0.1 - - [29/Jun/2025 00:21:05] "GET /relatorio_cadastros HTTP/1.1" 200 -
+2025-06-29 00:21:05,604 - INFO - 127.0.0.1 - - [29/Jun/2025 00:21:05] "GET /events HTTP/1.1" 200 -
+2025-06-29 00:21:46,442 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-29 00:21:46,671 - INFO -  * Restarting with stat
+2025-06-29 00:21:46,785 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-29 00:21:46,885 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-29 00:21:47,029 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-29 00:21:47,055 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-29 00:21:47,074 - INFO -  * Restarting with stat
+2025-06-29 00:21:47,198 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-29 00:21:47,238 - INFO -  * Detected change in 'C:\\Multirao mulher\\app\\app.py', reloading
+2025-06-29 00:21:47,276 - INFO -  * Restarting with stat
+2025-06-29 00:21:47,439 - INFO -  * Restarting with stat
+2025-06-29 00:21:47,452 - INFO -  * Restarting with stat
+2025-06-29 00:21:47,590 - INFO -  * Restarting with stat
+2025-06-29 00:21:47,657 - INFO -  * Restarting with stat
