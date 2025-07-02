@@ -465,7 +465,7 @@
         </div>
     </div>
 
-    <div class="container">
+<div class="container">
         <!-- Estatísticas -->
         <div class="stats-grid">
             <div class="stat-card">
@@ -506,8 +506,8 @@
 
             <form method="POST" id="addDataForm">
                 <div class="search-row">
-                    <div class="form-group">
-                        <label class="form-label">Tipo de Dado <span class="required">*</span></label>
+                <div class="form-group">
+                    <label class="form-label">Tipo de Dado <span class="required">*</span></label>
                         <select name="tipo_dado" id="tipo_dado" required class="form-control">
                             <option value="">Selecione o tipo</option>
                             <option value="estado">Estado</option>
@@ -521,10 +521,10 @@
                         <label class="form-label">Estado <span class="required">*</span></label>
                         <select name="estado_id" id="estado_id" class="form-control">
                             <option value="">Selecione o estado</option>
-                            {% for estado in estados %}
-                            <option value="{{ estado.id }}">{{ estado.nome }}</option>
-                            {% endfor %}
-                        </select>
+                        {% for estado in estados %}
+                        <option value="{{ estado.id }}">{{ estado.nome }}</option>
+                        {% endfor %}
+                    </select>
                     </div>
 
                     <div class="form-group">
@@ -690,8 +690,8 @@
                                         </button>
                                         <button class="btn btn-sm btn-danger delete-btn" title="Excluir">
                                             <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
+            </button>
+    </div>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -750,20 +750,20 @@
             <div style="text-align: right; margin-top: 1.5rem;">
                 <button class="btn btn-outline" onclick="closeModal()">Cancelar</button>
                 <button class="btn btn-danger" id="confirmDelete">Excluir</button>
-            </div>
         </div>
     </div>
+</div>
 
-    <script>
+<script>
         // Controle do formulário
         document.getElementById('tipo_dado').addEventListener('change', function () {
             const estadoGroup = document.getElementById('estado_group');
-            if (this.value === 'municipio') {
+                if (this.value === 'municipio') {
                 estadoGroup.style.display = 'block';
-                document.getElementById('estado_id').required = true;
-            } else {
+                    document.getElementById('estado_id').required = true;
+                } else {
                 estadoGroup.style.display = 'none';
-                document.getElementById('estado_id').required = false;
+                    document.getElementById('estado_id').required = false;
             }
         });
 
@@ -903,7 +903,7 @@
 
         // Fechar modal com X
         document.querySelector('.close').onclick = closeModal;
-    </script>
+</script>
 </body>
 
 </html>
